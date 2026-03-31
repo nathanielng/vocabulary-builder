@@ -319,7 +319,7 @@ The `static/` folder contains a self-contained version of both games that requir
 
 2. **Push to `main`** — the workflow at `.github/workflows/pages.yml` will automatically deploy the `static/` folder to GitHub Pages on every push.
 
-3. The site will be available at `https://<username>.github.io/<repository>/`.
+3. The site will be available at `https://nathanielng.github.io/vocabulary-builder/`.
 
 ### Running the static version locally
 
