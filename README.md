@@ -1,5 +1,9 @@
 # Vocabulary Builder
 
+> **Two versions are available:**
+> - **Original (server-based):** requires Python + `game_server.py` — progress is stored server-side in `data/progress.json`
+> - **Static (GitHub Pages):** lives in `static/` — no server needed, runs entirely in the browser with progress stored in `localStorage`
+
 An interactive web-based game platform for learning and practicing the spelling of commonly misspelled words. Powered by Claude AI for content generation, with two distinct game modes and persistent progress tracking.
 
 ## Table of Contents
@@ -17,6 +21,7 @@ An interactive web-based game platform for learning and practicing the spelling 
 - [API Reference](#api-reference)
 - [Configuration](#configuration)
 - [Progress Tracking](#progress-tracking)
+- [Static Version (GitHub Pages)](#static-version-github-pages)
 
 ---
 
@@ -50,13 +55,22 @@ Key design goals:
 vocabulary-builder/
 ├── game_server.py               # HTTP server (port 8080), serves games and REST API
 ├── generate_misspellings.py     # CLI tool: uses Claude API to generate word data
-├── game_word_drop.html          # Word Drop arcade game
-├── game_spelling.html           # Spelling Correction quiz
+├── game_word_drop.html          # Word Drop arcade game (server version)
+├── game_spelling.html           # Spelling Correction quiz (server version)
 ├── requirements.txt             # Python dependencies
-└── data/
-    ├── commonly-misspelled-words.md  # Source list of words to learn (~80 words)
-    ├── misspellings.json             # Generated word data (created by generate_misspellings.py)
-    └── progress.json                 # User progress (created automatically at runtime)
+├── data/
+│   ├── commonly-misspelled-words.md  # Source list of words to learn (~80 words)
+│   ├── misspellings.json             # Generated word data (created by generate_misspellings.py)
+│   └── progress.json                 # User progress (created automatically at runtime)
+├── static/                      # Static / GitHub Pages version (no server required)
+│   ├── index.html               # Landing page with links to both games
+│   ├── game_word_drop.html      # Word Drop (localStorage-based progress)
+│   ├── game_spelling.html       # Spelling Correction (localStorage-based progress)
+│   └── data/
+│       └── misspellings.json    # Copy of word data served as a static asset
+└── .github/
+    └── workflows/
+        └── pages.yml            # GitHub Actions workflow: deploys static/ to GitHub Pages
 ```
 
 ---
@@ -277,3 +291,56 @@ To reset progress for both games, delete `data/progress.json`:
 ```bash
 rm data/progress.json
 ```
+
+---
+
+## Static Version (GitHub Pages)
+
+The `static/` folder contains a self-contained version of both games that requires no Python server and can be hosted on GitHub Pages (or any static file host).
+
+### What changed from the original
+
+| Concern | Original (server) | Static (`static/`) |
+|---|---|---|
+| Word data | `GET /api/data` from Python server | `fetch('data/misspellings.json')` — static file |
+| Load progress | `GET /api/progress` from Python server | `localStorage.getItem('vb_progress')` |
+| Save progress | `POST /api/progress` to Python server | `localStorage.setItem('vb_progress', ...)` |
+| Progress scope | Server file — shared across browsers/devices | Per-browser — isolated to each device |
+| `save()` / `saveProgress()` | `async` function using `fetch` | Synchronous `localStorage` write |
+| Error message | Mentions `game_server.py` | Generic message only |
+| HTML `<title>` | `… Vocabulary Builder` | `… Vocabulary Builder (Static)` |
+| In-file comment | — | Banner comment noting all changes |
+
+### Deploying to GitHub Pages
+
+1. **Enable GitHub Pages** in the repository settings:
+   - Go to **Settings → Pages**
+   - Set the source to **GitHub Actions**
+
+2. **Push to `main`** — the workflow at `.github/workflows/pages.yml` will automatically deploy the `static/` folder to GitHub Pages on every push.
+
+3. The site will be available at `https://<username>.github.io/<repository>/`.
+
+### Running the static version locally
+
+Because the games fetch `data/misspellings.json` via `fetch()`, you need a local HTTP server (browsers block `file://` fetches). Any of these work:
+
+```bash
+# Python 3
+cd static && python -m http.server 8000
+
+# Node (npx)
+cd static && npx serve .
+```
+
+Then open `http://localhost:8000` in your browser.
+
+### Updating word data
+
+The `static/data/misspellings.json` file is a copy of `data/misspellings.json`. After re-running `generate_misspellings.py` to update word data, copy the file across:
+
+```bash
+cp data/misspellings.json static/data/misspellings.json
+```
+
+Then commit and push — the GitHub Actions workflow will redeploy automatically.

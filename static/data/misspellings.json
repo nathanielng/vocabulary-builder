@@ -1,0 +1,992 @@
+[
+  {
+    "word": "Accumulation",
+    "misspellings": [
+      "Acumulation",
+      "Accummulation",
+      "Acculumation",
+      "Akkumulation"
+    ],
+    "definition": "The gradual gathering or buildup of something over time, such as wealth, knowledge, or snow."
+  },
+  {
+    "word": "Ascend",
+    "misspellings": [
+      "Assend",
+      "Acend",
+      "Asscend",
+      "Ascened"
+    ],
+    "definition": "To move upward or climb; to rise to a higher level or position."
+  },
+  {
+    "word": "Benefitted",
+    "misspellings": [
+      "Benifitted",
+      "Benefited",
+      "Beneffitted",
+      "Bennefitted"
+    ],
+    "definition": "Received an advantage or gained something positive from a situation, action, or resource."
+  },
+  {
+    "word": "Candidacy",
+    "misspellings": [
+      "Candidicy",
+      "Canidacy",
+      "Candidasy",
+      "Canditacy"
+    ],
+    "definition": "The state of being a candidate, especially someone running for a political office or applying for a position."
+  },
+  {
+    "word": "Category",
+    "misspellings": [
+      "Catagory",
+      "Catigory",
+      "Categroy",
+      "Categery"
+    ],
+    "definition": "A group or class of things that share common characteristics; a division used to organize or classify items."
+  },
+  {
+    "word": "Conferred",
+    "misspellings": [
+      "Confered",
+      "Conferrd",
+      "Confferred",
+      "Confeered"
+    ],
+    "definition": "Granted or bestowed something, such as a degree or honor, or held a discussion to exchange ideas."
+  },
+  {
+    "word": "Deferred",
+    "misspellings": [
+      "Defered",
+      "Deffered",
+      "Deferrd",
+      "Defferred"
+    ],
+    "definition": "Postponed or delayed something to a later time, or yielded to someone else's judgment or authority."
+  },
+  {
+    "word": "Excellence",
+    "misspellings": [
+      "Excelence",
+      "Excellance",
+      "Exellence",
+      "Excellense"
+    ],
+    "definition": "The quality of being outstanding or extremely good; a superior level of achievement or performance."
+  },
+  {
+    "word": "Exhilaration",
+    "misspellings": [
+      "Exhileration",
+      "Exhilaration",
+      "Exhiliration",
+      "Exhalaration"
+    ],
+    "definition": "A feeling of intense excitement, happiness, or thrill, often caused by an exciting experience."
+  },
+  {
+    "word": "Fascinate",
+    "misspellings": [
+      "Facinate",
+      "Fascenate",
+      "Fasinate",
+      "Fasscinate"
+    ],
+    "definition": "To attract and hold someone's attention or interest intensely; to captivate or charm someone."
+  },
+  {
+    "word": "February",
+    "misspellings": [
+      "Febuary",
+      "Feburary",
+      "Febrary",
+      "Februery"
+    ],
+    "definition": "The second month of the year, having 28 days in a common year and 29 days in a leap year."
+  },
+  {
+    "word": "Fiery",
+    "misspellings": [
+      "Firey",
+      "Feiry",
+      "Firy",
+      "Fiarie"
+    ],
+    "definition": "Resembling or having the qualities of fire; intensely hot, passionate, or bright."
+  },
+  {
+    "word": "Government",
+    "misspellings": [
+      "Goverment",
+      "Governmant",
+      "Govermnent",
+      "Govenment"
+    ],
+    "definition": "The system or group of people that officially controls and makes decisions for a country, state, or community."
+  },
+  {
+    "word": "Hindrance",
+    "misspellings": [
+      "Hinderance",
+      "Hindrence",
+      "Hinderence",
+      "Hindranc"
+    ],
+    "definition": "Something that makes it difficult to accomplish a task or make progress; an obstacle or impediment."
+  },
+  {
+    "word": "Humorous",
+    "misspellings": [
+      "Humourous",
+      "Humerous",
+      "Humourus",
+      "Hummorous"
+    ],
+    "definition": "Having the quality of being funny, amusing, or comical."
+  },
+  {
+    "word": "Hypocrisy",
+    "misspellings": [
+      "Hipocracy",
+      "Hypocracy",
+      "Hypocrissy",
+      "Hypocricy"
+    ],
+    "definition": "The practice of claiming to have moral standards or beliefs to which one's own behavior does not conform; pretending to be something you are not."
+  },
+  {
+    "word": "Independent",
+    "misspellings": [
+      "Independant",
+      "Indipendent",
+      "Independint",
+      "Indepedent"
+    ],
+    "definition": "Free from outside control or influence; capable of thinking or acting for oneself without relying on others."
+  },
+  {
+    "word": "Intellectual",
+    "misspellings": [
+      "Intelectual",
+      "Intellecutal",
+      "Intellectuel",
+      "Intelektual"
+    ],
+    "definition": "Relating to the ability to think, reason, and understand complex ideas, or a person who engages in serious study and thought."
+  },
+  {
+    "word": "Irresistible",
+    "misspellings": [
+      "Irresistable",
+      "Iresistible",
+      "Irresistble",
+      "Irresistabel"
+    ],
+    "definition": "Too attractive, appealing, or powerful to be resisted or refused."
+  },
+  {
+    "word": "Loneliness",
+    "misspellings": [
+      "Lonliness",
+      "Lonleyness",
+      "Lonelness",
+      "Lonelyness"
+    ],
+    "definition": "The state of feeling sad or unhappy because of a lack of companionship or social connection."
+  },
+  {
+    "word": "Maneuver",
+    "misspellings": [
+      "manuever",
+      "manoover",
+      "manouver",
+      "manuver"
+    ],
+    "definition": "A skillful or carefully planned movement or action, often used to describe steering a vehicle or a strategic action to gain an advantage."
+  },
+  {
+    "word": "Manufacture",
+    "misspellings": [
+      "manufature",
+      "manifacture",
+      "manufactuer",
+      "manufackture"
+    ],
+    "definition": "To make or produce something, typically on a large scale using machinery; also refers to the process of making goods from raw materials."
+  },
+  {
+    "word": "Marriage",
+    "misspellings": [
+      "marrage",
+      "mariage",
+      "marrige",
+      "marriege"
+    ],
+    "definition": "The legally or formally recognized union of two people as partners in a relationship, or the ceremony in which this union takes place."
+  },
+  {
+    "word": "Miniature",
+    "misspellings": [
+      "miniture",
+      "minature",
+      "minaiture",
+      "minuature"
+    ],
+    "definition": "Something that is much smaller than the usual size; a tiny, scaled-down version of something larger."
+  },
+  {
+    "word": "Mysterious",
+    "misspellings": [
+      "misterious",
+      "mystereous",
+      "mystirious",
+      "mysterius"
+    ],
+    "definition": "Difficult to understand or explain; something that is strange, puzzling, or shrouded in secrecy."
+  },
+  {
+    "word": "Occurrence",
+    "misspellings": [
+      "occurence",
+      "ocurrence",
+      "occurance",
+      "occurrance"
+    ],
+    "definition": "An event or incident that takes place; the fact or frequency of something happening."
+  },
+  {
+    "word": "Omitted",
+    "misspellings": [
+      "ommitted",
+      "omited",
+      "ommited",
+      "omittted"
+    ],
+    "definition": "Left out or excluded, either intentionally or by mistake; failed to include something."
+  },
+  {
+    "word": "Opinion",
+    "misspellings": [
+      "oppinion",
+      "opinon",
+      "opinnion",
+      "opinoin"
+    ],
+    "definition": "A personal belief, judgment, or viewpoint about something that is not necessarily based on proven facts."
+  },
+  {
+    "word": "Paralysis",
+    "misspellings": [
+      "paralisis",
+      "paraylsis",
+      "paralasys",
+      "parilysis"
+    ],
+    "definition": "The loss of the ability to move part or all of the body, often due to nerve damage; it can also refer to a state of complete inability to act or function."
+  },
+  {
+    "word": "Particular",
+    "misspellings": [
+      "perticular",
+      "particualr",
+      "particuler",
+      "paticular"
+    ],
+    "definition": "Relating to a specific, individual person or thing rather than a general one; also means especially great or notable, as in giving particular attention to detail."
+  },
+  {
+    "word": "Perseverance",
+    "misspellings": [
+      "Perseverence",
+      "Persaverance",
+      "Perserverance",
+      "Persevearance"
+    ],
+    "definition": "The quality of continuing to work toward a goal despite difficulties, obstacles, or discouragement."
+  },
+  {
+    "word": "Personnel",
+    "misspellings": [
+      "Personel",
+      "Personell",
+      "Personnell",
+      "Perrsonnel"
+    ],
+    "definition": "The people employed by an organization, business, or military service; staff or workforce."
+  },
+  {
+    "word": "panicking",
+    "misspellings": [
+      "panicing",
+      "panikking",
+      "pannicking",
+      "paniccing"
+    ],
+    "definition": "Feeling or causing a sudden, overwhelming sense of fear or anxiety that may lead to irrational behavior."
+  },
+  {
+    "word": "piqued",
+    "misspellings": [
+      "peaked",
+      "peeked",
+      "piequed",
+      "pikued"
+    ],
+    "definition": "Stimulated or aroused (as in curiosity or interest), or alternatively, irritated or resentful."
+  },
+  {
+    "word": "possession",
+    "misspellings": [
+      "posession",
+      "possesion",
+      "possetion",
+      "possission"
+    ],
+    "definition": "The state of having, owning, or controlling something; an item that someone owns."
+  },
+  {
+    "word": "possibility",
+    "misspellings": [
+      "possiblity",
+      "possibilty",
+      "posibility",
+      "possability"
+    ],
+    "definition": "The state or condition of something being able to happen or exist; a potential outcome or option."
+  },
+  {
+    "word": "practicality",
+    "misspellings": [
+      "practicallity",
+      "practacality",
+      "practicalty",
+      "practikality"
+    ],
+    "definition": "The quality of being useful, realistic, and suited to actual conditions rather than being purely theoretical."
+  },
+  {
+    "word": "practice",
+    "misspellings": [
+      "practise",
+      "practace",
+      "pratice",
+      "pracitce"
+    ],
+    "definition": "The repeated exercise of an activity to improve a skill, or the actual application of an idea or method."
+  },
+  {
+    "word": "precedence",
+    "misspellings": [
+      "precedance",
+      "presedence",
+      "precidence",
+      "preceedence"
+    ],
+    "definition": "The condition of being considered more important than something else; priority in rank or order."
+  },
+  {
+    "word": "preferred",
+    "misspellings": [
+      "prefered",
+      "preffered",
+      "prefferred",
+      "perferred"
+    ],
+    "definition": "Liked or wanted more than another option; chosen as the more desirable alternative."
+  },
+  {
+    "word": "prejudice",
+    "misspellings": [
+      "prejuidce",
+      "predujice",
+      "predjudice",
+      "prejudise"
+    ],
+    "definition": "An unfair opinion or judgment formed about a person or group without sufficient knowledge or reason."
+  },
+  {
+    "word": "preparation",
+    "misspellings": [
+      "preperation",
+      "preparration",
+      "prepairation",
+      "preparasion"
+    ],
+    "definition": "The process of getting ready for something or making something ready for use."
+  },
+  {
+    "word": "prevalent",
+    "misspellings": [
+      "prevelant",
+      "prevalant",
+      "prevailent",
+      "prevalnet"
+    ],
+    "definition": "Widespread or commonly occurring in a particular area or at a particular time."
+  },
+  {
+    "word": "principal",
+    "misspellings": [
+      "principle",
+      "principel",
+      "princapal",
+      "prinicipal"
+    ],
+    "definition": "The head of a school, or an adjective meaning first in importance or rank."
+  },
+  {
+    "word": "privilege",
+    "misspellings": [
+      "privelege",
+      "priviledge",
+      "privilige",
+      "privillege"
+    ],
+    "definition": "A special right, advantage, or benefit granted to a particular person or group."
+  },
+  {
+    "word": "probably",
+    "misspellings": [
+      "probaly",
+      "probabley",
+      "probbably",
+      "prolbably"
+    ],
+    "definition": "Almost certainly; used to express that something is very likely to be true or to happen."
+  },
+  {
+    "word": "procedure",
+    "misspellings": [
+      "proceedure",
+      "procedger",
+      "prosedure",
+      "procedurre"
+    ],
+    "definition": "An established series of steps or actions followed in a particular order to accomplish a task."
+  },
+  {
+    "word": "proceed",
+    "misspellings": [
+      "procede",
+      "proseed",
+      "procced",
+      "proceede"
+    ],
+    "definition": "To begin or continue doing something, or to move forward in a particular direction."
+  },
+  {
+    "word": "professor",
+    "misspellings": [
+      "professer",
+      "proffessor",
+      "proffesor",
+      "profes\u05d5\u05e8"
+    ],
+    "definition": "A teacher of the highest rank at a college or university who typically specializes in a particular academic subject."
+  },
+  {
+    "word": "prominent",
+    "misspellings": [
+      "prominant",
+      "promenant",
+      "prominnet",
+      "promonent"
+    ],
+    "definition": "Well-known and important, or standing out so as to be easily noticed."
+  },
+  {
+    "word": "pronunciation",
+    "misspellings": [
+      "pronounciation",
+      "pronuncation",
+      "prononsiation",
+      "pronunciaton"
+    ],
+    "definition": "The way in which a word or language is spoken, including the sounds and stress patterns used."
+  },
+  {
+    "word": "pursue",
+    "misspellings": [
+      "persue",
+      "purseu",
+      "persu",
+      "pursoo"
+    ],
+    "definition": "To follow or chase someone or something, or to continue working toward a goal."
+  },
+  {
+    "word": "quantity",
+    "misspellings": [
+      "quantety",
+      "quanity",
+      "qauntity",
+      "quantitty"
+    ],
+    "definition": "An amount or number of something, often one that can be measured or counted."
+  },
+  {
+    "word": "quizzes",
+    "misspellings": [
+      "quizes",
+      "quizess",
+      "quzzes",
+      "quizzez"
+    ],
+    "definition": "Short tests or assessments, often given in school to check understanding of a topic."
+  },
+  {
+    "word": "recede",
+    "misspellings": [
+      "receed",
+      "resede",
+      "receede",
+      "recede"
+    ],
+    "definition": "To move back or withdraw gradually, such as floodwaters pulling back or a hairline moving backward."
+  },
+  {
+    "word": "receive",
+    "misspellings": [
+      "recieve",
+      "receeve",
+      "receve",
+      "reseive"
+    ],
+    "definition": "To be given, presented with, or paid something; to accept or take in something offered or sent."
+  },
+  {
+    "word": "recommendation",
+    "misspellings": [
+      "reccomendation",
+      "recomendation",
+      "recommendacion",
+      "reccommendation"
+    ],
+    "definition": "A suggestion or piece of advice about the best course of action, or a formal statement praising someone's qualities or abilities."
+  },
+  {
+    "word": "reference",
+    "misspellings": [
+      "referance",
+      "refrence",
+      "referrence",
+      "refference"
+    ],
+    "definition": "A mention or citation of a source of information, or a person who can speak to your character or qualifications."
+  },
+  {
+    "word": "regiment",
+    "misspellings": [
+      "regimant",
+      "reggiment",
+      "regement",
+      "rejiment"
+    ],
+    "definition": "A large unit of soldiers in an army, typically commanded by a colonel, or a strict, organized system of doing things."
+  },
+  {
+    "word": "repetition",
+    "misspellings": [
+      "repitition",
+      "repeticion",
+      "repetetion",
+      "repitision"
+    ],
+    "definition": "The act of doing or saying something again, often multiple times, in order to practice or emphasize it."
+  },
+  {
+    "word": "restaurant",
+    "misspellings": [
+      "restaraunt",
+      "resturant",
+      "restraunt",
+      "resteraunt"
+    ],
+    "definition": "A business establishment where meals are prepared and served to customers."
+  },
+  {
+    "word": "rhythm",
+    "misspellings": [
+      "rythm",
+      "rhythem",
+      "rythym",
+      "rhthym"
+    ],
+    "definition": "A strong, regular, repeated pattern of movement, sound, or beats, especially in music or poetry."
+  },
+  {
+    "word": "ridiculous",
+    "misspellings": [
+      "rediculous",
+      "ridiculus",
+      "ridiculious",
+      "riduculous"
+    ],
+    "definition": "Extremely silly, absurd, or unreasonable; deserving to be laughed at."
+  },
+  {
+    "word": "sacrifice",
+    "misspellings": [
+      "sacrafice",
+      "sacrifise",
+      "sacrfice",
+      "sacrifiec"
+    ],
+    "definition": "The act of giving up something valuable or important for the sake of something or someone else."
+  },
+  {
+    "word": "sacrilegious",
+    "misspellings": [
+      "sacreligious",
+      "sacriligious",
+      "sacriliegous",
+      "sacreligous"
+    ],
+    "definition": "Showing great disrespect or irreverence toward something considered holy or sacred."
+  },
+  {
+    "word": "salary",
+    "misspellings": [
+      "salery",
+      "sallary",
+      "salrary",
+      "salarey"
+    ],
+    "definition": "A fixed amount of money paid to an employee on a regular basis, typically monthly or biweekly, in exchange for their work."
+  },
+  {
+    "word": "schedule",
+    "misspellings": [
+      "shedule",
+      "scedule",
+      "schedual",
+      "scheudle"
+    ],
+    "definition": "A plan that lists the times at which events, tasks, or activities are intended to take place."
+  },
+  {
+    "word": "seize",
+    "misspellings": [
+      "sieze",
+      "seeze",
+      "seze",
+      "seise"
+    ],
+    "definition": "To grab hold of something suddenly and forcibly, or to take possession of something by authority or force."
+  },
+  {
+    "word": "sense",
+    "misspellings": [
+      "sence",
+      "sense",
+      "scense",
+      "senss"
+    ],
+    "definition": "A faculty by which the body perceives the world (such as sight or hearing), or a feeling that something is the case; also refers to good judgment or reasoning."
+  },
+  {
+    "word": "separate",
+    "misspellings": [
+      "seperate",
+      "separete",
+      "saparate",
+      "seprate"
+    ],
+    "definition": "To divide or move apart from one another; as an adjective, it means existing independently or not joined together."
+  },
+  {
+    "word": "sergeant",
+    "misspellings": [
+      "sargeant",
+      "seargent",
+      "sergant",
+      "serjeant"
+    ],
+    "definition": "A non-commissioned military or police rank, typically above a corporal, responsible for supervising lower-ranking personnel."
+  },
+  {
+    "word": "severely",
+    "misspellings": [
+      "severley",
+      "severly",
+      "seveerly",
+      "severaly"
+    ],
+    "definition": "To a very serious or harsh degree; extremely or strictly."
+  },
+  {
+    "word": "shining",
+    "misspellings": [
+      "shinning",
+      "shineing",
+      "shinnig",
+      "shyning"
+    ],
+    "definition": "Giving off or reflecting bright light; also used figuratively to mean outstanding or excellent."
+  },
+  {
+    "word": "similar",
+    "misspellings": [
+      "similer",
+      "similiar",
+      "simular",
+      "simmiler"
+    ],
+    "definition": "Resembling something or someone else without being exactly the same; having characteristics in common."
+  },
+  {
+    "word": "sincerely",
+    "misspellings": [
+      "sincerly",
+      "sincearly",
+      "sincerley",
+      "sinserely"
+    ],
+    "definition": "In a genuine, honest, and heartfelt manner; commonly used as a closing in formal letters."
+  },
+  {
+    "word": "sophomore",
+    "misspellings": [
+      "sophmore",
+      "sophomre",
+      "sophamore",
+      "sophermore"
+    ],
+    "definition": "A student in the second year of high school or college."
+  },
+  {
+    "word": "specifically",
+    "misspellings": [
+      "specificly",
+      "spacifically",
+      "specifcally",
+      "specfically"
+    ],
+    "definition": "In a precise, exact, or clearly defined manner; used to single out something particular."
+  },
+  {
+    "word": "specimen",
+    "misspellings": [
+      "speciman",
+      "specimin",
+      "specimem",
+      "spesimen"
+    ],
+    "definition": "An individual example or sample of something, often used in science to refer to a sample taken for examination or study."
+  },
+  {
+    "word": "stationary",
+    "misspellings": [
+      "stationery",
+      "stationnary",
+      "stationairy",
+      "statonary"
+    ],
+    "definition": "Not moving; fixed in one place or position. (Not to be confused with 'stationery,' which refers to writing materials.)"
+  },
+  {
+    "word": "statue",
+    "misspellings": [
+      "stateu",
+      "statchue",
+      "staute",
+      "statoo"
+    ],
+    "definition": "A carved, molded, or cast figure of a person, animal, or object, typically made of stone, metal, or wood and often displayed as a work of art or memorial."
+  },
+  {
+    "word": "succeed",
+    "misspellings": [
+      "succede",
+      "suceed",
+      "succceed",
+      "sucseed"
+    ],
+    "definition": "To achieve a desired goal or outcome, or to come after something or someone in order or position."
+  },
+  {
+    "word": "technique",
+    "misspellings": [
+      "tecnique",
+      "techneque",
+      "techique",
+      "techniuqe"
+    ],
+    "definition": "A specific method or way of doing something, especially one that requires skill or practice."
+  },
+  {
+    "word": "temperamental",
+    "misspellings": [
+      "tempermental",
+      "temparamental",
+      "tempermentle",
+      "tempremental"
+    ],
+    "definition": "Describing someone whose mood changes quickly and unpredictably, or something that is unreliable in how it functions."
+  },
+  {
+    "word": "tendency",
+    "misspellings": [
+      "tendancy",
+      "tendeny",
+      "tendensy",
+      "tendencey"
+    ],
+    "definition": "A natural inclination or likelihood to behave in a particular way or for something to happen."
+  },
+  {
+    "word": "thorough",
+    "misspellings": [
+      "thourough",
+      "thorogh",
+      "thurough",
+      "thoro"
+    ],
+    "definition": "Done with great care and attention to every detail, leaving nothing incomplete or overlooked."
+  },
+  {
+    "word": "tragedy",
+    "misspellings": [
+      "tradgedy",
+      "tragety",
+      "tradegy",
+      "trajedy"
+    ],
+    "definition": "An extremely sad or devastating event, or a serious dramatic work that ends with the downfall of the main character."
+  },
+  {
+    "word": "transferring",
+    "misspellings": [
+      "transfering",
+      "tranferring",
+      "transfurring",
+      "trasferring"
+    ],
+    "definition": "The act of moving someone or something from one place, person, or situation to another."
+  },
+  {
+    "word": "tyranny",
+    "misspellings": [
+      "tyrrany",
+      "tyrany",
+      "tirrany",
+      "tyrannny"
+    ],
+    "definition": "Cruel and oppressive rule or government by a single leader or small group who holds absolute power."
+  },
+  {
+    "word": "unanimous",
+    "misspellings": [
+      "unanamous",
+      "unaminous",
+      "unanimus",
+      "unanymous"
+    ],
+    "definition": "Describing a decision or opinion that is fully agreed upon by everyone in a group, with no one disagreeing."
+  },
+  {
+    "word": "undoubtedly",
+    "misspellings": [
+      "undoutedly",
+      "undoubtadly",
+      "undoubtly",
+      "undoughtedly"
+    ],
+    "definition": "Without any doubt; used to emphasize that something is certainly true or will definitely happen."
+  },
+  {
+    "word": "unnecessary",
+    "misspellings": [
+      "unnecesary",
+      "unecessary",
+      "unnecessery",
+      "unnessecary"
+    ],
+    "definition": "Not needed or more than what is required; excessive or redundant."
+  },
+  {
+    "word": "until",
+    "misspellings": [
+      "untill",
+      "untile",
+      "unitl",
+      "untel"
+    ],
+    "definition": "Up to the point in time or the event mentioned; before a specified time."
+  },
+  {
+    "word": "usually",
+    "misspellings": [
+      "usally",
+      "usaully",
+      "ususally",
+      "usualy"
+    ],
+    "definition": "Under normal conditions; most of the time or in most cases."
+  },
+  {
+    "word": "vacuum",
+    "misspellings": [
+      "vaccum",
+      "vacum",
+      "vaccuum",
+      "vacuume"
+    ],
+    "definition": "A space entirely empty of matter, or a device that uses suction to clean surfaces by drawing up dust and debris."
+  },
+  {
+    "word": "villain",
+    "misspellings": [
+      "villian",
+      "villan",
+      "villin",
+      "villaine"
+    ],
+    "definition": "A character in a story or real life who is evil, cruel, or commits crimes; the antagonist or 'bad guy.'"
+  },
+  {
+    "word": "weather",
+    "misspellings": [
+      "wether",
+      "wheather",
+      "weahter",
+      "weatherr"
+    ],
+    "definition": "The state of the atmosphere at a particular place and time, including temperature, precipitation, wind, and cloudiness."
+  },
+  {
+    "word": "weirdly",
+    "misspellings": [
+      "wierdly",
+      "weirdley",
+      "weardly",
+      "wierdley"
+    ],
+    "definition": "In a strange, unusual, or unexpected manner."
+  },
+  {
+    "word": "wreck",
+    "misspellings": [
+      "reck",
+      "wreack",
+      "wreak",
+      "wrek"
+    ],
+    "definition": "To destroy or severely damage something, or the remains of something that has been destroyed, such as a crashed vehicle or ship."
+  },
+  {
+    "word": "writhing",
+    "misspellings": [
+      "wrything",
+      "writeing",
+      "writheing",
+      "rithing"
+    ],
+    "definition": "Twisting or squirming the body, usually as a result of intense pain or discomfort."
+  }
+]
