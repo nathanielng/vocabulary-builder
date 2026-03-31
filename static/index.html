@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vocabulary Builder</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  background: #03050f;
+  color: #ccd;
+  font-family: system-ui, sans-serif;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.container {
+  text-align: center;
+  padding: 2rem;
+  max-width: 480px;
+  width: 100%;
+}
+h1 { font-size: 2.2rem; color: #88ccff; letter-spacing: 1px; margin-bottom: 0.5rem; }
+.sub { color: #445566; margin-bottom: 3rem; font-size: 0.95rem; }
+.cards { display: flex; flex-direction: column; gap: 1rem; }
+.card {
+  display: block;
+  background: #090d1f;
+  border: 1px solid #1a2a44;
+  border-radius: 14px;
+  padding: 1.5rem 2rem;
+  text-decoration: none;
+  text-align: left;
+  transition: border-color 0.15s, background 0.15s;
+}
+.card:hover { background: #0d1526; border-color: #2a5a88; }
+.card .title { font-size: 1.2rem; font-weight: 700; color: #88ccff; margin-bottom: 0.3rem; }
+.card .desc  { font-size: 0.88rem; color: #445566; line-height: 1.5; }
+</style>
+</head>
+<body>
+<div class="container">
+  <h1>Vocabulary Builder</h1>
+  <p class="sub">Practice spelling commonly misspelled words.</p>
+  <div class="cards">
+    <a class="card" href="game_word_drop.html">
+      <div class="title">Word Drop</div>
+      <div class="desc">Arcade-style game — click the misspelled tokens as they fall before they reach the bottom.</div>
+    </a>
+    <a class="card" href="game_spelling.html">
+      <div class="title">Spelling Correction</div>
+      <div class="desc">Quiz mode — a misspelled word is shown and you type the correct spelling.</div>
+    </a>
+  </div>
+</div>
+</body>
+</html>
