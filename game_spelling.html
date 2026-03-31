@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Correct the Misspelling – Vocabulary Builder</title>
+<style>
+:root {
+  --bg:     #03050f;
+  --surface:#090d1f;
+  --border: #1a2a44;
+  --blue:   #88ccff;
+  --green:  #44ee88;
+  --red:    #ee4444;
+  --yellow: #ffcc44;
+  --muted:  #445566;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  background: var(--bg);
+  color: #ccd;
+  font-family: system-ui, sans-serif;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* ── Top bar ── */
+#topbar {
+  width: 100%; max-width: 760px;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 1rem 1.5rem;
+  border-bottom: 1px solid var(--border);
+}
+#topbar h1 { font-size: 1.1rem; color: var(--blue); letter-spacing: 1px; }
+#topbar .meta { font-size: 0.85rem; color: var(--muted); }
+#topbar .meta span { color: #aabbcc; margin-left: 0.8rem; }
+
+/* ── Main content ── */
+#main {
+  width: 100%; max-width: 760px;
+  flex: 1; display: flex; flex-direction: column;
+  align-items: center; justify-content: flex-start;
+  padding: 0 1.5rem 2rem;
+}
+
+/* ── Screens ── */
+.screen { width: 100%; }
+
+/* Phase select */
+#screen-phases { padding-top: 2.5rem; text-align: center; }
+#screen-phases h2 { font-size: 2rem; color: var(--blue); margin-bottom: 0.4rem; }
+#screen-phases .sub { color: var(--muted); margin-bottom: 2rem; }
+
+.phase-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.6rem; margin-bottom: 2rem; }
+.phase-btn {
+  padding: 0.6rem 1.2rem; border-radius: 8px; cursor: pointer;
+  font-size: 0.9rem; font-weight: 600; border: 2px solid;
+  transition: background 0.15s;
+}
+.phase-btn.available { background: #0d2238; border-color: #2a5a88; color: var(--blue); }
+.phase-btn.available:hover { background: #152e48; }
+.phase-btn.completed { background: #0a2215; border-color: #2a6a3a; color: var(--green); }
+.phase-btn.completed:hover { background: #10301a; }
+.phase-btn.locked { background: #111; border-color: #222; color: #333; cursor: default; }
+
+.hint { color: var(--muted); font-size: 0.85rem; line-height: 1.6; }
+.hint strong { color: #8899aa; }
+
+/* Game screen */
+#screen-game { padding-top: 2.5rem; }
+
+.progress-bar-wrap {
+  background: #0d1526; border-radius: 4px; height: 6px; margin-bottom: 2rem;
+}
+.progress-bar-fill {
+  height: 100%; border-radius: 4px;
+  background: linear-gradient(90deg, #2a5a8a, #44aaff);
+  transition: width 0.4s ease;
+}
+
+.word-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 2.5rem 2rem;
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.word-label { font-size: 0.8rem; color: var(--muted); letter-spacing: 2px; margin-bottom: 0.8rem; }
+.misspelled-word {
+  font-size: 2.8rem;
+  font-family: monospace;
+  font-weight: 700;
+  color: var(--red);
+  letter-spacing: 2px;
+  margin-bottom: 0.5rem;
+  word-break: break-all;
+}
+
+.def-toggle {
+  background: none; border: 1px solid var(--border);
+  color: var(--muted); padding: 0.35rem 0.9rem;
+  border-radius: 20px; cursor: pointer; font-size: 0.8rem;
+  margin-top: 0.5rem; transition: border-color 0.15s, color 0.15s;
+}
+.def-toggle:hover { border-color: var(--blue); color: var(--blue); }
+.definition {
+  margin-top: 1rem; padding: 0.8rem 1rem;
+  background: #06091a; border-radius: 8px;
+  color: #889aaa; font-size: 0.9rem; line-height: 1.5;
+  text-align: left; display: none;
+}
+.definition.visible { display: block; }
+
+/* Input area */
+.input-area { display: flex; gap: 0.8rem; margin-bottom: 1rem; }
+#answer-input {
+  flex: 1;
+  background: var(--surface); border: 2px solid var(--border);
+  color: #ddeeff; font-size: 1.2rem; font-family: monospace;
+  padding: 0.7rem 1rem; border-radius: 10px;
+  outline: none; transition: border-color 0.15s;
+}
+#answer-input:focus { border-color: #3a6a9a; }
+#answer-input.correct { border-color: #22aa55; background: #061a0e; color: var(--green); }
+#answer-input.wrong   { border-color: #aa2222; background: #1a0606; color: var(--red); }
+
+#submit-btn {
+  padding: 0.7rem 1.6rem; border-radius: 10px;
+  background: #0d2a44; border: 2px solid #2a6a9a;
+  color: var(--blue); font-size: 1rem; font-weight: 600;
+  cursor: pointer; transition: background 0.15s;
+}
+#submit-btn:hover { background: #1a3a5a; }
+#submit-btn:disabled { opacity: 0.4; cursor: default; }
+
+/* Feedback */
+#feedback {
+  min-height: 2.2rem;
+  text-align: center; font-size: 1rem; font-weight: 600;
+  border-radius: 8px; padding: 0.5rem;
+}
+#feedback.correct { color: var(--green); }
+#feedback.wrong   { color: var(--red); }
+#feedback.info    { color: var(--yellow); }
+
+/* Next button */
+#next-btn {
+  width: 100%; padding: 0.8rem;
+  background: #0d2a1a; border: 2px solid #2a7a4a;
+  color: var(--green); font-size: 1rem; font-weight: 600;
+  border-radius: 10px; cursor: pointer; margin-top: 0.5rem;
+  display: none; transition: background 0.15s;
+}
+#next-btn:hover { background: #153a22; }
+
+/* Results screen */
+#screen-results { padding-top: 2.5rem; text-align: center; }
+#screen-results h2 { font-size: 2rem; color: var(--blue); margin-bottom: 1.5rem; }
+
+.stats-row { display: flex; gap: 2.5rem; justify-content: center; margin-bottom: 2rem; flex-wrap: wrap; }
+.stat .val { font-size: 2.4rem; font-weight: 700; color: var(--blue); }
+.stat .lbl { font-size: 0.8rem; color: var(--muted); }
+
+.results-list { text-align: left; margin-bottom: 1.5rem; }
+.result-item {
+  display: flex; align-items: center; gap: 0.8rem;
+  padding: 0.55rem 0.9rem; border-radius: 8px; margin-bottom: 0.4rem;
+  font-size: 0.9rem;
+}
+.result-item.ok  { background: #06180a; border: 1px solid #1a4a22; }
+.result-item.err { background: #180606; border: 1px solid #4a1a1a; }
+.result-item .icon { font-size: 1rem; }
+.result-item .word-name { font-family: monospace; font-weight: 700; flex: 1; }
+.result-item .detail { color: var(--muted); font-size: 0.82rem; }
+.result-item .badge {
+  font-size: 0.72rem; padding: 0.15rem 0.5rem; border-radius: 12px;
+  background: #0a1a2a; color: #6688aa;
+}
+.result-item .grad { font-size: 0.85rem; }
+
+.btn-row { display: flex; gap: 0.8rem; justify-content: center; flex-wrap: wrap; }
+.btn {
+  padding: 0.65rem 1.5rem; border-radius: 10px;
+  background: #0d2238; border: 2px solid #2a5a88;
+  color: var(--blue); font-size: 0.95rem; font-weight: 600;
+  cursor: pointer; transition: background 0.15s;
+}
+.btn:hover { background: #152e48; }
+.btn.primary { background: #0d2215; border-color: #2a6a3a; color: var(--green); }
+.btn.primary:hover { background: #10301a; }
+</style>
+</head>
+<body>
+
+<div id="topbar">
+  <h1>Correct the Misspelling</h1>
+  <div class="meta">
+    Score <span id="hdr-score">0</span>
+    Errors <span id="hdr-errors">0</span>
+  </div>
+</div>
+
+<div id="main">
+
+  <!-- Phase select -->
+  <div id="screen-phases" class="screen" style="display:none">
+    <h2>Choose a Phase</h2>
+    <p class="sub">A misspelled word appears — type the correct spelling.</p>
+    <div class="phase-grid" id="phase-grid"></div>
+    <p class="hint">
+      Words need <strong>3 correct answers in a row</strong> to graduate out of the review pool.<br>
+      Completed phases show review words from earlier phases alongside new ones.
+    </p>
+  </div>
+
+  <!-- Game -->
+  <div id="screen-game" class="screen" style="display:none">
+    <div class="progress-bar-wrap">
+      <div class="progress-bar-fill" id="progress-fill" style="width:0%"></div>
+    </div>
+
+    <div class="word-card">
+      <div class="word-label">MISSPELLED WORD</div>
+      <div class="misspelled-word" id="misspelled-display"></div>
+      <button class="def-toggle" id="def-toggle">Show definition</button>
+      <div class="definition" id="definition-box"></div>
+    </div>
+
+    <div class="input-area">
+      <input id="answer-input" type="text" autocomplete="off" autocorrect="off"
+             spellcheck="false" placeholder="Type the correct spelling…">
+      <button id="submit-btn">Check</button>
+    </div>
+
+    <div id="feedback"></div>
+    <button id="next-btn">Next word →</button>
+  </div>
+
+  <!-- Results -->
+  <div id="screen-results" class="screen" style="display:none">
+    <h2>Phase <span id="res-phase"></span> Complete!</h2>
+    <div class="stats-row" id="res-stats"></div>
+    <div class="results-list" id="res-list"></div>
+    <div class="btn-row" id="res-btns"></div>
+  </div>
+
+</div><!-- #main -->
+
+<script>
+// ── Constants ──────────────────────────────────────────────────────────────────
+const WORDS_PER_PHASE = 10;
+const GRAD_STREAK     = 3;
+
+// ── State ──────────────────────────────────────────────────────────────────────
+let allWords    = [];
+let progress    = {};
+let phase       = 0;
+let queue       = [];   // wordData objects for this phase session
+let total       = 0;    // initial queue length
+let current     = null; // current wordData
+let chosenMisspelling = ''; // which misspelling is shown
+let score       = 0;
+let errorsGame  = 0;
+let results     = [];   // {word, misspelling, correct, attempts}
+let waitingNext = false;
+
+// ── Progress helpers ───────────────────────────────────────────────────────────
+function sp() { return progress.spelling || (progress.spelling = {}); }
+
+function initProgress() {
+  if (!sp().word_stats)    sp().word_stats    = {};
+  if (sp().current_phase == null) sp().current_phase = 0;
+}
+
+function stat(word) {
+  const s = sp().word_stats;
+  if (!s[word]) s[word] = { streak: 0, total_errors: 0, graduated: false, errors: [] };
+  return s[word];
+}
+
+async function load() {
+  try {
+    const [dr, pr] = await Promise.all([fetch('/api/data'), fetch('/api/progress')]);
+    allWords = await dr.json();
+    const loaded = await pr.json();
+    if (loaded) Object.assign(progress, loaded);
+    initProgress();
+    renderPhaseSelect();
+    show('screen-phases');
+  } catch (e) {
+    document.getElementById('screen-phases').innerHTML =
+      `<h2 style="color:#ff4444">Load Error</h2>
+       <p style="color:#aaa;margin-top:1rem">${e.message}</p>
+       <p style="color:#556;margin-top:0.5rem;font-size:.85rem">Make sure game_server.py is running.</p>`;
+    show('screen-phases');
+  }
+}
+
+async function save() {
+  try {
+    await fetch('/api/progress', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(progress),
+    });
+  } catch {}
+}
+
+// ── Phase helpers ──────────────────────────────────────────────────────────────
+const numPhases = () => Math.ceil(allWords.length / WORDS_PER_PHASE);
+
+function phaseState(p) {
+  const cp = sp().current_phase;
+  if (p > cp) return 'locked';
+  if (p < cp) return 'completed';
+  return 'available';
+}
+
+function buildQueue(p) {
+  const start  = p * WORDS_PER_PHASE;
+  const end    = Math.min(start + WORDS_PER_PHASE, allWords.length);
+  const fresh  = allWords.slice(start, end);
+  const review = allWords.slice(0, start).filter(w => {
+    const s = sp().word_stats[w.word];
+    return s && s.total_errors > 0 && !s.graduated;
+  });
+  return shuffle([...review, ...fresh]);
+}
+
+// ── Screen management ──────────────────────────────────────────────────────────
+function show(id) {
+  ['screen-phases', 'screen-game', 'screen-results'].forEach(s => {
+    document.getElementById(s).style.display = s === id ? 'block' : 'none';
+  });
+}
+
+// ── Phase select ───────────────────────────────────────────────────────────────
+function renderPhaseSelect() {
+  const grid = document.getElementById('phase-grid');
+  const np   = numPhases();
+  grid.innerHTML = '';
+  for (let i = 0; i < np; i++) {
+    const st  = phaseState(i);
+    const ico = st === 'completed' ? '✓ ' : st === 'locked' ? '🔒 ' : '';
+    const btn = document.createElement('button');
+    btn.className = `phase-btn ${st}`;
+    btn.textContent = `${ico}Phase ${i + 1}`;
+    btn.disabled = st === 'locked';
+    btn.addEventListener('click', () => startPhase(i));
+    grid.appendChild(btn);
+  }
+}
+
+// ── Start phase ────────────────────────────────────────────────────────────────
+function startPhase(p) {
+  phase      = p;
+  score      = 0;
+  errorsGame = 0;
+  results    = [];
+  queue      = buildQueue(p);
+  total      = queue.length;
+
+  document.getElementById('hdr-score').textContent  = 0;
+  document.getElementById('hdr-errors').textContent = 0;
+
+  show('screen-game');
+  nextWord();
+}
+
+// ── Word flow ──────────────────────────────────────────────────────────────────
+function nextWord() {
+  waitingNext = false;
+  document.getElementById('next-btn').style.display = 'none';
+  document.getElementById('feedback').textContent   = '';
+  document.getElementById('feedback').className     = '';
+
+  if (queue.length === 0) {
+    endPhase();
+    return;
+  }
+
+  current = queue.shift();
+
+  // Pick a random misspelling to show
+  const misspellings = current.misspellings;
+  chosenMisspelling  = misspellings[Math.floor(Math.random() * misspellings.length)];
+
+  document.getElementById('misspelled-display').textContent = chosenMisspelling;
+  document.getElementById('definition-box').textContent     = current.definition;
+  document.getElementById('definition-box').classList.remove('visible');
+  document.getElementById('def-toggle').textContent         = 'Show definition';
+
+  const input = document.getElementById('answer-input');
+  input.value     = '';
+  input.className = '';
+  input.disabled  = false;
+  input.focus();
+
+  document.getElementById('submit-btn').disabled = false;
+
+  // Progress bar
+  const done = total - queue.length - 1;
+  document.getElementById('progress-fill').style.width = `${(done / total) * 100}%`;
+}
+
+function checkAnswer() {
+  if (waitingNext) { advance(); return; }
+
+  const input  = document.getElementById('answer-input');
+  const answer = input.value.trim();
+  if (!answer) return;
+
+  const correct  = current.word;
+  const isRight  = answer.toLowerCase() === correct.toLowerCase();
+  const fb       = document.getElementById('feedback');
+
+  input.disabled = true;
+  document.getElementById('submit-btn').disabled = true;
+
+  if (isRight) {
+    input.className = 'correct';
+    fb.textContent  = `✓ Correct! "${correct}"`;
+    fb.className    = 'correct';
+    score++;
+    document.getElementById('hdr-score').textContent = score;
+
+    const s = stat(correct);
+    s.streak++;
+    if (s.streak >= GRAD_STREAK) s.graduated = true;
+    save();
+
+    results.push({ word: current, misspelling: chosenMisspelling, correct: true, attempts: 1 });
+    waitingNext = true;
+    document.getElementById('next-btn').style.display = 'block';
+    setTimeout(advance, 1200);
+
+  } else {
+    input.className = 'wrong';
+
+    // Show what the correct spelling is
+    fb.innerHTML = `✗ Not quite. Correct spelling: <strong style="color:#66ffaa;font-family:monospace">${correct}</strong>`;
+    fb.className = 'wrong';
+
+    errorsGame++;
+    document.getElementById('hdr-errors').textContent = errorsGame;
+
+    const s = stat(correct);
+    s.streak = 0;
+    s.total_errors++;
+    s.errors.push({ ts: new Date().toISOString(), typed: answer, game: 'spelling' });
+    save();
+
+    results.push({ word: current, misspelling: chosenMisspelling, correct: false, typed: answer });
+    waitingNext = true;
+    document.getElementById('next-btn').style.display = 'block';
+
+    // Don't auto-advance on wrong answers — let the player read the correction
+  }
+}
+
+function advance() {
+  if (!waitingNext) return;
+  nextWord();
+}
+
+// ── End phase ──────────────────────────────────────────────────────────────────
+function endPhase() {
+  // Unlock next phase
+  if (phase === sp().current_phase && phase + 1 < numPhases()) {
+    sp().current_phase = phase + 1;
+    save();
+  }
+
+  const ok  = results.filter(r => r.correct).length;
+  const tot = results.length;
+
+  document.getElementById('res-phase').textContent = phase + 1;
+
+  document.getElementById('res-stats').innerHTML = `
+    <div class="stat"><div class="val" style="color:#44ee88">${ok}</div><div class="lbl">Correct</div></div>
+    <div class="stat"><div class="val" style="color:#ee4444">${tot - ok}</div><div class="lbl">Wrong</div></div>
+    <div class="stat"><div class="val">${tot}</div><div class="lbl">Total</div></div>
+  `;
+
+  const listEl = document.getElementById('res-list');
+  listEl.innerHTML = results.map(r => {
+    const s    = stat(r.word.word);
+    const grad = s.graduated ? '<span class="grad">🎓</span>' : '';
+    const cls  = r.correct ? 'ok' : 'err';
+    const icon = r.correct ? '✓' : '✗';
+    const detail = r.correct
+      ? `<span class="detail">streak: ${s.streak}</span>`
+      : `<span class="detail">you typed: <em>${r.typed || '?'}</em></span>`;
+    return `
+      <div class="result-item ${cls}">
+        <span class="icon">${icon}</span>
+        <span class="word-name">${r.word.word}</span>
+        ${detail}
+        <span class="badge">${r.misspelling}</span>
+        ${grad}
+      </div>`;
+  }).join('');
+
+  const nextBtn = phase + 1 < numPhases()
+    ? `<button class="btn primary" onclick="startPhase(${phase + 1})">Next Phase →</button>` : '';
+
+  document.getElementById('res-btns').innerHTML = `
+    <button class="btn" onclick="startPhase(${phase})">Replay</button>
+    ${nextBtn}
+    <button class="btn" onclick="renderPhaseSelect(); show('screen-phases')">All Phases</button>
+  `;
+
+  show('screen-results');
+}
+
+// ── Event listeners ────────────────────────────────────────────────────────────
+document.getElementById('submit-btn').addEventListener('click', checkAnswer);
+
+document.getElementById('answer-input').addEventListener('keydown', e => {
+  if (e.key === 'Enter') {
+    if (waitingNext) advance();
+    else checkAnswer();
+  }
+});
+
+document.getElementById('next-btn').addEventListener('click', advance);
+
+document.getElementById('def-toggle').addEventListener('click', () => {
+  const box = document.getElementById('definition-box');
+  const btn = document.getElementById('def-toggle');
+  const visible = box.classList.toggle('visible');
+  btn.textContent = visible ? 'Hide definition' : 'Show definition';
+});
+
+// ── Utilities ──────────────────────────────────────────────────────────────────
+function shuffle(arr) {
+  for (let i = arr.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [arr[i], arr[j]] = [arr[j], arr[i]];
+  }
+  return arr;
+}
+
+// ── Boot ───────────────────────────────────────────────────────────────────────
+load();
+</script>
+</body>
+</html>

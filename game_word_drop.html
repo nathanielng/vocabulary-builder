@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Word Drop – Vocabulary Builder</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { background: #000; overflow: hidden; font-family: system-ui, sans-serif; }
+canvas { display: block; }
+
+#overlay {
+  position: fixed; inset: 0;
+  background: rgba(0, 5, 20, 0.92);
+  display: flex; align-items: center; justify-content: center;
+  color: #fff; z-index: 10;
+}
+#overlay.hidden { display: none; }
+
+.screen { text-align: center; max-width: 640px; padding: 2rem; width: 100%; }
+.screen h1 { font-size: 2.8rem; color: #88ddff; margin-bottom: 0.4rem; letter-spacing: 2px; }
+.screen .subtitle { color: #556677; margin-bottom: 2rem; font-size: 0.95rem; }
+
+.phase-grid {
+  display: flex; flex-wrap: wrap; justify-content: center; gap: 0.6rem;
+  margin-bottom: 2rem;
+}
+.phase-btn {
+  padding: 0.6rem 1.2rem; border-radius: 8px; cursor: pointer;
+  font-size: 0.9rem; font-weight: 600; border: 2px solid;
+  transition: background 0.15s, transform 0.1s;
+  min-width: 100px;
+}
+.phase-btn:active { transform: scale(0.96); }
+.phase-btn.available  { background: #0d2a44; border-color: #2a6a9a; color: #88ccff; }
+.phase-btn.available:hover { background: #1a3a5a; }
+.phase-btn.completed  { background: #0a2a0a; border-color: #2a7a2a; color: #66ee66; }
+.phase-btn.completed:hover { background: #103010; }
+.phase-btn.locked     { background: #111; border-color: #333; color: #444; cursor: default; }
+
+.hint-text { color: #445566; font-size: 0.85rem; line-height: 1.5; }
+
+/* Results screen */
+.results-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 0.4rem;
+  max-height: 340px; overflow-y: auto; margin: 1rem 0;
+  padding-right: 0.5rem;
+}
+.results-grid::-webkit-scrollbar { width: 4px; }
+.results-grid::-webkit-scrollbar-thumb { background: #334; border-radius: 2px; }
+.word-result {
+  padding: 0.45rem 0.8rem; border-radius: 6px;
+  font-size: 0.85rem; font-weight: 600; text-align: left;
+}
+.word-result.ok  { background: #0a2a0a; border: 1px solid #2a6a2a; color: #88ee88; }
+.word-result.err { background: #2a0a0a; border: 1px solid #6a2a2a; color: #ee8888; }
+.word-result .streak-badge {
+  font-size: 0.7rem; color: #aaa; margin-left: 0.4rem;
+}
+
+.btn-row { display: flex; gap: 0.8rem; justify-content: center; margin-top: 1.2rem; flex-wrap: wrap; }
+.btn {
+  padding: 0.65rem 1.6rem; border-radius: 8px;
+  background: #0d2a44; border: 2px solid #2a6a9a;
+  color: #88ccff; cursor: pointer; font-size: 0.95rem; font-weight: 600;
+  transition: background 0.15s;
+}
+.btn:hover { background: #1a3a5a; }
+.btn.primary { background: #114422; border-color: #2a8a4a; color: #66ee88; }
+.btn.primary:hover { background: #1a5530; }
+
+.stats-row { display: flex; gap: 2rem; justify-content: center; margin-bottom: 1rem; }
+.stat { text-align: center; }
+.stat .val { font-size: 2rem; font-weight: 700; color: #88ddff; }
+.stat .lbl { font-size: 0.8rem; color: #556677; }
+</style>
+</head>
+<body>
+<canvas id="canvas"></canvas>
+
+<div id="overlay">
+  <div class="screen" id="screen-loading">
+    <h1>Word Drop</h1>
+    <p class="subtitle">Loading…</p>
+  </div>
+</div>
+
+<script>
+// ── Constants ─────────────────────────────────────────────────────────────────
+const WORDS_PER_PHASE = 10;
+const GRAD_STREAK     = 3;    // consecutive correct answers to graduate a word
+const TOKEN_FONT      = 'bold 17px monospace';
+const TOKEN_H         = 38;
+const TOKEN_PAD_X     = 14;
+const BASE_SPEED      = 1.4;  // px per frame at phase 1
+const SPEED_INC       = 0.18; // extra px per phase
+
+// ── Canvas ────────────────────────────────────────────────────────────────────
+const canvas = document.getElementById('canvas');
+const ctx    = canvas.getContext('2d');
+
+function resize() {
+  canvas.width  = window.innerWidth;
+  canvas.height = window.innerHeight;
+}
+resize();
+window.addEventListener('resize', resize);
+
+// ── Starfield (decorative) ────────────────────────────────────────────────────
+const STARS = Array.from({ length: 120 }, () => ({
+  x: Math.random(),
+  y: Math.random(),
+  r: Math.random() * 1.4 + 0.2,
+  a: Math.random() * 0.5 + 0.1,
+}));
+
+function drawStars() {
+  STARS.forEach(s => {
+    ctx.beginPath();
+    ctx.arc(s.x * canvas.width, s.y * canvas.height, s.r, 0, Math.PI * 2);
+    ctx.fillStyle = `rgba(200,220,255,${s.a})`;
+    ctx.fill();
+  });
+}
+
+// ── Data & progress ───────────────────────────────────────────────────────────
+let allWords = [];
+let progress = {};
+
+function wd() { return progress.word_drop; }
+
+function initProgress() {
+  if (!progress.word_drop) progress.word_drop = {};
+  const d = progress.word_drop;
+  if (!d.word_stats)     d.word_stats     = {};
+  if (d.current_phase == null) d.current_phase = 0;
+}
+
+function wordStat(word) {
+  const stats = wd().word_stats;
+  if (!stats[word]) stats[word] = { streak: 0, total_errors: 0, graduated: false, errors: [] };
+  return stats[word];
+}
+
+async function loadAll() {
+  try {
+    const [dr, pr] = await Promise.all([fetch('/api/data'), fetch('/api/progress')]);
+    allWords = await dr.json();
+    const loaded = await pr.json();
+    if (loaded) Object.assign(progress, loaded);
+    initProgress();
+    showPhaseSelect();
+  } catch (e) {
+    document.getElementById('screen-loading').innerHTML =
+      `<h1 style="color:#ff4444">Error</h1><p style="color:#aaa">${e.message}</p>
+       <p style="color:#667;margin-top:1rem;font-size:.85rem">Make sure game_server.py is running.</p>`;
+  }
+}
+
+async function saveProgress() {
+  try {
+    await fetch('/api/progress', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(progress),
+    });
+  } catch {}
+}
+
+// ── Phase helpers ─────────────────────────────────────────────────────────────
+const numPhases = () => Math.ceil(allWords.length / WORDS_PER_PHASE);
+
+function phaseState(p) {
+  if (p > wd().current_phase) return 'locked';
+  if (p < wd().current_phase) return 'completed';
+  return 'available';
+}
+
+function buildWordQueue(phase) {
+  const start = phase * WORDS_PER_PHASE;
+  const end   = Math.min(start + WORDS_PER_PHASE, allWords.length);
+  const fresh = allWords.slice(start, end);
+
+  // Review: ungraduated words from earlier phases that had errors
+  const review = allWords.slice(0, start).filter(w => {
+    const s = wd().word_stats[w.word];
+    return s && s.total_errors > 0 && !s.graduated;
+  });
+
+  const combined = [...review, ...fresh];
+  shuffle(combined);
+  return combined;
+}
+
+// ── UI helpers ────────────────────────────────────────────────────────────────
+const overlay = document.getElementById('overlay');
+
+function showOverlay(html) {
+  overlay.innerHTML = html;
+  overlay.classList.remove('hidden');
+}
+
+function hideOverlay() {
+  overlay.classList.add('hidden');
+}
+
+// ── Phase select screen ───────────────────────────────────────────────────────
+function showPhaseSelect() {
+  const np = numPhases();
+  let btns = '';
+  for (let i = 0; i < np; i++) {
+    const st  = phaseState(i);
+    const ico = st === 'completed' ? '✓ ' : st === 'locked' ? '🔒 ' : '';
+    btns += `<button class="phase-btn ${st}" ${st === 'locked' ? 'disabled' : ''}
+               onclick="startPhase(${i})">${ico}Phase ${i + 1}</button>`;
+  }
+
+  showOverlay(`
+    <div class="screen">
+      <h1>Word Drop</h1>
+      <p class="subtitle">Misspellings fall from the sky — click them! Avoid the correct spelling.</p>
+      <div class="phase-grid">${btns}</div>
+      <p class="hint-text">
+        Each word needs <strong style="color:#88ddff">${GRAD_STREAK}</strong> correct answers in a row to graduate.<br>
+        Graduated words no longer appear.
+      </p>
+    </div>
+  `);
+}
+
+// ── Results screen ────────────────────────────────────────────────────────────
+function showResults(phase, results) {
+  const ok  = results.filter(r => r.success).length;
+  const tot = results.length;
+
+  // Unlock next phase if all words were seen at least once
+  if (phase === wd().current_phase && phase + 1 < numPhases()) {
+    wd().current_phase = phase + 1;
+    saveProgress();
+  }
+
+  const items = results.map(r => {
+    const s    = wordStat(r.word.word);
+    const grad = s.graduated ? ' 🎓' : '';
+    const badge = `<span class="streak-badge">(streak: ${s.streak})</span>`;
+    return `<div class="word-result ${r.success ? 'ok' : 'err'}">
+      ${r.success ? '✓' : '✗'} ${r.word.word}${grad}${badge}
+    </div>`;
+  }).join('');
+
+  const nextBtn = phase + 1 < numPhases()
+    ? `<button class="btn primary" onclick="startPhase(${phase + 1})">Next Phase →</button>` : '';
+
+  showOverlay(`
+    <div class="screen">
+      <h1>Phase ${phase + 1} Done</h1>
+      <div class="stats-row">
+        <div class="stat"><div class="val">${ok}</div><div class="lbl">Cleared</div></div>
+        <div class="stat"><div class="val">${tot - ok}</div><div class="lbl">Missed</div></div>
+        <div class="stat"><div class="val">${tot}</div><div class="lbl">Total</div></div>
+      </div>
+      <div class="results-grid">${items}</div>
+      <div class="btn-row">
+        <button class="btn" onclick="startPhase(${phase})">Replay</button>
+        ${nextBtn}
+        <button class="btn" onclick="showPhaseSelect()">Phases</button>
+      </div>
+    </div>
+  `);
+}
+
+// ── Game state ────────────────────────────────────────────────────────────────
+let currentPhase   = 0;
+let wordQueue      = [];
+let activeWord     = null;
+let tokens         = [];
+let misspellFound  = 0;   // misspellings correctly clicked
+let wordHadError   = false;
+let wordResolved   = false;
+let score          = 0;
+let errorsGame     = 0;
+let phaseResults   = [];
+let animId         = null;
+let gameRunning    = false;
+
+// ── Start phase ───────────────────────────────────────────────────────────────
+function startPhase(phase) {
+  currentPhase  = phase;
+  score         = 0;
+  errorsGame    = 0;
+  phaseResults  = [];
+  wordQueue     = buildWordQueue(phase);
+  tokens        = [];
+  activeWord    = null;
+  wordResolved  = false;
+
+  hideOverlay();
+
+  if (!gameRunning) {
+    gameRunning = true;
+    animId = requestAnimationFrame(gameLoop);
+  }
+
+  setTimeout(nextWord, 600);
+}
+
+function nextWord() {
+  tokens       = [];
+  activeWord   = null;
+  misspellFound = 0;
+  wordHadError = false;
+  wordResolved = false;
+
+  if (wordQueue.length === 0) {
+    gameRunning = false;
+    cancelAnimationFrame(animId);
+    showResults(currentPhase, phaseResults);
+    return;
+  }
+
+  const wordData = wordQueue.shift();
+  spawnWord(wordData);
+}
+
+// ── Spawn tokens ──────────────────────────────────────────────────────────────
+function spawnWord(wordData) {
+  activeWord = wordData;
+
+  const texts = shuffle([wordData.word, ...wordData.misspellings]);
+  const speed = BASE_SPEED + currentPhase * SPEED_INC;
+
+  ctx.font = TOKEN_FONT;
+
+  // Distribute across 5 columns with slight random offset
+  const cols     = texts.length;       // 5
+  const margin   = 60;
+  const colWidth = (canvas.width - margin * 2) / cols;
+
+  tokens = texts.map((text, i) => {
+    const tw = ctx.measureText(text).width + TOKEN_PAD_X * 2;
+    const cx = margin + i * colWidth + colWidth / 2;
+    const jitter = (Math.random() - 0.5) * colWidth * 0.4;
+    return {
+      text,
+      isCorrect: text === wordData.word,
+      x: Math.max(tw / 2 + 10, Math.min(canvas.width - tw / 2 - 10, cx + jitter)),
+      y: -TOKEN_H / 2 - i * 90 - Math.random() * 30,
+      w: tw,
+      h: TOKEN_H,
+      speed: speed + (Math.random() - 0.5) * 0.5,
+      state: 'falling',  // falling | clicked_ok | clicked_err | fade
+      alpha: 1.0,
+    };
+  });
+}
+
+// ── Game loop ─────────────────────────────────────────────────────────────────
+function gameLoop() {
+  if (!gameRunning) return;
+  animId = requestAnimationFrame(gameLoop);
+
+  // Background
+  ctx.fillStyle = '#03050f';
+  ctx.fillRect(0, 0, canvas.width, canvas.height);
+  drawStars();
+
+  // Update tokens
+  for (let i = tokens.length - 1; i >= 0; i--) {
+    const t = tokens[i];
+
+    if (t.state === 'falling') {
+      t.y += t.speed;
+      if (t.y - t.h / 2 > canvas.height + 10) {
+        if (!t.isCorrect && !wordResolved) {
+          // Misspelling escaped uncaught
+          wordHadError = true;
+          errorsGame++;
+          const s = wordStat(activeWord.word);
+          s.streak = 0;
+          s.total_errors++;
+          s.errors.push({ ts: new Date().toISOString(), type: 'escaped', game: 'word_drop' });
+        }
+        tokens.splice(i, 1);
+        continue;
+      }
+    } else {
+      // Fading out
+      t.alpha -= 0.035;
+      if (t.alpha <= 0) { tokens.splice(i, 1); continue; }
+    }
+
+    drawToken(t);
+  }
+
+  // Check if word should auto-resolve (all tokens gone)
+  if (activeWord && !wordResolved && tokens.length === 0) {
+    resolveWord();
+  }
+
+  // HUD on top
+  drawHUD();
+}
+
+function resolveWord() {
+  if (wordResolved) return;
+  wordResolved = true;
+
+  const success = misspellFound === 4 && !wordHadError;
+
+  if (success) {
+    const s = wordStat(activeWord.word);
+    s.streak++;
+    if (s.streak >= GRAD_STREAK) s.graduated = true;
+  } else {
+    // Errors already logged token-by-token; ensure streak is reset
+    const s = wordStat(activeWord.word);
+    if (!success) s.streak = 0;
+  }
+  saveProgress();
+
+  phaseResults.push({ word: activeWord, success });
+  activeWord = null;
+
+  setTimeout(nextWord, 900);
+}
+
+// ── Drawing ───────────────────────────────────────────────────────────────────
+function drawToken(t) {
+  ctx.save();
+  ctx.globalAlpha = t.alpha;
+
+  let bg, border, fg;
+  switch (t.state) {
+    case 'falling':
+      if (t.isCorrect) {
+        bg = '#0a2a0a'; border = '#1d661d'; fg = '#66ee66';
+      } else {
+        bg = '#0a0a2e'; border = '#2a2a88'; fg = '#aaaaff';
+      }
+      break;
+    case 'clicked_ok':
+      bg = '#003300'; border = '#00bb00'; fg = '#00ff88'; break;
+    case 'clicked_err':
+      bg = '#330000'; border = '#bb0000'; fg = '#ff4444'; break;
+    default:
+      bg = '#111'; border = '#333'; fg = '#777';
+  }
+
+  ctx.fillStyle   = bg;
+  ctx.strokeStyle = border;
+  ctx.lineWidth   = 2;
+  pill(t.x - t.w / 2, t.y - t.h / 2, t.w, t.h, 9);
+  ctx.fill();
+  ctx.stroke();
+
+  ctx.fillStyle    = fg;
+  ctx.font         = TOKEN_FONT;
+  ctx.textAlign    = 'center';
+  ctx.textBaseline = 'middle';
+  ctx.fillText(t.text, t.x, t.y);
+
+  ctx.restore();
+}
+
+function drawHUD() {
+  const W = canvas.width;
+  const H = canvas.height;
+  const headerH = 56;
+  const wordH   = 88;
+  const footerH = 54;
+
+  // ── Header ─────────────────────────────────────────────────────────────────
+  ctx.fillStyle = 'rgba(2, 6, 18, 0.88)';
+  ctx.fillRect(0, 0, W, headerH);
+
+  ctx.font         = 'bold 15px system-ui';
+  ctx.textBaseline = 'middle';
+
+  ctx.fillStyle = '#4488cc';
+  ctx.textAlign = 'left';
+  ctx.fillText(`Phase ${currentPhase + 1}`, 18, headerH / 2);
+
+  ctx.fillStyle = '#44cc44';
+  ctx.textAlign = 'center';
+  ctx.fillText(`Score  ${score}`, W / 2 - 80, headerH / 2);
+
+  ctx.fillStyle = '#cc4444';
+  ctx.fillText(`Errors  ${errorsGame}`, W / 2 + 80, headerH / 2);
+
+  ctx.fillStyle = '#446688';
+  ctx.textAlign = 'right';
+  ctx.fillText(`Words left  ${wordQueue.length + (activeWord ? 1 : 0)}`, W - 18, headerH / 2);
+
+  // ── Active word banner ─────────────────────────────────────────────────────
+  if (activeWord) {
+    ctx.fillStyle = 'rgba(2, 8, 24, 0.88)';
+    ctx.fillRect(0, headerH, W, wordH);
+
+    ctx.fillStyle = '#334455';
+    ctx.font      = '12px system-ui';
+    ctx.textAlign = 'center';
+    ctx.fillText('CORRECT SPELLING — do NOT click:', W / 2, headerH + 16);
+
+    ctx.fillStyle    = '#66ff88';
+    ctx.font         = 'bold 28px monospace';
+    ctx.textBaseline = 'middle';
+    ctx.fillText(activeWord.word, W / 2, headerH + 46);
+
+    const left = 4 - misspellFound;
+    ctx.fillStyle = '#ffaa44';
+    ctx.font      = '13px system-ui';
+    ctx.fillText(
+      left > 0 ? `Click ${left} misspelling${left !== 1 ? 's' : ''} ↓`
+               : 'All found!',
+      W / 2, headerH + wordH - 14
+    );
+  }
+
+  // ── Footer (definition) ────────────────────────────────────────────────────
+  if (activeWord && activeWord.definition) {
+    ctx.fillStyle = 'rgba(2, 6, 18, 0.88)';
+    ctx.fillRect(0, H - footerH, W, footerH);
+
+    ctx.fillStyle    = '#334455';
+    ctx.font         = 'bold 11px system-ui';
+    ctx.textAlign    = 'left';
+    ctx.textBaseline = 'middle';
+    ctx.fillText('Definition:', 16, H - footerH + 14);
+
+    ctx.fillStyle = '#8899aa';
+    ctx.font      = '12px system-ui';
+    wrapText(activeWord.definition, 16, H - footerH + 32, W - 32, 16);
+  }
+}
+
+// ── Click handler ─────────────────────────────────────────────────────────────
+canvas.addEventListener('click', e => {
+  if (!activeWord || wordResolved) return;
+
+  const rect = canvas.getBoundingClientRect();
+  const mx   = (e.clientX - rect.left)  * (canvas.width  / rect.width);
+  const my   = (e.clientY - rect.top)   * (canvas.height / rect.height);
+
+  for (const t of tokens) {
+    if (t.state !== 'falling') continue;
+    if (mx >= t.x - t.w / 2 && mx <= t.x + t.w / 2 &&
+        my >= t.y - t.h / 2 && my <= t.y + t.h / 2) {
+
+      if (!t.isCorrect) {
+        // Correct action: clicked a misspelling
+        t.state = 'clicked_ok';
+        misspellFound++;
+        score++;
+
+        if (misspellFound === 4) {
+          // Word success — fade the remaining (correct) token
+          tokens.forEach(tt => { if (tt.state === 'falling') tt.state = 'fade'; });
+          resolveWord();
+        }
+      } else {
+        // Wrong action: clicked the correct spelling
+        t.state = 'clicked_err';
+        wordHadError = true;
+        errorsGame++;
+        const s = wordStat(activeWord.word);
+        s.streak = 0;
+        s.total_errors++;
+        s.errors.push({ ts: new Date().toISOString(), type: 'clicked_correct', game: 'word_drop' });
+        saveProgress();
+
+        // Fade everything and end word
+        tokens.forEach(tt => { if (tt.state === 'falling') tt.state = 'fade'; });
+        resolveWord();
+      }
+      break;
+    }
+  }
+});
+
+// ── Utilities ─────────────────────────────────────────────────────────────────
+function pill(x, y, w, h, r) {
+  ctx.beginPath();
+  ctx.moveTo(x + r, y);
+  ctx.lineTo(x + w - r, y);
+  ctx.quadraticCurveTo(x + w, y, x + w, y + r);
+  ctx.lineTo(x + w, y + h - r);
+  ctx.quadraticCurveTo(x + w, y + h, x + w - r, y + h);
+  ctx.lineTo(x + r, y + h);
+  ctx.quadraticCurveTo(x, y + h, x, y + h - r);
+  ctx.lineTo(x, y + r);
+  ctx.quadraticCurveTo(x, y, x + r, y);
+  ctx.closePath();
+}
+
+function wrapText(text, x, y, maxW, lineH) {
+  ctx.textAlign    = 'left';
+  ctx.textBaseline = 'middle';
+  const words = text.split(' ');
+  let line = '';
+  for (const word of words) {
+    const test = line ? `${line} ${word}` : word;
+    if (ctx.measureText(test).width > maxW && line) {
+      ctx.fillText(line, x, y);
+      y += lineH; line = word;
+    } else { line = test; }
+  }
+  if (line) ctx.fillText(line, x, y);
+}
+
+function shuffle(arr) {
+  for (let i = arr.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [arr[i], arr[j]] = [arr[j], arr[i]];
+  }
+  return arr;
+}
+
+// ── Boot ──────────────────────────────────────────────────────────────────────
+loadAll();
+</script>
+</body>
+</html>
