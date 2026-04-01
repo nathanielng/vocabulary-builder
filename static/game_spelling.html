@@ -55,6 +55,25 @@ body {
 /* ── Screens ── */
 .screen { width: 100%; }
 
+/* ── Pet select screen ── */
+#screen-pet { padding-top: 2.5rem; text-align: center; }
+#screen-pet h2 { font-size: 2rem; color: var(--blue); margin-bottom: 0.4rem; }
+#screen-pet .sub { color: var(--muted); margin-bottom: 2rem; }
+
+.pet-grid {
+  display: flex; flex-wrap: wrap; justify-content: center; gap: 1.2rem;
+  margin-bottom: 2rem;
+}
+.pet-btn {
+  background: var(--surface); border: 2px solid var(--border);
+  border-radius: 16px; padding: 1.5rem 2rem; cursor: pointer;
+  text-align: center; transition: border-color 0.15s, background 0.15s;
+  min-width: 140px;
+}
+.pet-btn:hover { border-color: var(--blue); background: #0d1a2e; }
+.pet-btn .pet-emoji { font-size: 3.5rem; display: block; margin-bottom: 0.6rem; }
+.pet-btn .pet-name { font-size: 1rem; font-weight: 600; color: #aabbcc; }
+
 /* Phase select */
 #screen-phases { padding-top: 2.5rem; text-align: center; }
 #screen-phases h2 { font-size: 2rem; color: var(--blue); margin-bottom: 0.4rem; }
@@ -79,12 +98,35 @@ body {
 #screen-game { padding-top: 2.5rem; }
 
 .progress-bar-wrap {
-  background: #0d1526; border-radius: 4px; height: 6px; margin-bottom: 2rem;
+  background: #0d1526; border-radius: 4px; height: 6px; margin-bottom: 1.2rem;
 }
 .progress-bar-fill {
   height: 100%; border-radius: 4px;
   background: linear-gradient(90deg, #2a5a8a, #44aaff);
   transition: width 0.4s ease;
+}
+
+/* ── Pet display panel ── */
+#pet-display {
+  display: flex; align-items: center; gap: 0.8rem;
+  background: #07091a; border: 1px solid #1a2a3a;
+  border-radius: 12px; padding: 0.6rem 1rem; margin-bottom: 1.2rem;
+}
+#pet-display .pet-avatar-sm { font-size: 2.2rem; line-height: 1; }
+#pet-display .pet-info { flex: 1; }
+#pet-display .pet-name-lbl {
+  font-size: 0.75rem; font-weight: 700; color: var(--blue);
+  letter-spacing: 1px; text-transform: uppercase; margin-bottom: 0.2rem;
+}
+#pet-display .pet-items { font-size: 1.1rem; letter-spacing: 2px; min-height: 1.4rem; }
+#pet-display .pet-progress-hint {
+  font-size: 0.72rem; color: var(--muted); margin-top: 0.2rem;
+}
+#pet-display .pet-streak {
+  font-size: 0.72rem; color: var(--yellow); font-weight: 700;
+  background: #1a1400; border: 1px solid #3a2e00;
+  border-radius: 10px; padding: 0.1rem 0.45rem;
+  margin-left: 0.4rem;
 }
 
 .word-card {
@@ -199,6 +241,51 @@ body {
 .btn:hover { background: #152e48; }
 .btn.primary { background: #0d2215; border-color: #2a6a3a; color: var(--green); }
 .btn.primary:hover { background: #10301a; }
+
+/* ── Words to review section ── */
+.review-section {
+  background: #180808; border: 1px solid #4a1a1a;
+  border-radius: 12px; padding: 1rem 1.2rem; margin-bottom: 1.5rem;
+}
+.review-header {
+  font-size: 0.8rem; font-weight: 700; color: var(--red);
+  letter-spacing: 2px; text-transform: uppercase; margin-bottom: 0.8rem;
+}
+.review-item {
+  display: flex; align-items: baseline; gap: 1rem; flex-wrap: wrap;
+  padding: 0.45rem 0; border-top: 1px solid #2a0808;
+}
+.review-item:first-of-type { border-top: none; }
+.review-word { font-family: monospace; font-weight: 700; font-size: 1.05rem; color: #ddeeff; min-width: 130px; }
+.review-typed { font-size: 0.82rem; color: var(--red); }
+.review-typed em { font-family: monospace; }
+.review-shown { font-size: 0.82rem; color: var(--muted); }
+.review-shown em { font-family: monospace; }
+
+/* ── Reward modal ── */
+#reward-modal {
+  display: none; position: fixed; inset: 0;
+  background: rgba(0,0,0,0.75); z-index: 100;
+  align-items: center; justify-content: center;
+}
+.modal-box {
+  background: #090e22; border: 2px solid #2a4a7a;
+  border-radius: 20px; padding: 2rem 2.5rem;
+  text-align: center; max-width: 420px; width: 90%;
+  box-shadow: 0 0 60px rgba(40,100,200,0.25);
+}
+.modal-title { font-size: 1.8rem; font-weight: 700; color: var(--yellow); margin-bottom: 0.4rem; }
+.modal-sub { font-size: 0.95rem; color: #889aaa; margin-bottom: 1.5rem; }
+.reward-grid { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+.reward-btn {
+  background: #0d1a30; border: 2px solid #2a4a6a;
+  border-radius: 14px; padding: 1rem 1.2rem; cursor: pointer;
+  text-align: center; transition: border-color 0.15s, background 0.15s;
+  min-width: 100px;
+}
+.reward-btn:hover { border-color: var(--yellow); background: #151f38; }
+.reward-btn .reward-emoji { font-size: 2.8rem; display: block; margin-bottom: 0.4rem; }
+.reward-btn .reward-label { font-size: 0.85rem; font-weight: 600; color: #aabbcc; }
 </style>
 </head>
 <body>
@@ -212,6 +299,26 @@ body {
 </div>
 
 <div id="main">
+
+  <!-- Pet select -->
+  <div id="screen-pet" class="screen" style="display:none">
+    <h2>Choose Your Pet</h2>
+    <p class="sub">Your companion will cheer you on as you learn!</p>
+    <div class="pet-grid">
+      <button class="pet-btn" onclick="selectPet('rabbit')">
+        <span class="pet-emoji">🐰</span>
+        <span class="pet-name">Rabbit</span>
+      </button>
+      <button class="pet-btn" onclick="selectPet('bear')">
+        <span class="pet-emoji">🐻</span>
+        <span class="pet-name">Bear</span>
+      </button>
+      <button class="pet-btn" onclick="selectPet('puppy')">
+        <span class="pet-emoji">🐶</span>
+        <span class="pet-name">Puppy</span>
+      </button>
+    </div>
+  </div>
 
   <!-- Phase select -->
   <div id="screen-phases" class="screen" style="display:none">
@@ -230,11 +337,14 @@ body {
       <div class="progress-bar-fill" id="progress-fill" style="width:0%"></div>
     </div>
 
+    <!-- Pet display panel -->
+    <div id="pet-display"></div>
+
     <div class="word-card">
       <div class="word-label">MISSPELLED WORD</div>
       <div class="misspelled-word" id="misspelled-display"></div>
-      <button class="def-toggle" id="def-toggle">Show definition</button>
-      <div class="definition" id="definition-box"></div>
+      <button class="def-toggle" id="def-toggle">Hide definition</button>
+      <div class="definition visible" id="definition-box"></div>
     </div>
 
     <div class="input-area">
@@ -257,10 +367,34 @@ body {
 
 </div><!-- #main -->
 
+<!-- Reward modal (outside #main so it overlays everything) -->
+<div id="reward-modal">
+  <div class="modal-box">
+    <div class="modal-title" id="modal-title"></div>
+    <div class="modal-sub" id="modal-sub"></div>
+    <div class="reward-grid" id="reward-grid"></div>
+  </div>
+</div>
+
 <script>
 // ── Constants ──────────────────────────────────────────────────────────────────
 const WORDS_PER_PHASE = 10;
 const GRAD_STREAK     = 3;
+
+const PET_EMOJIS = { rabbit: '🐰', bear: '🐻', puppy: '🐶' };
+const PET_NAMES  = { rabbit: 'Rabbit', bear: 'Bear', puppy: 'Puppy' };
+
+const FOODS = [
+  { id: 'strawberry', label: 'Strawberry', emoji: '🍓' },
+  { id: 'candy_cane', label: 'Candy Cane', emoji: '🍬' },
+  { id: 'cookie',     label: 'Cookie',     emoji: '🍪' },
+];
+
+const ACCESSORIES = [
+  { id: 'ribbon', label: 'Ribbon', emoji: '🎀' },
+  { id: 'ball',   label: 'Ball',   emoji: '⚽' },
+  { id: 'shoes',  label: 'Shoes',  emoji: '👟' },
+];
 
 // ── State ──────────────────────────────────────────────────────────────────────
 let allWords    = [];
@@ -274,6 +408,17 @@ let score       = 0;
 let errorsGame  = 0;
 let results     = [];   // {word, misspelling, correct, attempts}
 let waitingNext = false;
+
+// Pet & reward state
+let selectedPet       = null;
+let petFood           = [];  // foods given (most recent last)
+let petAccessories    = [];  // accessories unlocked
+let consecutiveCount  = 0;   // resets on wrong answer
+let totalCorrectSession = 0; // cumulative correct for this page session
+let rewardQueue       = [];  // pending rewards: {type: 'food'|'accessory'}
+
+// Re-queue tracking: each wrong word is re-inserted once per round
+let readdedWords = new Set();
 
 // ── Progress helpers ───────────────────────────────────────────────────────────
 function sp() { return progress.spelling || (progress.spelling = {}); }
@@ -297,8 +442,17 @@ async function load() {
     const loaded = saved ? JSON.parse(saved) : {};
     if (loaded) Object.assign(progress, loaded);
     initProgress();
-    renderPhaseSelect();
-    show('screen-phases');
+
+    // Restore pet state from saved progress
+    if (progress.selectedPet) {
+      selectedPet    = progress.selectedPet;
+      petFood        = progress.petFood        || [];
+      petAccessories = progress.petAccessories || [];
+      renderPhaseSelect();
+      show('screen-phases');
+    } else {
+      show('screen-pet');
+    }
   } catch (e) {
     document.getElementById('screen-phases').innerHTML =
       `<h2 style="color:#ff4444">Load Error</h2>
@@ -309,6 +463,97 @@ async function load() {
 
 function save() {
   localStorage.setItem('vb_progress', JSON.stringify(progress));
+}
+
+// ── Pet selection ──────────────────────────────────────────────────────────────
+function selectPet(pet) {
+  selectedPet = pet;
+  progress.selectedPet    = pet;
+  progress.petFood        = petFood;
+  progress.petAccessories = petAccessories;
+  save();
+  renderPhaseSelect();
+  show('screen-phases');
+}
+
+// ── Pet display ────────────────────────────────────────────────────────────────
+function renderPetDisplay() {
+  const panel = document.getElementById('pet-display');
+  if (!panel || !selectedPet) return;
+
+  const accEmojis = petAccessories.map(a => a.emoji).join('');
+  const recentFood = petFood.length > 0 ? petFood[petFood.length - 1].emoji : '';
+  const streakTag = consecutiveCount > 0
+    ? `<span class="pet-streak">🔥 ${consecutiveCount} streak</span>` : '';
+
+  const nextFood = consecutiveCount % 5 === 0 && consecutiveCount > 0
+    ? 0 : 5 - (consecutiveCount % 5);
+  const nextAcc  = 10 - (totalCorrectSession % 10);
+
+  let progressHints = [];
+  if (nextFood > 0) progressHints.push(`${nextFood} more in a row for a treat`);
+  if (nextAcc  > 0) progressHints.push(`${nextAcc} more correct for an accessory`);
+
+  panel.innerHTML = `
+    <div class="pet-avatar-sm">${PET_EMOJIS[selectedPet]}</div>
+    <div class="pet-info">
+      <div class="pet-name-lbl">${PET_NAMES[selectedPet]}${recentFood ? ' &nbsp;' + recentFood : ''}${accEmojis ? ' &nbsp;' + accEmojis : ''}</div>
+      <div class="pet-items">${streakTag}</div>
+      ${progressHints.length ? `<div class="pet-progress-hint">${progressHints.join(' · ')}</div>` : ''}
+    </div>
+  `;
+}
+
+// ── Reward modal ───────────────────────────────────────────────────────────────
+function showRewardModal(reward) {
+  const modal = document.getElementById('reward-modal');
+  const title = document.getElementById('modal-title');
+  const sub   = document.getElementById('modal-sub');
+  const grid  = document.getElementById('reward-grid');
+
+  if (reward.type === 'food') {
+    title.textContent = '5 in a Row!';
+    sub.textContent   = `Choose a treat for your ${PET_NAMES[selectedPet]}!`;
+    grid.innerHTML = FOODS.map(f =>
+      `<button class="reward-btn" onclick="giveReward('${f.id}','${f.emoji}','food')">
+         <span class="reward-emoji">${f.emoji}</span>
+         <span class="reward-label">${f.label}</span>
+       </button>`
+    ).join('');
+  } else {
+    title.textContent = '10 Correct Answers!';
+    sub.textContent   = `Choose an accessory for your ${PET_NAMES[selectedPet]}!`;
+    grid.innerHTML = ACCESSORIES.map(a =>
+      `<button class="reward-btn" onclick="giveReward('${a.id}','${a.emoji}','accessory')">
+         <span class="reward-emoji">${a.emoji}</span>
+         <span class="reward-label">${a.label}</span>
+       </button>`
+    ).join('');
+  }
+
+  modal.style.display = 'flex';
+}
+
+function giveReward(id, emoji, type) {
+  document.getElementById('reward-modal').style.display = 'none';
+
+  if (type === 'food') {
+    petFood.push({ id, emoji });
+    if (petFood.length > 3) petFood.shift(); // keep last 3 foods
+    progress.petFood = petFood;
+  } else {
+    petAccessories.push({ id, emoji });
+    progress.petAccessories = petAccessories;
+  }
+  save();
+  renderPetDisplay();
+
+  // Show next queued reward, or continue to next word
+  if (rewardQueue.length > 0) {
+    showRewardModal(rewardQueue.shift());
+  } else {
+    nextWord();
+  }
 }
 
 // ── Phase helpers ──────────────────────────────────────────────────────────────
@@ -334,7 +579,7 @@ function buildQueue(p) {
 
 // ── Screen management ──────────────────────────────────────────────────────────
 function show(id) {
-  ['screen-phases', 'screen-game', 'screen-results'].forEach(s => {
+  ['screen-pet', 'screen-phases', 'screen-game', 'screen-results'].forEach(s => {
     document.getElementById(s).style.display = s === id ? 'block' : 'none';
   });
 }
@@ -358,16 +603,22 @@ function renderPhaseSelect() {
 
 // ── Start phase ────────────────────────────────────────────────────────────────
 function startPhase(p) {
-  phase      = p;
-  score      = 0;
-  errorsGame = 0;
-  results    = [];
-  queue      = buildQueue(p);
-  total      = queue.length;
+  phase        = p;
+  score        = 0;
+  errorsGame   = 0;
+  results      = [];
+  rewardQueue  = [];
+  readdedWords = new Set();
+  consecutiveCount = 0;
+  // totalCorrectSession intentionally NOT reset — accumulates across phases
+
+  queue = buildQueue(p);
+  total = queue.length;
 
   document.getElementById('hdr-score').textContent  = 0;
   document.getElementById('hdr-errors').textContent = 0;
 
+  renderPetDisplay();
   show('screen-game');
   nextWord();
 }
@@ -391,9 +642,12 @@ function nextWord() {
   chosenMisspelling  = misspellings[Math.floor(Math.random() * misspellings.length)];
 
   document.getElementById('misspelled-display').textContent = chosenMisspelling;
-  document.getElementById('definition-box').textContent     = current.definition;
-  document.getElementById('definition-box').classList.remove('visible');
-  document.getElementById('def-toggle').textContent         = 'Show definition';
+
+  // Definition is shown automatically
+  const defBox = document.getElementById('definition-box');
+  defBox.textContent = current.definition;
+  defBox.classList.add('visible');
+  document.getElementById('def-toggle').textContent = 'Hide definition';
 
   const input = document.getElementById('answer-input');
   input.value     = '';
@@ -434,6 +688,20 @@ function checkAnswer() {
     if (s.streak >= GRAD_STREAK) s.graduated = true;
     save();
 
+    // Track reward counters
+    consecutiveCount++;
+    totalCorrectSession++;
+
+    // Every 5 consecutive → food reward
+    if (consecutiveCount % 5 === 0) {
+      rewardQueue.push({ type: 'food' });
+    }
+    // Every 10 total → accessory reward
+    if (totalCorrectSession % 10 === 0) {
+      rewardQueue.push({ type: 'accessory' });
+    }
+
+    renderPetDisplay();
     results.push({ word: current, misspelling: chosenMisspelling, correct: true, attempts: 1 });
     waitingNext = true;
     document.getElementById('next-btn').style.display = 'block';
@@ -455,6 +723,17 @@ function checkAnswer() {
     s.errors.push({ ts: new Date().toISOString(), typed: answer, game: 'spelling' });
     save();
 
+    // Reset consecutive streak on wrong answer
+    consecutiveCount = 0;
+    renderPetDisplay();
+
+    // Re-insert this word into the queue once per round so it comes back
+    if (!readdedWords.has(correct)) {
+      readdedWords.add(correct);
+      const insertPos = Math.min(queue.length, 1 + Math.floor(Math.random() * Math.min(4, queue.length + 1)));
+      queue.splice(insertPos, 0, current);
+    }
+
     results.push({ word: current, misspelling: chosenMisspelling, correct: false, typed: answer });
     waitingNext = true;
     document.getElementById('next-btn').style.display = 'block';
@@ -465,6 +744,12 @@ function checkAnswer() {
 
 function advance() {
   if (!waitingNext) return;
+  // Show any pending rewards before moving on
+  if (rewardQueue.length > 0) {
+    waitingNext = false;
+    showRewardModal(rewardQueue.shift());
+    return;
+  }
   nextWord();
 }
 
@@ -488,7 +773,31 @@ function endPhase() {
   `;
 
   const listEl = document.getElementById('res-list');
-  listEl.innerHTML = results.map(r => {
+
+  // Collect unique wrong words (first wrong attempt for each)
+  const wrongWords = [];
+  const seenWrong  = new Set();
+  for (const r of results) {
+    if (!r.correct && !seenWrong.has(r.word.word)) {
+      seenWrong.add(r.word.word);
+      wrongWords.push(r);
+    }
+  }
+
+  let html = '';
+  if (wrongWords.length > 0) {
+    html += `<div class="review-section">
+      <div class="review-header">Words to Review (${wrongWords.length})</div>
+      ${wrongWords.map(r => `
+        <div class="review-item">
+          <span class="review-word">${r.word.word}</span>
+          <span class="review-shown">shown as: <em>${r.misspelling}</em></span>
+          <span class="review-typed">you typed: <em>${r.typed || '?'}</em></span>
+        </div>`).join('')}
+    </div>`;
+  }
+
+  html += results.map(r => {
     const s    = stat(r.word.word);
     const grad = s.graduated ? '<span class="grad">🎓</span>' : '';
     const cls  = r.correct ? 'ok' : 'err';
@@ -505,6 +814,8 @@ function endPhase() {
         ${grad}
       </div>`;
   }).join('');
+
+  listEl.innerHTML = html;
 
   const nextBtn = phase + 1 < numPhases()
     ? `<button class="btn primary" onclick="startPhase(${phase + 1})">Next Phase →</button>` : '';
