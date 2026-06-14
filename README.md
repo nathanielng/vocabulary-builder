@@ -44,6 +44,7 @@ Key design goals:
 - Phase-based progression with 10 words per phase
 - Graduated learning: words require 3 correct answers in a row to be "mastered"
 - Review pool: words answered incorrectly in earlier phases reappear in later phases
+- Pet companion with a reward system in the Spelling Correction game — pick a pet, then earn treats (5 correct in a row) and accessories (every 10 correct)
 - Persistent progress saved automatically between sessions
 - Fully self-contained — runs on a single lightweight Python HTTP server
 
@@ -59,7 +60,7 @@ vocabulary-builder/
 ├── game_spelling.html           # Spelling Correction quiz (server version)
 ├── requirements.txt             # Python dependencies
 ├── data/
-│   ├── commonly-misspelled-words.md  # Source list of words to learn (~80 words)
+│   ├── commonly-misspelled-words.md  # Source list of words to learn (~99 words)
 │   ├── misspellings.json             # Generated word data (created by generate_misspellings.py)
 │   └── progress.json                 # User progress (created automatically at runtime)
 ├── static/                      # Static / GitHub Pages version (no server required)
@@ -164,16 +165,24 @@ A traditional spelling quiz where you type the correct spelling of a misspelled 
 
 **How to play:**
 
-1. A misspelled word is shown in large red text.
-2. Type the correct spelling into the input field and press **Enter** or click **Check**.
-3. Immediate feedback shows whether your answer was correct or incorrect.
-4. Use the **Show definition** button to reveal a hint.
-5. A word is graduated after 3 correct answers in a row.
+1. On first launch, choose a **pet companion** (Rabbit, Bear, or Puppy) — it cheers you on and collects rewards as you play.
+2. A misspelled word is shown in large red text, with its definition displayed below.
+3. Type the correct spelling into the input field and press **Enter** or click **Check**.
+4. Immediate feedback shows whether your answer was correct or incorrect.
+5. Use the **Hide/Show definition** button to toggle the hint.
+6. A word is graduated after 3 correct answers in a row.
 
 **Mechanics:**
 - Same phase structure and graduation rules as Word Drop
 - Progress is independent from the Word Drop game
-- Incorrect answers reset the streak for that word
+- Incorrect answers reset the streak for that word, and the missed word is re-inserted into the current round so it comes back
+- A "Words to Review" summary lists every word you missed at the end of a phase
+
+**Pet rewards:**
+- Every **5 correct answers in a row** earns a **treat** (a food item your pet keeps — the last 3 are shown)
+- Every **10 correct answers** in the session earns an **accessory**
+- The treat streak resets when you answer incorrectly; the accessory counter accumulates across phases
+- Your chosen pet and its collected items are saved with your progress
 
 ---
 
@@ -181,7 +190,7 @@ A traditional spelling quiz where you type the correct spelling of a misspelled 
 
 The `generate_misspellings.py` script is responsible for building `data/misspellings.json`.
 
-**Source word list:** Edit `data/commonly-misspelled-words.md` to add, remove, or modify the words in the learning set. The file contains roughly 80 commonly misspelled English words.
+**Source word list:** Edit `data/commonly-misspelled-words.md` to add, remove, or modify the words in the learning set. The file contains roughly 99 commonly misspelled English words.
 
 **Re-generating data:** After changing the word list, delete or overwrite the existing JSON file and re-run the script:
 
@@ -257,7 +266,7 @@ Most configuration is done by editing constants at the top of the relevant files
 
 ## Progress Tracking
 
-Progress is stored in `data/progress.json` and updated automatically as you play. Each game mode maintains its own independent progress. The structure looks like this:
+Progress is stored in `data/progress.json` and updated automatically as you play. Each game mode maintains its own independent progress under its own key, and the Spelling game also persists the selected pet and its collected items at the top level. The structure looks like this:
 
 ```json
 {
@@ -268,7 +277,9 @@ Progress is stored in `data/progress.json` and updated automatically as you play
         "streak": 3,
         "total_errors": 1,
         "graduated": true,
-        "errors": ["Acumulation"]
+        "errors": [
+          { "ts": "2026-06-14T10:00:00.000Z", "typed": "Acummulation", "game": "word_drop" }
+        ]
       }
     }
   },
@@ -282,9 +293,14 @@ Progress is stored in `data/progress.json` and updated automatically as you play
         "errors": []
       }
     }
-  }
+  },
+  "selectedPet": "rabbit",
+  "petFood": [{ "id": "cookie", "emoji": "🍪" }],
+  "petAccessories": [{ "id": "ribbon", "emoji": "🎀" }]
 }
 ```
+
+Each entry in a word's `errors` array records the timestamp (`ts`), what the player `typed`, and which `game` the error occurred in. `selectedPet`, `petFood`, and `petAccessories` are written by the Spelling game; the Word Drop game preserves them when it saves.
 
 To reset progress for both games, delete `data/progress.json`:
 
@@ -299,6 +315,8 @@ rm data/progress.json
 The `static/` folder contains a self-contained version of both games that requires no Python server and can be hosted on GitHub Pages (or any static file host).
 
 ### What changed from the original
+
+The two versions share the **same gameplay** — both game modes, the phase/graduation system, and the Spelling game's pet rewards are identical. They differ **only in the storage layer**: the server version talks to the Python REST API, while the static version uses the browser's `localStorage`. Keep them in sync — when you change game logic in a root file, mirror it into `static/` (and vice versa), changing only the rows below.
 
 | Concern | Original (server) | Static (`static/`) |
 |---|---|---|
