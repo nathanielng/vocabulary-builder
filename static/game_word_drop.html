@@ -95,6 +95,8 @@ canvas { display: block; }
 // ── Constants ─────────────────────────────────────────────────────────────────
 const WORDS_PER_PHASE = 10;
 const GRAD_STREAK     = 3;    // consecutive correct answers to graduate a word
+const REVIEW_STREAK   = 1;    // correct answers needed to re-confirm mastery
+const COOLDOWN_DAYS   = 30;   // days before a graduated word can reappear
 const TOKEN_FONT      = 'bold 17px monospace';
 const TOKEN_H         = 38;
 const TOKEN_PAD_X     = 14;
@@ -144,8 +146,25 @@ function initProgress() {
 
 function wordStat(word) {
   const stats = wd().word_stats;
-  if (!stats[word]) stats[word] = { streak: 0, total_errors: 0, graduated: false, errors: [] };
+  if (!stats[word]) stats[word] = {
+    streak: 0,
+    total_errors: 0,
+    graduated: false,
+    graduated_date: null,  // ISO date string when graduated
+    review_mode: false,    // true when word returns after cooldown
+    errors: []
+  };
   return stats[word];
+}
+
+// ── Spaced repetition helpers ─────────────────────────────────────────────────
+function daysSince(isoDate) {
+  if (!isoDate) return Infinity;
+  return (Date.now() - new Date(isoDate).getTime()) / (1000 * 60 * 60 * 24);
+}
+
+function isEligibleForReview(stat) {
+  return stat.graduated && stat.graduated_date && daysSince(stat.graduated_date) >= COOLDOWN_DAYS;
 }
 
 async function loadAll() {
@@ -179,7 +198,11 @@ function phaseState(p) {
 function buildWordQueue(phase) {
   const start = phase * WORDS_PER_PHASE;
   const end   = Math.min(start + WORDS_PER_PHASE, allWords.length);
-  const fresh = allWords.slice(start, end);
+  const fresh = allWords.slice(start, end).filter(w => {
+    const s = wd().word_stats[w.word];
+    // Include if never seen or not graduated
+    return !s || !s.graduated;
+  });
 
   // Review: ungraduated words from earlier phases that had errors
   const review = allWords.slice(0, start).filter(w => {
@@ -187,7 +210,19 @@ function buildWordQueue(phase) {
     return s && s.total_errors > 0 && !s.graduated;
   });
 
-  const combined = [...review, ...fresh];
+  // Spaced repetition: graduated words past their cooldown period
+  const spacedReview = allWords.filter(w => {
+    const s = wd().word_stats[w.word];
+    return s && isEligibleForReview(s);
+  });
+
+  // Mark spaced review words so we know they only need 1 correct
+  spacedReview.forEach(w => {
+    const s = wordStat(w.word);
+    s.review_mode = true;
+  });
+
+  const combined = [...fresh, ...review, ...spacedReview];
   shuffle(combined);
   return combined;
 }
@@ -218,11 +253,11 @@ function showPhaseSelect() {
   showOverlay(`
     <div class="screen">
       <h1>Word Drop</h1>
-      <p class="subtitle">Misspellings fall from the sky — click them! Avoid the correct spelling.</p>
+      <p class="subtitle">Words fall from the sky — click the correctly spelled one!</p>
       <div class="phase-grid">${btns}</div>
       <p class="hint-text">
-        Each word needs <strong style="color:#88ddff">${GRAD_STREAK}</strong> correct answers in a row to graduate.<br>
-        Graduated words no longer appear.
+        Each word needs <strong style="color:#88ddff">${GRAD_STREAK}</strong> correct picks in a row to master.<br>
+        Mastered words return after ${COOLDOWN_DAYS} days for a quick review.
       </p>
     </div>
   `);
@@ -255,7 +290,7 @@ function showResults(phase, results) {
     <div class="screen">
       <h1>Phase ${phase + 1} Done</h1>
       <div class="stats-row">
-        <div class="stat"><div class="val">${ok}</div><div class="lbl">Cleared</div></div>
+        <div class="stat"><div class="val">${ok}</div><div class="lbl">Correct</div></div>
         <div class="stat"><div class="val">${tot - ok}</div><div class="lbl">Missed</div></div>
         <div class="stat"><div class="val">${tot}</div><div class="lbl">Total</div></div>
       </div>
@@ -274,8 +309,6 @@ let currentPhase   = 0;
 let wordQueue      = [];
 let activeWord     = null;
 let tokens         = [];
-let misspellFound  = 0;   // misspellings correctly clicked
-let wordHadError   = false;
 let wordResolved   = false;
 let score          = 0;
 let errorsGame     = 0;
@@ -307,8 +340,6 @@ function startPhase(phase) {
 function nextWord() {
   tokens       = [];
   activeWord   = null;
-  misspellFound = 0;
-  wordHadError = false;
   wordResolved = false;
 
   if (wordQueue.length === 0) {
@@ -371,14 +402,9 @@ function gameLoop() {
     if (t.state === 'falling') {
       t.y += t.speed;
       if (t.y - t.h / 2 > canvas.height + 10) {
-        if (!t.isCorrect && !wordResolved) {
-          // Misspelling escaped uncaught
-          wordHadError = true;
-          errorsGame++;
-          const s = wordStat(activeWord.word);
-          s.streak = 0;
-          s.total_errors++;
-          s.errors.push({ ts: new Date().toISOString(), type: 'escaped', game: 'word_drop' });
+        // The correct token escaped — that's a miss
+        if (t.isCorrect && !wordResolved) {
+          resolveWord(false);
         }
         tokens.splice(i, 1);
         continue;
@@ -392,29 +418,37 @@ function gameLoop() {
     drawToken(t);
   }
 
-  // Check if word should auto-resolve (all tokens gone)
+  // Check if word should auto-resolve (all tokens gone without click)
   if (activeWord && !wordResolved && tokens.length === 0) {
-    resolveWord();
+    resolveWord(false);
   }
 
   // HUD on top
   drawHUD();
 }
 
-function resolveWord() {
+function resolveWord(success) {
   if (wordResolved) return;
   wordResolved = true;
 
-  const success = misspellFound === 4 && !wordHadError;
+  const s = wordStat(activeWord.word);
 
   if (success) {
-    const s = wordStat(activeWord.word);
     s.streak++;
-    if (s.streak >= GRAD_STREAK) s.graduated = true;
+    const needed = s.review_mode ? REVIEW_STREAK : GRAD_STREAK;
+    if (s.streak >= needed) {
+      s.graduated = true;
+      s.graduated_date = new Date().toISOString();
+      s.review_mode = false;
+    }
   } else {
-    // Errors already logged token-by-token; ensure streak is reset
-    const s = wordStat(activeWord.word);
-    if (!success) s.streak = 0;
+    s.streak = 0;
+    s.total_errors++;
+    s.graduated = false;
+    s.graduated_date = null;
+    s.review_mode = false;
+    s.errors.push({ ts: new Date().toISOString(), type: 'missed', game: 'word_drop' });
+    errorsGame++;
   }
   saveProgress();
 
@@ -432,11 +466,8 @@ function drawToken(t) {
   let bg, border, fg;
   switch (t.state) {
     case 'falling':
-      if (t.isCorrect) {
-        bg = '#0a2a0a'; border = '#1d661d'; fg = '#66ee66';
-      } else {
-        bg = '#0a0a2e'; border = '#2a2a88'; fg = '#aaaaff';
-      }
+      // All tokens look the same — uniform style
+      bg = '#0a0a2e'; border = '#2a4a88'; fg = '#ccddff';
       break;
     case 'clicked_ok':
       bg = '#003300'; border = '#00bb00'; fg = '#00ff88'; break;
@@ -496,40 +527,43 @@ function drawHUD() {
     ctx.fillStyle = 'rgba(2, 8, 24, 0.88)';
     ctx.fillRect(0, headerH, W, wordH);
 
-    ctx.fillStyle = '#334455';
+    ctx.fillStyle = '#556677';
     ctx.font      = '12px system-ui';
     ctx.textAlign = 'center';
-    ctx.fillText('CORRECT SPELLING — do NOT click:', W / 2, headerH + 16);
+    ctx.fillText('Find the correct spelling ↓', W / 2, headerH + 16);
 
-    ctx.fillStyle    = '#66ff88';
-    ctx.font         = 'bold 28px monospace';
+    // Show definition as the hint (not the correct spelling!)
+    ctx.fillStyle    = '#8899aa';
+    ctx.font         = 'italic 15px system-ui';
     ctx.textBaseline = 'middle';
-    ctx.fillText(activeWord.word, W / 2, headerH + 46);
+    const defText = activeWord.definition || '';
+    const maxW = W - 80;
+    const truncated = truncateText(defText, maxW);
+    ctx.fillText(truncated, W / 2, headerH + 44);
 
-    const left = 4 - misspellFound;
-    ctx.fillStyle = '#ffaa44';
-    ctx.font      = '13px system-ui';
-    ctx.fillText(
-      left > 0 ? `Click ${left} misspelling${left !== 1 ? 's' : ''} ↓`
-               : 'All found!',
-      W / 2, headerH + wordH - 14
-    );
+    const s = wordStat(activeWord.word);
+    const needed = s.review_mode ? REVIEW_STREAK : GRAD_STREAK;
+    const streakInfo = s.streak > 0 ? `Streak: ${s.streak}/${needed}` : '';
+    if (streakInfo) {
+      ctx.fillStyle = '#ffaa44';
+      ctx.font      = '12px system-ui';
+      ctx.fillText(streakInfo, W / 2, headerH + wordH - 14);
+    }
   }
 
-  // ── Footer (definition) ────────────────────────────────────────────────────
-  if (activeWord && activeWord.definition) {
+  // ── Footer ─────────────────────────────────────────────────────────────────
+  if (activeWord) {
     ctx.fillStyle = 'rgba(2, 6, 18, 0.88)';
     ctx.fillRect(0, H - footerH, W, footerH);
 
     ctx.fillStyle    = '#334455';
     ctx.font         = 'bold 11px system-ui';
-    ctx.textAlign    = 'left';
+    ctx.textAlign    = 'center';
     ctx.textBaseline = 'middle';
-    ctx.fillText('Definition:', 16, H - footerH + 14);
 
-    ctx.fillStyle = '#8899aa';
-    ctx.font      = '12px system-ui';
-    wrapText(activeWord.definition, 16, H - footerH + 32, W - 32, 16);
+    const s = wordStat(activeWord.word);
+    const reviewTag = s.review_mode ? '  [Review]' : '';
+    ctx.fillText(`Click the correctly spelled word${reviewTag}`, W / 2, H - footerH / 2);
   }
 }
 
@@ -546,31 +580,19 @@ canvas.addEventListener('click', e => {
     if (mx >= t.x - t.w / 2 && mx <= t.x + t.w / 2 &&
         my >= t.y - t.h / 2 && my <= t.y + t.h / 2) {
 
-      if (!t.isCorrect) {
-        // Correct action: clicked a misspelling
+      if (t.isCorrect) {
+        // Correct: clicked the right spelling
         t.state = 'clicked_ok';
-        misspellFound++;
         score++;
-
-        if (misspellFound === 4) {
-          // Word success — fade the remaining (correct) token
-          tokens.forEach(tt => { if (tt.state === 'falling') tt.state = 'fade'; });
-          resolveWord();
-        }
+        // Fade remaining tokens
+        tokens.forEach(tt => { if (tt.state === 'falling') tt.state = 'fade'; });
+        resolveWord(true);
       } else {
-        // Wrong action: clicked the correct spelling
+        // Wrong: clicked a misspelling
         t.state = 'clicked_err';
-        wordHadError = true;
-        errorsGame++;
-        const s = wordStat(activeWord.word);
-        s.streak = 0;
-        s.total_errors++;
-        s.errors.push({ ts: new Date().toISOString(), type: 'clicked_correct', game: 'word_drop' });
-        saveProgress();
-
         // Fade everything and end word
         tokens.forEach(tt => { if (tt.state === 'falling') tt.state = 'fade'; });
-        resolveWord();
+        resolveWord(false);
       }
       break;
     }
@@ -592,19 +614,14 @@ function pill(x, y, w, h, r) {
   ctx.closePath();
 }
 
-function wrapText(text, x, y, maxW, lineH) {
-  ctx.textAlign    = 'left';
-  ctx.textBaseline = 'middle';
-  const words = text.split(' ');
-  let line = '';
-  for (const word of words) {
-    const test = line ? `${line} ${word}` : word;
-    if (ctx.measureText(test).width > maxW && line) {
-      ctx.fillText(line, x, y);
-      y += lineH; line = word;
-    } else { line = test; }
+function truncateText(text, maxW) {
+  ctx.font = 'italic 15px system-ui';
+  if (ctx.measureText(text).width <= maxW) return text;
+  let t = text;
+  while (t.length > 0 && ctx.measureText(t + '…').width > maxW) {
+    t = t.slice(0, -1);
   }
-  if (line) ctx.fillText(line, x, y);
+  return t + '…';
 }
 
 function shuffle(arr) {
