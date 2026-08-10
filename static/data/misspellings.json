@@ -1332,24 +1332,6 @@
     ]
   },
   {
-    "word": "contemporary",
-    "misspellings": [
-      "contempory",
-      "comtemporary",
-      "contemporery",
-      "contemparary"
-    ],
-    "definition": "Living or occurring at the same time, or belonging to the present.",
-    "sentence": "The museum features both classical sculptures and contemporary art installations.",
-    "category": "academic",
-    "difficulty": 2,
-    "sentences": [
-      "The museum features both classical sculptures and contemporary art installations.",
-      "Her taste in furniture leans toward clean, contemporary design.",
-      "Mozart and Haydn were contemporaries who influenced each other's music."
-    ]
-  },
-  {
     "word": "controversial",
     "misspellings": [
       "contraversial",
@@ -1602,24 +1584,6 @@
     ]
   },
   {
-    "word": "extraordinary",
-    "misspellings": [
-      "extrordinary",
-      "extraodinary",
-      "extraordinery",
-      "extroridnary"
-    ],
-    "definition": "Very unusual or remarkable; beyond what is ordinary.",
-    "sentence": "The acrobat performed extraordinary feats that left the audience speechless.",
-    "category": "academic",
-    "difficulty": 2,
-    "sentences": [
-      "The acrobat performed extraordinary feats that left the audience speechless.",
-      "It took an extraordinary effort from every team member to meet the deadline.",
-      "She had the extraordinary ability to remember every face she'd ever seen."
-    ]
-  },
-  {
     "word": "fascinate",
     "misspellings": [
       "facinate",
@@ -1707,24 +1671,6 @@
       "The height of the building made it visible from miles away.",
       "At the height of summer, daylight lasts until nearly ten at night.",
       "She measured the height of each plant and recorded the data daily."
-    ]
-  },
-  {
-    "word": "hierarchy",
-    "misspellings": [
-      "heirarchy",
-      "hierachy",
-      "hiearchy",
-      "hierarcy"
-    ],
-    "definition": "A system in which members are ranked according to status or authority.",
-    "sentence": "In the corporate hierarchy, decisions flow from the top down to each department.",
-    "category": "academic",
-    "difficulty": 2,
-    "sentences": [
-      "In the corporate hierarchy, decisions flow from the top down to each department.",
-      "The company flattened its hierarchy to encourage more open communication.",
-      "Understanding social hierarchy is key to interpreting medieval literature."
     ]
   },
   {
@@ -2067,24 +2013,6 @@
       "All personnel must attend the mandatory safety training next Tuesday.",
       "The company is hiring additional personnel to handle the holiday rush.",
       "Only authorized personnel are allowed beyond this security checkpoint."
-    ]
-  },
-  {
-    "word": "phenomenon",
-    "misspellings": [
-      "phenomonon",
-      "phenomenom",
-      "phenominon",
-      "phenomemon"
-    ],
-    "definition": "A fact or situation that is observed to exist or happen.",
-    "sentence": "The Northern Lights are a natural phenomenon that attracts tourists from around the world.",
-    "category": "academic",
-    "difficulty": 2,
-    "sentences": [
-      "The Northern Lights are a natural phenomenon that attracts tourists from around the world.",
-      "Social media virality is a phenomenon that scientists are still trying to understand.",
-      "Ball lightning remains one of nature's most mysterious phenomena."
     ]
   },
   {
@@ -2952,42 +2880,6 @@
     ]
   },
   {
-    "word": "antecedent",
-    "misspellings": [
-      "antecedant",
-      "antesedent",
-      "antecendent",
-      "antescedent"
-    ],
-    "definition": "A thing or event that existed before or preceded another.",
-    "category": "advanced",
-    "difficulty": 3,
-    "sentence": "Understanding the antecedent of a pronoun is essential for clear writing.",
-    "sentences": [
-      "Understanding the antecedent of a pronoun is essential for clear writing.",
-      "Every pronoun needs a clear antecedent so readers know what it refers to.",
-      "The political unrest was the antecedent to the sweeping reforms that followed."
-    ]
-  },
-  {
-    "word": "archaeological",
-    "misspellings": [
-      "archeological",
-      "archaelogical",
-      "archaeolological",
-      "archealogical"
-    ],
-    "definition": "Relating to the study of human history through excavation of sites.",
-    "sentence": "The archaeological dig uncovered pottery fragments dating back three thousand years.",
-    "category": "advanced",
-    "difficulty": 3,
-    "sentences": [
-      "The archaeological dig uncovered pottery fragments dating back three thousand years.",
-      "The archaeological evidence suggests the city was abandoned suddenly.",
-      "New archaeological techniques allow researchers to date artifacts more precisely."
-    ]
-  },
-  {
     "word": "connoisseur",
     "misspellings": [
       "connoiseur",
@@ -3006,39 +2898,39 @@
     ]
   },
   {
-    "word": "correspondence",
+    "word": "contemporary",
     "misspellings": [
-      "correspondance",
-      "correspodence",
-      "corespondence",
-      "correspondense"
+      "contempory",
+      "comtemporary",
+      "contemporery",
+      "contemparary"
     ],
-    "definition": "Communication by exchanging letters or emails.",
+    "definition": "Living or occurring at the same time, or belonging to the present.",
+    "sentence": "The museum features both classical sculptures and contemporary art installations.",
     "category": "advanced",
     "difficulty": 3,
-    "sentence": "Their correspondence lasted decades, filling boxes with handwritten letters.",
     "sentences": [
-      "Their correspondence lasted decades, filling boxes with handwritten letters.",
-      "The university keeps all official correspondence on file for seven years.",
-      "Their email correspondence eventually filled hundreds of pages when printed."
+      "The museum features both classical sculptures and contemporary art installations.",
+      "Her taste in furniture leans toward clean, contemporary design.",
+      "Mozart and Haydn were contemporaries who influenced each other's music."
     ]
   },
   {
-    "word": "entrepreneur",
+    "word": "extraordinary",
     "misspellings": [
-      "entrepeneur",
-      "entreprener",
-      "entreprenuer",
-      "enterpreuner"
+      "extrordinary",
+      "extraodinary",
+      "extraordinery",
+      "extroridnary"
     ],
-    "definition": "A person who organizes and operates a business, taking on financial risk.",
-    "sentence": "The young entrepreneur launched her startup from a tiny garage apartment.",
+    "definition": "Very unusual or remarkable; beyond what is ordinary.",
+    "sentence": "The acrobat performed extraordinary feats that left the audience speechless.",
     "category": "advanced",
     "difficulty": 3,
     "sentences": [
-      "The young entrepreneur launched her startup from a tiny garage apartment.",
-      "Every entrepreneur knows that failure is simply a stepping stone to success.",
-      "She became an entrepreneur at twenty-two, launching a sustainable fashion brand."
+      "The acrobat performed extraordinary feats that left the audience speechless.",
+      "It took an extraordinary effort from every team member to meet the deadline.",
+      "She had the extraordinary ability to remember every face she'd ever seen."
     ]
   },
   {
@@ -3057,6 +2949,24 @@
       "The sunset painted the sky in fiery shades of orange and crimson.",
       "The fiery debate between the candidates kept the audience glued to their seats.",
       "She was known for her fiery temper but also her generous heart."
+    ]
+  },
+  {
+    "word": "hierarchy",
+    "misspellings": [
+      "heirarchy",
+      "hierachy",
+      "hiearchy",
+      "hierarcy"
+    ],
+    "definition": "A system in which members are ranked according to status or authority.",
+    "sentence": "In the corporate hierarchy, decisions flow from the top down to each department.",
+    "category": "advanced",
+    "difficulty": 3,
+    "sentences": [
+      "In the corporate hierarchy, decisions flow from the top down to each department.",
+      "The company flattened its hierarchy to encourage more open communication.",
+      "Understanding social hierarchy is key to interpreting medieval literature."
     ]
   },
   {
@@ -3132,24 +3042,6 @@
     ]
   },
   {
-    "word": "lieutenant",
-    "misspellings": [
-      "leutenant",
-      "lieutenent",
-      "liutenant",
-      "leautenant"
-    ],
-    "definition": "A military officer of middle rank, or a deputy.",
-    "sentence": "The lieutenant received orders to lead the platoon across the river at dawn.",
-    "category": "advanced",
-    "difficulty": 3,
-    "sentences": [
-      "The lieutenant received orders to lead the platoon across the river at dawn.",
-      "The lieutenant organized the supply chain with remarkable efficiency.",
-      "He served as a lieutenant in the navy for six years before returning to civilian life."
-    ]
-  },
-  {
     "word": "loneliness",
     "misspellings": [
       "lonliness",
@@ -3219,24 +3111,6 @@
       "She collected miniature houses and arranged them into a tiny village.",
       "The artist spent months painting an incredibly detailed miniature landscape.",
       "He built a miniature replica of the Eiffel Tower using only matchsticks."
-    ]
-  },
-  {
-    "word": "miscellaneous",
-    "misspellings": [
-      "miscelaneous",
-      "miscellanious",
-      "miscellanous",
-      "miscellaneos"
-    ],
-    "definition": "Of various types or from various sources; a mixed group.",
-    "sentence": "The drawer was full of miscellaneous items: batteries, tape, old receipts, and paper clips.",
-    "category": "advanced",
-    "difficulty": 3,
-    "sentences": [
-      "The drawer was full of miscellaneous items: batteries, tape, old receipts, and paper clips.",
-      "There's a miscellaneous charge on the bill that I'd like explained.",
-      "The box labeled 'miscellaneous' contained everything from old photos to broken watches."
     ]
   },
   {
@@ -3312,6 +3186,24 @@
     ]
   },
   {
+    "word": "phenomenon",
+    "misspellings": [
+      "phenomonon",
+      "phenomenom",
+      "phenominon",
+      "phenomemon"
+    ],
+    "definition": "A fact or situation that is observed to exist or happen.",
+    "sentence": "The Northern Lights are a natural phenomenon that attracts tourists from around the world.",
+    "category": "advanced",
+    "difficulty": 3,
+    "sentences": [
+      "The Northern Lights are a natural phenomenon that attracts tourists from around the world.",
+      "Social media virality is a phenomenon that scientists are still trying to understand.",
+      "Ball lightning remains one of nature's most mysterious phenomena."
+    ]
+  },
+  {
     "word": "pneumonia",
     "misspellings": [
       "pnuemonia",
@@ -3363,24 +3255,6 @@
       "Months of preparation went into planning the school's anniversary celebration.",
       "Good preparation is the key to delivering a confident presentation.",
       "The chef spent hours on preparation before the restaurant opened each evening."
-    ]
-  },
-  {
-    "word": "prerequisite",
-    "misspellings": [
-      "perquisite",
-      "prerequiste",
-      "prerequsite",
-      "prerequisit"
-    ],
-    "definition": "A thing that is required as a prior condition for something else.",
-    "sentence": "Calculus is a prerequisite for the advanced physics course.",
-    "category": "advanced",
-    "difficulty": 3,
-    "sentences": [
-      "Calculus is a prerequisite for the advanced physics course.",
-      "Passing the written test is a prerequisite for the practical driving exam.",
-      "Patience is a prerequisite for anyone working with young children."
     ]
   },
   {
@@ -3564,6 +3438,42 @@
     ]
   },
   {
+    "word": "antecedent",
+    "misspellings": [
+      "antecedant",
+      "antesedent",
+      "antecendent",
+      "antescedent"
+    ],
+    "definition": "A thing or event that existed before or preceded another.",
+    "category": "expert",
+    "difficulty": 4,
+    "sentence": "Understanding the antecedent of a pronoun is essential for clear writing.",
+    "sentences": [
+      "Understanding the antecedent of a pronoun is essential for clear writing.",
+      "Every pronoun needs a clear antecedent so readers know what it refers to.",
+      "The political unrest was the antecedent to the sweeping reforms that followed."
+    ]
+  },
+  {
+    "word": "archaeological",
+    "misspellings": [
+      "archeological",
+      "archaelogical",
+      "archaeolological",
+      "archealogical"
+    ],
+    "definition": "Relating to the study of human history through excavation of sites.",
+    "sentence": "The archaeological dig uncovered pottery fragments dating back three thousand years.",
+    "category": "expert",
+    "difficulty": 4,
+    "sentences": [
+      "The archaeological dig uncovered pottery fragments dating back three thousand years.",
+      "The archaeological evidence suggests the city was abandoned suddenly.",
+      "New archaeological techniques allow researchers to date artifacts more precisely."
+    ]
+  },
+  {
     "word": "asphyxiate",
     "misspellings": [
       "asphixiate",
@@ -3652,6 +3562,24 @@
     ]
   },
   {
+    "word": "correspondence",
+    "misspellings": [
+      "correspondance",
+      "correspodence",
+      "corespondence",
+      "correspondense"
+    ],
+    "definition": "Communication by exchanging letters or emails.",
+    "category": "expert",
+    "difficulty": 4,
+    "sentence": "Their correspondence lasted decades, filling boxes with handwritten letters.",
+    "sentences": [
+      "Their correspondence lasted decades, filling boxes with handwritten letters.",
+      "The university keeps all official correspondence on file for seven years.",
+      "Their email correspondence eventually filled hundreds of pages when printed."
+    ]
+  },
+  {
     "word": "desiccate",
     "misspellings": [
       "dessicate",
@@ -3684,6 +3612,24 @@
     ],
     "category": "expert",
     "difficulty": 4
+  },
+  {
+    "word": "entrepreneur",
+    "misspellings": [
+      "entrepeneur",
+      "entreprener",
+      "entreprenuer",
+      "enterpreuner"
+    ],
+    "definition": "A person who organizes and operates a business, taking on financial risk.",
+    "sentence": "The young entrepreneur launched her startup from a tiny garage apartment.",
+    "category": "expert",
+    "difficulty": 4,
+    "sentences": [
+      "The young entrepreneur launched her startup from a tiny garage apartment.",
+      "Every entrepreneur knows that failure is simply a stepping stone to success.",
+      "She became an entrepreneur at twenty-two, launching a sustainable fashion brand."
+    ]
   },
   {
     "word": "hemorrhage",
@@ -3722,6 +3668,24 @@
     ]
   },
   {
+    "word": "lieutenant",
+    "misspellings": [
+      "leutenant",
+      "lieutenent",
+      "liutenant",
+      "leautenant"
+    ],
+    "definition": "A military officer of middle rank, or a deputy.",
+    "sentence": "The lieutenant received orders to lead the platoon across the river at dawn.",
+    "category": "expert",
+    "difficulty": 4,
+    "sentences": [
+      "The lieutenant received orders to lead the platoon across the river at dawn.",
+      "The lieutenant organized the supply chain with remarkable efficiency.",
+      "He served as a lieutenant in the navy for six years before returning to civilian life."
+    ]
+  },
+  {
     "word": "manoeuvre",
     "misspellings": [
       "manouevre",
@@ -3755,6 +3719,24 @@
     ],
     "category": "expert",
     "difficulty": 4
+  },
+  {
+    "word": "miscellaneous",
+    "misspellings": [
+      "miscelaneous",
+      "miscellanious",
+      "miscellanous",
+      "miscellaneos"
+    ],
+    "definition": "Of various types or from various sources; a mixed group.",
+    "sentence": "The drawer was full of miscellaneous items: batteries, tape, old receipts, and paper clips.",
+    "category": "expert",
+    "difficulty": 4,
+    "sentences": [
+      "The drawer was full of miscellaneous items: batteries, tape, old receipts, and paper clips.",
+      "There's a miscellaneous charge on the bill that I'd like explained.",
+      "The box labeled 'miscellaneous' contained everything from old photos to broken watches."
+    ]
   },
   {
     "word": "mnemonic",
@@ -3842,6 +3824,24 @@
       "The pharmaceutical company invested billions in developing the new vaccine.",
       "The pharmaceutical industry spends billions on research and development each year.",
       "New pharmaceutical regulations require more rigorous testing before approval."
+    ]
+  },
+  {
+    "word": "prerequisite",
+    "misspellings": [
+      "perquisite",
+      "prerequiste",
+      "prerequsite",
+      "prerequisit"
+    ],
+    "definition": "A thing that is required as a prior condition for something else.",
+    "sentence": "Calculus is a prerequisite for the advanced physics course.",
+    "category": "expert",
+    "difficulty": 4,
+    "sentences": [
+      "Calculus is a prerequisite for the advanced physics course.",
+      "Passing the written test is a prerequisite for the practical driving exam.",
+      "Patience is a prerequisite for anyone working with young children."
     ]
   },
   {
