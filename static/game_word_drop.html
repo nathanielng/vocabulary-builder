@@ -98,8 +98,8 @@ const WORDS_PER_PHASE = 10;
 const GRAD_STREAK     = 3;    // consecutive correct answers to graduate a word
 const REVIEW_STREAK   = 1;    // correct answers needed to re-confirm mastery
 const COOLDOWN_DAYS   = 30;   // days before a graduated word can reappear
-const TOKEN_FONT      = 'bold 17px monospace';
-const TOKEN_H         = 38;
+const TOKEN_FONT      = 'bold 20px monospace';
+const TOKEN_H         = 44;
 const TOKEN_PAD_X     = 14;
 const BASE_SPEED      = 1.26; // px per frame at phase 1
 const SPEED_INC       = 0.18; // extra px per phase
@@ -510,6 +510,7 @@ function showPhaseSelect() {
       </p>
       <div style="margin-top:1.2rem;">
         <button class="btn" onclick="showStats()" style="font-size:0.85rem;padding:0.5rem 1.2rem;">📊 Stats</button>
+        <button class="btn" onclick="showConstellation()" style="font-size:0.85rem;padding:0.5rem 1.2rem;margin-left:0.5rem;">✦ Collection</button>
         <button class="btn" onclick="startReview()" style="font-size:0.85rem;padding:0.5rem 1.2rem;margin-left:0.5rem;" id="review-btn">📝 Review</button>
       </div>
     </div>
@@ -674,6 +675,86 @@ function showStats() {
         <div style="line-height:2;">${badgesHtml}</div>
       </div>
       <div class="btn-row">
+        <button class="btn" onclick="showPhaseSelect()">← Back</button>
+      </div>
+    </div>
+  `);
+}
+
+// ── Word Constellation ────────────────────────────────────────────────────────
+function showConstellation() {
+  const stats = wd().word_stats || {};
+  const mastered = allWords.filter(w => stats[w.word] && stats[w.word].graduated);
+
+  // Group mastered words
+  const groups = [
+    { name: 'Everyday', color: '#44cc88', bg: '#0a2a1a', border: '#1a4a2a', words: [] },
+    { name: 'Intermediate', color: '#4488cc', bg: '#0a1a2a', border: '#1a2a4a', words: [] },
+    { name: 'Confusable', color: '#ff8844', bg: '#2a1a0a', border: '#4a2a1a', words: [] },
+    { name: 'Advanced', color: '#cc44cc', bg: '#1a0a2a', border: '#3a1a4a', words: [] },
+    { name: 'Expert', color: '#ff4488', bg: '#2a0a1a', border: '#4a1a2a', words: [] },
+  ];
+
+  const confusablePairWords = new Set([
+    'accept','except','affect','effect','allusion','illusion',
+    'complement','compliment','council','counsel','desert','dessert',
+    'discrete','discreet','elicit','illicit','emigrate','immigrate',
+    'ensure','insure','loose','lose','practice','practise',
+    'principal','principle','stationary','stationery','than','then'
+  ]);
+
+  mastered.forEach(w => {
+    if (confusablePairWords.has(w.word)) groups[2].words.push(w);
+    else if (w.difficulty === 1) groups[0].words.push(w);
+    else if (w.difficulty === 4) groups[4].words.push(w);
+    else if (w.difficulty === 3) groups[3].words.push(w);
+    else groups[1].words.push(w);
+  });
+
+  const totalMastered = mastered.length;
+  const totalWords = allWords.length;
+
+  // Build star HTML for each group
+  const groupsHtml = groups.map(g => {
+    if (g.words.length === 0 && totalMastered === 0) {
+      return `<div style="margin-bottom:1.5rem;">
+        <div style="color:${g.color};font-size:0.75rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:0.5rem;">${g.name} <span style="color:#556677">(0)</span></div>
+        <div style="color:#334455;font-size:0.85rem;font-style:italic;">No stars yet...</div>
+      </div>`;
+    }
+    if (g.words.length === 0) return '';
+
+    const starsHtml = g.words.map(w => {
+      const s = stats[w.word];
+      // Brighter stars for longer mastery (more confident)
+      const daysSince = s.graduated_date
+        ? Math.floor((Date.now() - new Date(s.graduated_date).getTime()) / 86400000)
+        : 0;
+      const brightness = Math.min(1, 0.6 + daysSince * 0.02);
+      const size = w.difficulty >= 3 ? '1.1rem' : '0.9rem';
+      return `<span class="star-word" style="display:inline-block;background:${g.bg};border:1px solid ${g.border};border-radius:8px;padding:0.25rem 0.6rem;margin:0.2rem;font-size:${size};color:${g.color};opacity:${brightness};cursor:default;" title="${w.definition}">✦ ${w.word}</span>`;
+    }).join('');
+
+    return `<div style="margin-bottom:1.5rem;">
+      <div style="color:${g.color};font-size:0.75rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:0.5rem;">${g.name} <span style="color:#556677">(${g.words.length})</span></div>
+      <div style="line-height:2.2;">${starsHtml}</div>
+    </div>`;
+  }).join('');
+
+  // Progress bar
+  const pct = totalWords > 0 ? Math.round((totalMastered / totalWords) * 100) : 0;
+  const progressBar = `<div style="background:#111;border-radius:8px;height:8px;width:100%;margin:0.8rem 0 1.5rem;overflow:hidden;">
+    <div style="background:linear-gradient(90deg, #44cc88, #4488cc, #cc44cc, #ff4488);height:100%;width:${pct}%;transition:width 0.5s;"></div>
+  </div>`;
+
+  showOverlay(`
+    <div class="screen" style="max-height:80vh;overflow-y:auto;">
+      <h1>✦ Word Constellation</h1>
+      <div style="color:#aabbcc;font-size:0.9rem;margin-bottom:0.5rem;">${totalMastered} of ${totalWords} words mastered (${pct}%)</div>
+      ${progressBar}
+      ${groupsHtml}
+      ${totalMastered === 0 ? '<div style="color:#556677;font-size:0.9rem;margin:2rem 0;">Master words by getting them correct 3 times in a row.<br>Each mastered word lights up as a star here!</div>' : ''}
+      <div class="btn-row" style="margin-top:1.5rem;">
         <button class="btn" onclick="showPhaseSelect()">← Back</button>
       </div>
     </div>
