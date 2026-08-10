@@ -43,6 +43,7 @@ Key design goals:
 - AI-generated misspellings and definitions (4 misspellings per word)
 - Phase-based progression with 10 words per phase
 - Graduated learning: words require 3 correct answers in a row to be "mastered"
+- Spaced repetition: mastered words return after 30 days for a quick review (1 correct re-confirms, wrong fully resets)
 - Review pool: words answered incorrectly in earlier phases reappear in later phases
 - Pet companion with a reward system in the Spelling Correction game — pick a pet, then earn treats (5 correct in a row) and accessories (every 10 correct)
 - Persistent progress saved automatically between sessions
@@ -142,20 +143,26 @@ Open your browser to `http://localhost:8080` — it will redirect to the Word Dr
 
 ### Word Drop
 
-An arcade-style game where misspelled versions of words fall from the top of the screen.
+An arcade-style game where words fall from the top of the screen — pick the correctly spelled one.
 
 **How to play:**
 
-1. Misspelled words appear as tokens falling from the top.
-2. Click the misspelled version of the word shown in the prompt — avoid clicking the correct spelling.
-3. A word is **graduated** (mastered) after you click its misspelling correctly 3 times in a row. Graduated words display a graduation cap and stop appearing.
-4. Words you miss or click incorrectly are added to a review pool and reappear in later phases.
-5. Complete a phase by graduating all words in it.
+1. Five tokens fall from the top: one correctly spelled word and four misspellings.
+2. Click the **correctly spelled** word before it falls off the screen.
+3. All tokens look identical — you must recognize the correct spelling from the definition hint shown at the top.
+4. A word is **mastered** after you pick it correctly 3 times in a row. Mastered words stop appearing.
+5. Words you miss or pick incorrectly are added to a review pool and reappear in later phases.
+
+**Spaced repetition:**
+- Mastered words return after **30 days** for review
+- In review mode, only **1 correct** answer re-confirms mastery (resets the 30-day clock)
+- Getting it wrong on review **fully resets** the word — it needs 3 correct again
 
 **Mechanics:**
 - 10 words per phase
 - Speed increases with each phase (starts at 1.4 px/frame, +0.18 per phase)
 - Words from earlier phases that had errors become "review words" in subsequent phases
+- Spaced-review words are mixed into whatever phase you play once eligible
 
 ---
 
@@ -243,7 +250,9 @@ Most configuration is done by editing constants at the top of the relevant files
 | Constant | Default | Description |
 |----------|---------|-------------|
 | `WORDS_PER_PHASE` | `10` | Words introduced per phase |
-| `GRAD_STREAK` | `3` | Consecutive correct clicks to graduate a word |
+| `GRAD_STREAK` | `3` | Consecutive correct picks to master a word |
+| `REVIEW_STREAK` | `1` | Correct picks needed to re-confirm mastery on review |
+| `COOLDOWN_DAYS` | `30` | Days before a mastered word reappears for review |
 | `BASE_SPEED` | `1.4` | Falling speed in px/frame at phase 1 |
 | `SPEED_INC` | `0.18` | Speed increase per additional phase |
 
@@ -277,8 +286,10 @@ Progress is stored in `data/progress.json` and updated automatically as you play
         "streak": 3,
         "total_errors": 1,
         "graduated": true,
+        "graduated_date": "2026-06-14T10:00:00.000Z",
+        "review_mode": false,
         "errors": [
-          { "ts": "2026-06-14T10:00:00.000Z", "typed": "Acummulation", "game": "word_drop" }
+          { "ts": "2026-06-14T09:55:00.000Z", "type": "missed", "game": "word_drop" }
         ]
       }
     }
@@ -290,7 +301,9 @@ Progress is stored in `data/progress.json` and updated automatically as you play
         "streak": 0,
         "total_errors": 2,
         "graduated": false,
-        "errors": []
+        "errors": [
+          { "ts": "2026-06-15T08:00:00.000Z", "typed": "Assend", "game": "spelling" }
+        ]
       }
     }
   },
@@ -300,7 +313,15 @@ Progress is stored in `data/progress.json` and updated automatically as you play
 }
 ```
 
-Each entry in a word's `errors` array records the timestamp (`ts`), what the player `typed`, and which `game` the error occurred in. `selectedPet`, `petFood`, and `petAccessories` are written by the Spelling game; the Word Drop game preserves them when it saves.
+**Word Drop `word_stats` fields:**
+- `streak` — consecutive correct picks (resets to 0 on error)
+- `total_errors` — lifetime error count
+- `graduated` — `true` when the word is mastered
+- `graduated_date` — ISO timestamp of when mastery was achieved (used for spaced repetition cooldown)
+- `review_mode` — `true` when the word has returned after the 30-day cooldown
+- `errors` — array of error records with `ts`, `type` (`missed` or `clicked_wrong`), and `game`
+
+**Spelling `word_stats` fields** use the same structure but errors record `typed` (what the player entered) instead of `type`.
 
 To reset progress for both games, delete `data/progress.json`:
 
