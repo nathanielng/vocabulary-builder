@@ -265,33 +265,43 @@ function phaseState(p) {
 function buildWordQueue(phase) {
   const start = phase * WORDS_PER_PHASE;
   const end   = Math.min(start + WORDS_PER_PHASE, allWords.length);
+  // Only this phase's words, excluding already graduated
   const fresh = allWords.slice(start, end).filter(w => {
     const s = wd().word_stats[w.word];
-    // Include if never seen or not graduated
     return !s || !s.graduated;
   });
 
-  // Review: ungraduated words from earlier phases that had errors
-  const review = allWords.slice(0, start).filter(w => {
-    const s = wd().word_stats[w.word];
-    return s && s.total_errors > 0 && !s.graduated;
-  });
-
-  // Spaced repetition: graduated words past their cooldown period
+  // Spaced repetition: graduated words past their cooldown period (mix a few in)
   const spacedReview = allWords.filter(w => {
     const s = wd().word_stats[w.word];
     return s && isEligibleForReview(s);
-  });
+  }).slice(0, 3);  // max 3 spaced review words per phase session
 
-  // Mark spaced review words so we know they only need 1 correct
   spacedReview.forEach(w => {
     const s = wordStat(w.word);
     s.review_mode = true;
   });
 
-  const combined = [...fresh, ...review, ...spacedReview];
+  const combined = [...fresh, ...spacedReview];
   shuffle(combined);
   return combined;
+}
+
+// Build a review-only queue: ungraduated words with errors, capped at 10
+function buildReviewQueue() {
+  const review = allWords.filter(w => {
+    const s = wd().word_stats[w.word];
+    return s && s.total_errors > 0 && !s.graduated;
+  });
+  shuffle(review);
+  return review.slice(0, 10);
+}
+
+function getReviewCount() {
+  return allWords.filter(w => {
+    const s = wd().word_stats[w.word];
+    return s && s.total_errors > 0 && !s.graduated;
+  }).length;
 }
 
 // ── UI helpers ────────────────────────────────────────────────────────────────
@@ -488,6 +498,7 @@ function showPhaseSelect() {
       </p>
       <div style="margin-top:1.2rem;">
         <button class="btn" onclick="showStats()" style="font-size:0.85rem;padding:0.5rem 1.2rem;">📊 Stats</button>
+        <button class="btn" onclick="startReview()" style="font-size:0.85rem;padding:0.5rem 1.2rem;margin-left:0.5rem;" id="review-btn">📝 Review</button>
       </div>
     </div>
   `);
@@ -504,6 +515,15 @@ function showPhaseSelect() {
       document.getElementById('phase-words').textContent = '';
     });
   });
+
+  // Update review button with count (minimum 3 words to enable)
+  const reviewCount = getReviewCount();
+  const reviewBtn = document.getElementById('review-btn');
+  if (reviewBtn) {
+    reviewBtn.textContent = reviewCount > 0 ? `📝 Review (${reviewCount})` : '📝 Review';
+    reviewBtn.disabled = reviewCount < 3;
+    if (reviewCount < 3) reviewBtn.style.opacity = '0.4';
+  }
 }
 
 // ── Results screen ────────────────────────────────────────────────────────────
@@ -513,14 +533,15 @@ function showResults(phase, results) {
   const timed = results.filter(r => r.reason === 'timeout').length;
   const tot = results.length;
 
-  // Save best score for this phase
+  // Save best score for this phase (skip for review mode)
   if (!wd().best_scores) wd().best_scores = {};
-  const prev = wd().best_scores[phase] || 0;
-  const isNewBest = ok > prev;
+  const isReviewMode = phase === -1;
+  const prev = isReviewMode ? 0 : (wd().best_scores[phase] || 0);
+  const isNewBest = !isReviewMode && ok > prev;
   if (isNewBest) wd().best_scores[phase] = ok;
 
-  // Unlock next phase if all words were seen at least once
-  if (phase === wd().current_phase && phase + 1 < numPhases()) {
+  // Unlock next phase if all words were seen at least once (skip for review)
+  if (!isReviewMode && phase === wd().current_phase && phase + 1 < numPhases()) {
     wd().current_phase = phase + 1;
   }
 
@@ -529,7 +550,7 @@ function showResults(phase, results) {
   saveProgress();
 
   const bestTag = isNewBest ? `<span style="color:#ffcc44;font-size:0.85rem;"> ★ New Best!</span>` : '';
-  const prevBest = prev > 0 ? `<div class="stat"><div class="val" style="color:#ffcc44">★${wd().best_scores[phase]}</div><div class="lbl">Best</div></div>` : '';
+  const prevBest = (!isReviewMode && prev > 0) ? `<div class="stat"><div class="val" style="color:#ffcc44">★${wd().best_scores[phase]}</div><div class="lbl">Best</div></div>` : '';
 
   const items = results.map(r => {
     const s    = wordStat(r.word.word);
@@ -540,12 +561,17 @@ function showResults(phase, results) {
     </div>`;
   }).join('');
 
-  const nextBtn = phase + 1 < numPhases()
+  const nextBtn = (!isReviewMode && phase + 1 < numPhases())
     ? `<button class="btn primary" onclick="startPhase(${phase + 1})">Next Phase →</button>` : '';
+  const replayBtn = isReviewMode
+    ? `<button class="btn" onclick="startReview()">Review Again</button>`
+    : `<button class="btn" onclick="startPhase(${phase})">Replay</button>`;
+
+  const title = isReviewMode ? 'Review Complete' : `Phase ${phase + 1} Done${bestTag}`;
 
   showOverlay(`
     <div class="screen">
-      <h1>Phase ${phase + 1} Done${bestTag}</h1>
+      <h1>${title}</h1>
       <div class="stats-row">
         <div class="stat"><div class="val">${ok}</div><div class="lbl">Correct</div></div>
         <div class="stat"><div class="val" style="color:#ee4444">${wrong}</div><div class="lbl">Wrong</div></div>
@@ -555,7 +581,7 @@ function showResults(phase, results) {
       </div>
       <div class="results-grid">${items}</div>
       <div class="btn-row">
-        <button class="btn" onclick="startPhase(${phase})">Replay</button>
+        ${replayBtn}
         ${nextBtn}
         <button class="btn" onclick="showPhaseSelect()">Phases</button>
       </div>
@@ -660,6 +686,34 @@ let paused         = false;
 let sentenceCard   = null;  // { word, sentence, success, waiting: true }
 let waitingForSpawn = false;  // true during the delay before tokens appear
 
+// ── Start review session ──────────────────────────────────────────────────────
+function startReview() {
+  const queue = buildReviewQueue();
+  if (queue.length < 3) return;
+
+  currentPhase  = -1;  // -1 indicates review mode
+  score         = 0;
+  wrongClicks   = 0;
+  timeouts      = 0;
+  phaseResults  = [];
+  wordQueue     = queue;
+  tokens        = [];
+  activeWord    = null;
+  wordResolved  = false;
+  sentenceCard  = null;
+  pendingBadge  = null;
+  waitingForSpawn = false;
+
+  hideOverlay();
+
+  if (!gameRunning) {
+    gameRunning = true;
+    animId = requestAnimationFrame(gameLoop);
+  }
+
+  setTimeout(nextWord, 600);
+}
+
 // ── Start phase ───────────────────────────────────────────────────────────────
 function startPhase(phase) {
   currentPhase  = phase;
@@ -734,7 +788,7 @@ function spawnTokens(wordData) {
       text,
       isCorrect: text === wordData.word,
       x: Math.max(tw / 2 + 10, Math.min(canvas.width - tw / 2 - 10, cx + jitter)),
-      y: startY + Math.random() * 20,
+      y: startY - i * 60,
       w: tw,
       h: TOKEN_H,
       speed: speed + (Math.random() - 0.5) * 0.3,
@@ -953,7 +1007,7 @@ function drawHUD() {
 
   ctx.fillStyle = '#4488cc';
   ctx.textAlign = 'left';
-  ctx.fillText(`Phase ${currentPhase + 1}`, 18, headerH / 2);
+  ctx.fillText(currentPhase === -1 ? 'Review' : `Phase ${currentPhase + 1}`, 18, headerH / 2);
 
   ctx.fillStyle = '#44cc44';
   ctx.textAlign = 'center';
