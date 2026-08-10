@@ -109,6 +109,23 @@ const SPEED_OPTIONS   = [
 ];
 let speedMultiplier   = 1.0;  // current speed setting
 
+// ── Badge system ──────────────────────────────────────────────────────────────
+const BADGES = [
+  { id: 'first_steps',    emoji: '🌟', name: 'First Steps',          desc: 'Complete your first phase' },
+  { id: 'on_fire',        emoji: '🔥', name: 'On Fire',              desc: 'Get 10 words correct in a row' },
+  { id: 'perfect_phase',  emoji: '💯', name: 'Perfect Phase',        desc: 'Score 10/10 on any phase' },
+  { id: 'scholar',        emoji: '🎓', name: 'Scholar',              desc: 'Master 50 words' },
+  { id: 'word_master',    emoji: '🏆', name: 'Word Master',          desc: 'Master 100 words' },
+  { id: 'lexicon_legend', emoji: '📚', name: 'Lexicon Legend',       desc: 'Master all words' },
+  { id: 'speed_demon',    emoji: '⚡', name: 'Speed Demon',          desc: 'Score 8+ on Advanced speed' },
+  { id: 'confusable_ace', emoji: '🧠', name: 'Confusable Conqueror', desc: 'Master all confusable words' },
+  { id: 'consistent',     emoji: '📅', name: 'Consistent',           desc: 'Play 7 days in a row' },
+  { id: 'reviewer',       emoji: '🔄', name: 'Reviewer',             desc: 'Re-confirm 10 words in review' },
+];
+
+let pendingBadge = null;  // badge to show as notification
+let consecutiveCorrect = 0;  // track streak across words in a session
+
 // ── Sound system ──────────────────────────────────────────────────────────────
 let soundEnabled = true;
 let audioCtx = null;
@@ -304,6 +321,119 @@ function toggleSound() {
   showPhaseSelect();
 }
 
+// ── Badge system logic ────────────────────────────────────────────────────────
+function earnedBadges() {
+  return wd().badges || [];
+}
+
+function hasBadge(id) {
+  return earnedBadges().includes(id);
+}
+
+function awardBadge(id) {
+  if (hasBadge(id)) return;
+  if (!wd().badges) wd().badges = [];
+  wd().badges.push(id);
+  wd().badge_dates = wd().badge_dates || {};
+  wd().badge_dates[id] = new Date().toISOString();
+  saveProgress();
+  pendingBadge = BADGES.find(b => b.id === id);
+}
+
+function checkBadges(phaseResults, phase) {
+  const stats = wd().word_stats || {};
+  const mastered = Object.values(stats).filter(s => s.graduated).length;
+  const ok = phaseResults.filter(r => r.success).length;
+
+  // First Steps: complete any phase
+  if (phaseResults.length > 0) awardBadge('first_steps');
+
+  // Perfect Phase: 10/10
+  if (ok === 10 && phaseResults.length === 10) awardBadge('perfect_phase');
+
+  // On Fire: 10 consecutive correct (tracked via consecutiveCorrect)
+  // (checked per-word in resolveWord)
+
+  // Scholar: 50 mastered
+  if (mastered >= 50) awardBadge('scholar');
+
+  // Word Master: 100 mastered
+  if (mastered >= 100) awardBadge('word_master');
+
+  // Lexicon Legend: all mastered
+  if (mastered >= allWords.length) awardBadge('lexicon_legend');
+
+  // Speed Demon: 8+ correct on Advanced (1.2x)
+  if (speedMultiplier >= 1.2 && ok >= 8) awardBadge('speed_demon');
+
+  // Confusable Conqueror: all confusable words mastered
+  const confusables = allWords.filter(w => w.category === 'confusable');
+  const confMastered = confusables.every(w => stats[w.word] && stats[w.word].graduated);
+  if (confusables.length > 0 && confMastered) awardBadge('confusable_ace');
+
+  // Consistent: 7 days in a row (track play dates)
+  recordPlayDate();
+  if (getConsecutiveDays() >= 7) awardBadge('consistent');
+
+  // Reviewer: 10 words re-confirmed in review
+  const reviewCount = Object.values(stats).filter(s => s.graduated && s.review_mode === false && s.graduated_date).length;
+  // Simpler: count words that have been graduated more than once (re-confirmed)
+  // We'll track this separately
+  const reconfirmed = wd().reconfirmed || 0;
+  if (reconfirmed >= 10) awardBadge('reviewer');
+}
+
+function recordPlayDate() {
+  if (!wd().play_dates) wd().play_dates = [];
+  const today = new Date().toISOString().split('T')[0];
+  const dates = wd().play_dates;
+  if (dates[dates.length - 1] !== today) {
+    dates.push(today);
+    // Keep last 30 days only
+    if (dates.length > 30) dates.splice(0, dates.length - 30);
+  }
+}
+
+function getConsecutiveDays() {
+  const dates = wd().play_dates || [];
+  if (dates.length === 0) return 0;
+  let streak = 1;
+  for (let i = dates.length - 1; i > 0; i--) {
+    const curr = new Date(dates[i]);
+    const prev = new Date(dates[i - 1]);
+    const diff = (curr - prev) / (1000 * 60 * 60 * 24);
+    if (diff === 1) streak++;
+    else break;
+  }
+  return streak;
+}
+
+function drawBadgeNotification() {
+  if (!pendingBadge) return;
+  const W = canvas.width, H = canvas.height;
+  const nw = 320, nh = 100;
+  const nx = (W - nw) / 2, ny = 80;
+
+  ctx.fillStyle = 'rgba(10, 20, 50, 0.95)';
+  ctx.strokeStyle = '#ffcc44';
+  ctx.lineWidth = 2;
+  ctx.fillRect(nx, ny, nw, nh);
+  ctx.strokeRect(nx, ny, nw, nh);
+
+  ctx.textAlign = 'center';
+  ctx.textBaseline = 'middle';
+  ctx.font = 'bold 14px system-ui';
+  ctx.fillStyle = '#ffcc44';
+  ctx.fillText('🏅 Badge Earned!', W / 2, ny + 24);
+
+  ctx.font = '24px system-ui';
+  ctx.fillText(`${pendingBadge.emoji} ${pendingBadge.name}`, W / 2, ny + 55);
+
+  ctx.font = '11px system-ui';
+  ctx.fillStyle = '#8899aa';
+  ctx.fillText(pendingBadge.desc, W / 2, ny + 82);
+}
+
 // ── Phase select screen ───────────────────────────────────────────────────────
 function showPhaseSelect() {
   const np = numPhases();
@@ -393,6 +523,9 @@ function showResults(phase, results) {
   if (phase === wd().current_phase && phase + 1 < numPhases()) {
     wd().current_phase = phase + 1;
   }
+
+  // Check for badge achievements
+  checkBadges(results, phase);
   saveProgress();
 
   const bestTag = isNewBest ? `<span style="color:#ffcc44;font-size:0.85rem;"> ★ New Best!</span>` : '';
@@ -471,6 +604,16 @@ function showStats() {
     ? topStreaks.map(w => `<span style="display:inline-block;background:#0a2a0a;border:1px solid #2a6a2a;border-radius:6px;padding:0.2rem 0.6rem;margin:0.2rem;font-size:0.82rem;color:#88ee88;">${w} (${stats[w].streak})</span>`).join('')
     : '<span style="color:#556677;">No active streaks</span>';
 
+  // Badges
+  const earned = earnedBadges();
+  const badgesHtml = BADGES.map(b => {
+    const unlocked = earned.includes(b.id);
+    const style = unlocked
+      ? 'background:#1a2a10;border:1px solid #4a8a2a;color:#88ee88'
+      : 'background:#111;border:1px solid #222;color:#333';
+    return `<span style="display:inline-block;border-radius:8px;padding:0.3rem 0.7rem;margin:0.2rem;font-size:0.82rem;${style};" title="${b.desc}">${b.emoji} ${b.name}</span>`;
+  }).join('');
+
   showOverlay(`
     <div class="screen">
       <h1>📊 Stats</h1>
@@ -487,6 +630,10 @@ function showStats() {
       <div style="text-align:left;margin-bottom:1.5rem;">
         <div style="color:#66cc66;font-size:0.8rem;font-weight:700;letter-spacing:1px;margin-bottom:0.5rem;">TOP STREAKS</div>
         <div style="line-height:2;">${streakHtml}</div>
+      </div>
+      <div style="text-align:left;margin-bottom:1.5rem;">
+        <div style="color:#ffcc44;font-size:0.8rem;font-weight:700;letter-spacing:1px;margin-bottom:0.5rem;">BADGES (${earned.length}/${BADGES.length})</div>
+        <div style="line-height:2;">${badgesHtml}</div>
       </div>
       <div class="btn-row">
         <button class="btn" onclick="showPhaseSelect()">← Back</button>
@@ -672,6 +819,7 @@ function gameLoop() {
   // Sentence card overlay (shown between words)
   if (sentenceCard && sentenceCard.waiting) {
     drawSentenceCard();
+    drawBadgeNotification();
   }
 }
 
@@ -684,13 +832,19 @@ function resolveWord(success, reason) {
   if (success) {
     playCorrectSound();
     s.streak++;
+    consecutiveCorrect++;
+    if (consecutiveCorrect >= 10) awardBadge('on_fire');
     const needed = s.review_mode ? REVIEW_STREAK : GRAD_STREAK;
     if (s.streak >= needed) {
+      if (s.review_mode) {
+        wd().reconfirmed = (wd().reconfirmed || 0) + 1;
+      }
       s.graduated = true;
       s.graduated_date = new Date().toISOString();
       s.review_mode = false;
     }
   } else {
+    consecutiveCorrect = 0;
     s.streak = 0;
     s.total_errors++;
     s.graduated = false;
@@ -724,7 +878,7 @@ function resolveWord(success, reason) {
   setTimeout(() => {
     sentenceCard = {
       word: resolvedWord.word,
-      sentence: resolvedWord.sentence || '',
+      sentence: pickSentence(resolvedWord),
       success,
       waiting: true,
     };
@@ -1001,6 +1155,7 @@ canvas.addEventListener('click', e => {
   // Dismiss sentence card on click
   if (sentenceCard && sentenceCard.waiting) {
     sentenceCard = null;
+    pendingBadge = null;
     nextWord();
     return;
   }
@@ -1066,6 +1221,7 @@ document.addEventListener('keydown', e => {
   if ((key === ' ' || key === 'enter') && sentenceCard && sentenceCard.waiting) {
     e.preventDefault();
     sentenceCard = null;
+    pendingBadge = null;
     nextWord();
     return;
   }
@@ -1142,6 +1298,12 @@ function truncateText(text, maxW) {
     t = t.slice(0, -1);
   }
   return t + '…';
+}
+
+function pickSentence(wordData) {
+  const arr = wordData.sentences || [];
+  if (arr.length > 0) return arr[Math.floor(Math.random() * arr.length)];
+  return wordData.sentence || '';
 }
 
 function shuffle(arr) {

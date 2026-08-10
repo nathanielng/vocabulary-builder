@@ -10,7 +10,12 @@
     "definition": "With no qualification, restriction, or limitation; totally.",
     "sentence": "I am absolutely certain that I locked the door before leaving.",
     "category": "everyday",
-    "difficulty": 1
+    "difficulty": 1,
+    "sentences": [
+      "I am absolutely certain that I locked the door before leaving.",
+      "The view from the mountain top was absolutely breathtaking at sunrise.",
+      "You are absolutely right \u2014 we should leave earlier to avoid traffic."
+    ]
   },
   {
     "word": "argument",
@@ -23,7 +28,12 @@
     "definition": "An exchange of diverging or opposite views, typically a heated one.",
     "sentence": "The argument between the neighbors lasted well into the evening.",
     "category": "everyday",
-    "difficulty": 1
+    "difficulty": 1,
+    "sentences": [
+      "The argument between the neighbors lasted well into the evening.",
+      "They resolved their argument over dinner and agreed to compromise.",
+      "His argument in the debate was well-structured and persuasive."
+    ]
   },
   {
     "word": "awful",
@@ -36,7 +46,12 @@
     "definition": "Very bad or unpleasant; extremely shocking or horrifying.",
     "sentence": "The weather was awful, so we decided to stay indoors and play board games.",
     "category": "everyday",
-    "difficulty": 1
+    "difficulty": 1,
+    "sentences": [
+      "The weather was awful, so we decided to stay indoors and play board games.",
+      "The movie was so awful that we left the theater halfway through.",
+      "I felt awful about forgetting her birthday and sent flowers the next day."
+    ]
   },
   {
     "word": "beautiful",
@@ -49,7 +64,12 @@
     "definition": "Pleasing the senses or mind aesthetically.",
     "sentence": "The garden was beautiful in spring, with flowers blooming in every color.",
     "category": "everyday",
-    "difficulty": 1
+    "difficulty": 1,
+    "sentences": [
+      "The garden was beautiful in spring, with flowers blooming in every color.",
+      "The sunset over the ocean was the most beautiful thing I had ever seen.",
+      "She wrote a beautiful poem about the changing seasons."
+    ]
   },
   {
     "word": "because",
@@ -62,7 +82,12 @@
     "definition": "For the reason that; since.",
     "sentence": "She stayed home because she wasn't feeling well enough to go to school.",
     "category": "everyday",
-    "difficulty": 1
+    "difficulty": 1,
+    "sentences": [
+      "She stayed home because she wasn't feeling well enough to go to school.",
+      "We canceled the picnic because the forecast predicted thunderstorms.",
+      "He succeeded because he refused to give up despite repeated failures."
+    ]
   },
   {
     "word": "beginning",
@@ -75,7 +100,12 @@
     "definition": "The point in time or space at which something starts.",
     "category": "everyday",
     "difficulty": 1,
-    "sentence": "At the beginning of the school year, everyone was eager to make new friends."
+    "sentence": "At the beginning of the school year, everyone was eager to make new friends.",
+    "sentences": [
+      "At the beginning of the school year, everyone was eager to make new friends.",
+      "The beginning of the novel was slow, but it became gripping by chapter three.",
+      "She marked a new beginning by moving to a city where no one knew her."
+    ]
   },
   {
     "word": "believe",
@@ -88,7 +118,12 @@
     "definition": "To accept something as true or to have faith in something.",
     "category": "everyday",
     "difficulty": 1,
-    "sentence": "I believe that practice makes perfect when it comes to spelling."
+    "sentence": "I believe that practice makes perfect when it comes to spelling.",
+    "sentences": [
+      "I believe that practice makes perfect when it comes to spelling.",
+      "It's hard to believe that the old factory has been turned into a beautiful park.",
+      "If you believe in yourself, others will start believing in you too."
+    ]
   },
   {
     "word": "business",
@@ -101,7 +136,12 @@
     "definition": "A commercial enterprise or the practice of making a living by engaging in commerce.",
     "category": "everyday",
     "difficulty": 1,
-    "sentence": "She started her own business selling handmade jewelry online."
+    "sentence": "She started her own business selling handmade jewelry online.",
+    "sentences": [
+      "She started her own business selling handmade jewelry online.",
+      "Running a small business requires dedication, creativity, and patience.",
+      "Mind your own business \u2014 what I do on weekends is my choice."
+    ]
   },
   {
     "word": "calendar",
@@ -114,7 +154,12 @@
     "definition": "A system for organizing days into weeks, months, and years.",
     "category": "everyday",
     "difficulty": 1,
-    "sentence": "Mark the date on your calendar so you don't forget the appointment."
+    "sentence": "Mark the date on your calendar so you don't forget the appointment.",
+    "sentences": [
+      "Mark the date on your calendar so you don't forget the appointment.",
+      "The school calendar shows that winter break starts on December twentieth.",
+      "She keeps a detailed calendar to balance work, gym, and social life."
+    ]
   },
   {
     "word": "certain",
@@ -127,7 +172,12 @@
     "definition": "Known for sure; established beyond doubt.",
     "sentence": "I'm certain that the meeting starts at three o'clock, not four.",
     "category": "everyday",
-    "difficulty": 1
+    "difficulty": 1,
+    "sentences": [
+      "I'm certain that the meeting starts at three o'clock, not four.",
+      "Scientists are now certain that the fossil belongs to a previously unknown species.",
+      "Under certain conditions, water can remain liquid below zero degrees."
+    ]
   },
   {
     "word": "dangerous",
@@ -140,7 +190,12 @@
     "definition": "Able or likely to cause harm or injury.",
     "sentence": "Swimming in the river after dark is extremely dangerous due to the strong current.",
     "category": "everyday",
-    "difficulty": 1
+    "difficulty": 1,
+    "sentences": [
+      "Swimming in the river after dark is extremely dangerous due to the strong current.",
+      "Texting while driving is one of the most dangerous things you can do.",
+      "The abandoned mine was too dangerous for anyone to enter without equipment."
+    ]
   },
   {
     "word": "definitely",
@@ -153,7 +208,12 @@
     "definition": "Without doubt; certainly.",
     "sentence": "We will definitely be there by seven \u2014 you can count on it.",
     "category": "everyday",
-    "difficulty": 1
+    "difficulty": 1,
+    "sentences": [
+      "We will definitely be there by seven \u2014 you can count on it.",
+      "This is definitely the best pizza I've had outside of Italy.",
+      "I will definitely finish the report before Friday, no excuses."
+    ]
   },
   {
     "word": "different",
@@ -166,7 +226,12 @@
     "definition": "Not the same as another or each other; unlike.",
     "category": "everyday",
     "difficulty": 1,
-    "sentence": "Every snowflake has a different pattern, making each one unique."
+    "sentence": "Every snowflake has a different pattern, making each one unique.",
+    "sentences": [
+      "Every snowflake has a different pattern, making each one unique.",
+      "Living abroad taught me to appreciate different perspectives on life.",
+      "The twins look identical but have completely different taste in music."
+    ]
   },
   {
     "word": "disappear",
@@ -179,7 +244,12 @@
     "definition": "To cease to be visible; to vanish from sight.",
     "category": "everyday",
     "difficulty": 1,
-    "sentence": "The magician made the rabbit disappear right before our eyes."
+    "sentence": "The magician made the rabbit disappear right before our eyes.",
+    "sentences": [
+      "The magician made the rabbit disappear right before our eyes.",
+      "Small bookstores are starting to disappear as people buy everything online.",
+      "The morning fog will disappear once the sun gets a little higher."
+    ]
   },
   {
     "word": "disappoint",
@@ -192,7 +262,12 @@
     "definition": "To fail to fulfill the hopes or expectations of someone.",
     "sentence": "I didn't want to disappoint my parents, so I studied extra hard for the test.",
     "category": "everyday",
-    "difficulty": 1
+    "difficulty": 1,
+    "sentences": [
+      "I didn't want to disappoint my parents, so I studied extra hard for the test.",
+      "The sequel managed to disappoint fans who had waited years for it.",
+      "I promise I won't disappoint you \u2014 the project will be done on time."
+    ]
   },
   {
     "word": "environment",
@@ -205,7 +280,12 @@
     "definition": "The surroundings or conditions in which a person, animal, or plant lives.",
     "category": "everyday",
     "difficulty": 1,
-    "sentence": "Recycling is one small step we can take to protect the environment."
+    "sentence": "Recycling is one small step we can take to protect the environment.",
+    "sentences": [
+      "Recycling is one small step we can take to protect the environment.",
+      "A positive classroom environment helps students feel safe to ask questions.",
+      "We all share responsibility for protecting the environment for future generations."
+    ]
   },
   {
     "word": "experience",
@@ -218,7 +298,12 @@
     "definition": "Practical contact with and observation of facts or events.",
     "category": "everyday",
     "difficulty": 1,
-    "sentence": "Her experience working abroad gave her a broader perspective on life."
+    "sentence": "Her experience working abroad gave her a broader perspective on life.",
+    "sentences": [
+      "Her experience working abroad gave her a broader perspective on life.",
+      "Nothing beats the experience of reading a good book on a rainy afternoon.",
+      "Years of experience taught him that shortcuts usually lead to more problems."
+    ]
   },
   {
     "word": "february",
@@ -231,7 +316,12 @@
     "definition": "The second month of the year, having 28 days in a common year and 29 days in a leap year.",
     "category": "everyday",
     "difficulty": 1,
-    "sentence": "February is the shortest month, but it feels like the longest during winter."
+    "sentence": "February is the shortest month, but it feels like the longest during winter.",
+    "sentences": [
+      "February is the shortest month, but it feels like the longest during winter.",
+      "February often feels like the longest month even though it's the shortest.",
+      "They scheduled the wedding for February fourteenth \u2014 Valentine's Day."
+    ]
   },
   {
     "word": "foreign",
@@ -244,7 +334,12 @@
     "definition": "Of, from, or relating to a country other than one's own.",
     "sentence": "Learning a foreign language opens doors to understanding other cultures.",
     "category": "everyday",
-    "difficulty": 1
+    "difficulty": 1,
+    "sentences": [
+      "Learning a foreign language opens doors to understanding other cultures.",
+      "Adjusting to a foreign culture takes time, patience, and an open mind.",
+      "The spy was caught carrying a foreign passport under a false name."
+    ]
   },
   {
     "word": "friend",
@@ -257,7 +352,12 @@
     "definition": "A person with whom one has a bond of mutual affection.",
     "category": "everyday",
     "difficulty": 1,
-    "sentence": "A true friend is someone who accepts you exactly as you are."
+    "sentence": "A true friend is someone who accepts you exactly as you are.",
+    "sentences": [
+      "A true friend is someone who accepts you exactly as you are.",
+      "She called her friend immediately after hearing the exciting news.",
+      "A good friend tells you what you need to hear, not just what you want to hear."
+    ]
   },
   {
     "word": "government",
@@ -270,7 +370,12 @@
     "definition": "The system or group of people that officially controls and makes decisions for a country, state, or community.",
     "category": "everyday",
     "difficulty": 1,
-    "sentence": "The government announced new policies to improve public transportation."
+    "sentence": "The government announced new policies to improve public transportation.",
+    "sentences": [
+      "The government announced new policies to improve public transportation.",
+      "The local government invested heavily in improving public parks this year.",
+      "Citizens have a right to question government decisions that affect their lives."
+    ]
   },
   {
     "word": "immediately",
@@ -283,7 +388,12 @@
     "definition": "At once; without any delay.",
     "category": "everyday",
     "difficulty": 1,
-    "sentence": "Please respond immediately if you can attend the meeting tomorrow."
+    "sentence": "Please respond immediately if you can attend the meeting tomorrow.",
+    "sentences": [
+      "Please respond immediately if you can attend the meeting tomorrow.",
+      "The doctor asked her to come in immediately after seeing the test results.",
+      "He immediately regretted sending the message without reading it twice."
+    ]
   },
   {
     "word": "knowledge",
@@ -296,7 +406,12 @@
     "definition": "Facts, information, and skills acquired through experience or education.",
     "category": "everyday",
     "difficulty": 1,
-    "sentence": "Knowledge is power, but only when you apply it to real problems."
+    "sentence": "Knowledge is power, but only when you apply it to real problems.",
+    "sentences": [
+      "Knowledge is power, but only when you apply it to real problems.",
+      "She shared her knowledge freely with anyone who wanted to learn.",
+      "A little knowledge can be dangerous if you think you know everything."
+    ]
   },
   {
     "word": "marriage",
@@ -309,7 +424,12 @@
     "definition": "The legally or formally recognized union of two people as partners in a relationship, or the ceremony in which this union takes place.",
     "category": "everyday",
     "difficulty": 1,
-    "sentence": "Their marriage was built on mutual respect and shared adventures."
+    "sentence": "Their marriage was built on mutual respect and shared adventures.",
+    "sentences": [
+      "Their marriage was built on mutual respect and shared adventures.",
+      "A strong marriage requires honest communication even when it's uncomfortable.",
+      "The marriage of technology and education has created new ways to learn."
+    ]
   },
   {
     "word": "necessary",
@@ -322,7 +442,12 @@
     "definition": "Required to be done or achieved; essential.",
     "category": "everyday",
     "difficulty": 1,
-    "sentence": "It's necessary to wear a seatbelt every time you get in a car."
+    "sentence": "It's necessary to wear a seatbelt every time you get in a car.",
+    "sentences": [
+      "It's necessary to wear a seatbelt every time you get in a car.",
+      "Is it really necessary to bring three suitcases for a two-day trip?",
+      "She took the necessary steps to secure her data after the breach."
+    ]
   },
   {
     "word": "occasionally",
@@ -335,7 +460,12 @@
     "definition": "At infrequent or irregular intervals; now and then.",
     "sentence": "We occasionally visit the old bookstore on the corner when we have free time.",
     "category": "everyday",
-    "difficulty": 1
+    "difficulty": 1,
+    "sentences": [
+      "We occasionally visit the old bookstore on the corner when we have free time.",
+      "He occasionally forgets his keys, which is why he keeps a spare under the mat.",
+      "Even the best athletes occasionally have an off day."
+    ]
   },
   {
     "word": "occurred",
@@ -348,7 +478,12 @@
     "definition": "Happened; took place.",
     "category": "everyday",
     "difficulty": 1,
-    "sentence": "The idea occurred to her while she was walking home from school."
+    "sentence": "The idea occurred to her while she was walking home from school.",
+    "sentences": [
+      "The idea occurred to her while she was walking home from school.",
+      "A strange thought occurred to him while he was brushing his teeth.",
+      "The earthquake occurred at three in the morning when most people were asleep."
+    ]
   },
   {
     "word": "opinion",
@@ -361,7 +496,12 @@
     "definition": "A personal belief, judgment, or viewpoint about something that is not necessarily based on proven facts.",
     "category": "everyday",
     "difficulty": 1,
-    "sentence": "Everyone is entitled to their own opinion, even if others disagree."
+    "sentence": "Everyone is entitled to their own opinion, even if others disagree.",
+    "sentences": [
+      "Everyone is entitled to their own opinion, even if others disagree.",
+      "In my opinion, the original version of the song is better than the remix.",
+      "She expressed her opinion calmly, even though others disagreed strongly."
+    ]
   },
   {
     "word": "panicking",
@@ -374,7 +514,12 @@
     "definition": "Feeling or causing a sudden, overwhelming sense of fear or anxiety that may lead to irrational behavior.",
     "category": "everyday",
     "difficulty": 1,
-    "sentence": "She was panicking about the exam until she realized she had studied enough."
+    "sentence": "She was panicking about the exam until she realized she had studied enough.",
+    "sentences": [
+      "She was panicking about the exam until she realized she had studied enough.",
+      "There's no use panicking \u2014 let's just calmly figure out our next steps.",
+      "He was panicking because he couldn't find his passport two hours before the flight."
+    ]
   },
   {
     "word": "possession",
@@ -387,7 +532,12 @@
     "definition": "The state of having, owning, or controlling something; an item that someone owns.",
     "category": "everyday",
     "difficulty": 1,
-    "sentence": "The old photograph was her most treasured possession from childhood."
+    "sentence": "The old photograph was her most treasured possession from childhood.",
+    "sentences": [
+      "The old photograph was her most treasured possession from childhood.",
+      "The team fought hard to maintain possession of the ball in the final minutes.",
+      "Her grandmother's ring was her most prized possession."
+    ]
   },
   {
     "word": "probably",
@@ -400,7 +550,12 @@
     "definition": "Almost certainly; used to express that something is very likely to be true or to happen.",
     "category": "everyday",
     "difficulty": 1,
-    "sentence": "It will probably rain this afternoon, so bring an umbrella."
+    "sentence": "It will probably rain this afternoon, so bring an umbrella.",
+    "sentences": [
+      "It will probably rain this afternoon, so bring an umbrella.",
+      "You should probably call ahead to make sure the store is still open.",
+      "The package will probably arrive by Thursday at the latest."
+    ]
   },
   {
     "word": "receive",
@@ -413,7 +568,12 @@
     "definition": "To be given, presented with, or paid something; to accept or take in something offered or sent.",
     "category": "everyday",
     "difficulty": 1,
-    "sentence": "You should receive the package within three to five business days."
+    "sentence": "You should receive the package within three to five business days.",
+    "sentences": [
+      "You should receive the package within three to five business days.",
+      "Students who complete the course will receive a certificate of achievement.",
+      "Did you receive my email about the schedule change for next week?"
+    ]
   },
   {
     "word": "restaurant",
@@ -426,7 +586,12 @@
     "definition": "A business establishment where meals are prepared and served to customers.",
     "category": "everyday",
     "difficulty": 1,
-    "sentence": "The new restaurant downtown serves the best pasta I've ever tasted."
+    "sentence": "The new restaurant downtown serves the best pasta I've ever tasted.",
+    "sentences": [
+      "The new restaurant downtown serves the best pasta I've ever tasted.",
+      "The restaurant was so popular that you needed to book weeks in advance.",
+      "We found a tiny restaurant down a side street that served amazing seafood."
+    ]
   },
   {
     "word": "rhythm",
@@ -439,7 +604,12 @@
     "definition": "A strong, regular, repeated pattern of movement, sound, or beats, especially in music or poetry.",
     "category": "everyday",
     "difficulty": 1,
-    "sentence": "The drummer kept a steady rhythm throughout the entire performance."
+    "sentence": "The drummer kept a steady rhythm throughout the entire performance.",
+    "sentences": [
+      "The drummer kept a steady rhythm throughout the entire performance.",
+      "Learning to dance is all about feeling the rhythm of the music.",
+      "She tapped her pencil in a nervous rhythm during the exam."
+    ]
   },
   {
     "word": "sacrifice",
@@ -452,7 +622,12 @@
     "definition": "The act of giving up something valuable or important for the sake of something or someone else.",
     "category": "everyday",
     "difficulty": 1,
-    "sentence": "She made the sacrifice of waking up early every day to train for the marathon."
+    "sentence": "She made the sacrifice of waking up early every day to train for the marathon.",
+    "sentences": [
+      "She made the sacrifice of waking up early every day to train for the marathon.",
+      "Parents often sacrifice their own comfort to give their children better opportunities.",
+      "Winning the championship required sacrifice \u2014 early mornings and no days off."
+    ]
   },
   {
     "word": "schedule",
@@ -465,7 +640,12 @@
     "definition": "A plan that lists the times at which events, tasks, or activities are intended to take place.",
     "category": "everyday",
     "difficulty": 1,
-    "sentence": "Check the train schedule before heading to the station."
+    "sentence": "Check the train schedule before heading to the station.",
+    "sentences": [
+      "Check the train schedule before heading to the station.",
+      "His schedule was so packed that he barely had time to eat lunch.",
+      "Let me check my schedule and get back to you about meeting next week."
+    ]
   },
   {
     "word": "separate",
@@ -478,7 +658,12 @@
     "definition": "To divide or move apart from one another; as an adjective, it means existing independently or not joined together.",
     "category": "everyday",
     "difficulty": 1,
-    "sentence": "Please separate the recyclables from the regular trash."
+    "sentence": "Please separate the recyclables from the regular trash.",
+    "sentences": [
+      "Please separate the recyclables from the regular trash.",
+      "The teacher asked the chatting students to sit in separate rows.",
+      "It's important to separate facts from opinions when reading the news."
+    ]
   },
   {
     "word": "shining",
@@ -491,7 +676,12 @@
     "definition": "Giving off or reflecting bright light; also used figuratively to mean outstanding or excellent.",
     "category": "everyday",
     "difficulty": 1,
-    "sentence": "The sun was shining brightly on the first day of summer vacation."
+    "sentence": "The sun was shining brightly on the first day of summer vacation.",
+    "sentences": [
+      "The sun was shining brightly on the first day of summer vacation.",
+      "The newly polished car was shining under the afternoon sun.",
+      "Her eyes were shining with excitement as she opened the acceptance letter."
+    ]
   },
   {
     "word": "similar",
@@ -504,7 +694,12 @@
     "definition": "Resembling something or someone else without being exactly the same; having characteristics in common.",
     "category": "everyday",
     "difficulty": 1,
-    "sentence": "The twins looked similar but had completely different personalities."
+    "sentence": "The twins looked similar but had completely different personalities.",
+    "sentences": [
+      "The twins looked similar but had completely different personalities.",
+      "The two paintings look similar at first glance, but the details are quite different.",
+      "She and her sister have similar voices \u2014 even their mother confuses them on the phone."
+    ]
   },
   {
     "word": "sincerely",
@@ -517,7 +712,12 @@
     "definition": "In a genuine, honest, and heartfelt manner; commonly used as a closing in formal letters.",
     "category": "everyday",
     "difficulty": 1,
-    "sentence": "She sincerely apologized for the misunderstanding and offered to help."
+    "sentence": "She sincerely apologized for the misunderstanding and offered to help.",
+    "sentences": [
+      "She sincerely apologized for the misunderstanding and offered to help.",
+      "He sincerely believed that everyone deserved a second chance.",
+      "We sincerely hope that you will join us for the celebration next month."
+    ]
   },
   {
     "word": "succeed",
@@ -530,7 +730,12 @@
     "definition": "To achieve a desired goal or outcome, or to come after something or someone in order or position.",
     "category": "everyday",
     "difficulty": 1,
-    "sentence": "If you work hard and stay focused, you will succeed in your goals."
+    "sentence": "If you work hard and stay focused, you will succeed in your goals.",
+    "sentences": [
+      "If you work hard and stay focused, you will succeed in your goals.",
+      "You don't need to be perfect to succeed \u2014 you just need to keep trying.",
+      "The team worked tirelessly to succeed where others had failed."
+    ]
   },
   {
     "word": "together",
@@ -543,7 +748,12 @@
     "definition": "With or in proximity to another person or people.",
     "category": "everyday",
     "difficulty": 1,
-    "sentence": "The team worked together to finish the project before the deadline."
+    "sentence": "The team worked together to finish the project before the deadline.",
+    "sentences": [
+      "The team worked together to finish the project before the deadline.",
+      "Let's put our ideas together and come up with a better plan.",
+      "They had been through so much together that nothing could break their bond."
+    ]
   },
   {
     "word": "tomorrow",
@@ -556,7 +766,12 @@
     "definition": "The day after today.",
     "category": "everyday",
     "difficulty": 1,
-    "sentence": "Tomorrow is a new day with fresh opportunities to learn something."
+    "sentence": "Tomorrow is a new day with fresh opportunities to learn something.",
+    "sentences": [
+      "Tomorrow is a new day with fresh opportunities to learn something.",
+      "Don't put off until tomorrow what you can accomplish today.",
+      "Tomorrow's meeting has been moved to the larger conference room."
+    ]
   },
   {
     "word": "until",
@@ -569,7 +784,12 @@
     "definition": "Up to the point in time or the event mentioned; before a specified time.",
     "category": "everyday",
     "difficulty": 1,
-    "sentence": "We waited until midnight for the fireworks to begin."
+    "sentence": "We waited until midnight for the fireworks to begin.",
+    "sentences": [
+      "We waited until midnight for the fireworks to begin.",
+      "She practiced the piano until her fingers were sore.",
+      "The library stays open until nine o'clock on weeknights."
+    ]
   },
   {
     "word": "usually",
@@ -582,7 +802,12 @@
     "definition": "Under normal conditions; most of the time or in most cases.",
     "category": "everyday",
     "difficulty": 1,
-    "sentence": "I usually walk to school, but today I took the bus because of the rain."
+    "sentence": "I usually walk to school, but today I took the bus because of the rain.",
+    "sentences": [
+      "I usually walk to school, but today I took the bus because of the rain.",
+      "He usually takes the train, but today he decided to cycle to work.",
+      "Meetings usually run over time, so I always block an extra thirty minutes."
+    ]
   },
   {
     "word": "vacuum",
@@ -595,7 +820,12 @@
     "definition": "A space entirely empty of matter, or a device that uses suction to clean surfaces by drawing up dust and debris.",
     "category": "everyday",
     "difficulty": 1,
-    "sentence": "Don't forget to vacuum the living room before the guests arrive."
+    "sentence": "Don't forget to vacuum the living room before the guests arrive.",
+    "sentences": [
+      "Don't forget to vacuum the living room before the guests arrive.",
+      "The vacuum cleaner made a strange noise and then stopped working entirely.",
+      "Sound cannot travel through the vacuum of space."
+    ]
   },
   {
     "word": "villain",
@@ -608,7 +838,12 @@
     "definition": "A character in a story or real life who is evil, cruel, or commits crimes; the antagonist or 'bad guy.'",
     "category": "everyday",
     "difficulty": 1,
-    "sentence": "Every good story needs a convincing villain to challenge the hero."
+    "sentence": "Every good story needs a convincing villain to challenge the hero.",
+    "sentences": [
+      "Every good story needs a convincing villain to challenge the hero.",
+      "The villain's plan was foiled by an unexpected alliance between the heroes.",
+      "In real life, people are rarely as one-dimensional as a cartoon villain."
+    ]
   },
   {
     "word": "weather",
@@ -621,7 +856,12 @@
     "definition": "The state of the atmosphere at a particular place and time, including temperature, precipitation, wind, and cloudiness.",
     "category": "everyday",
     "difficulty": 1,
-    "sentence": "The weather forecast predicts sunshine for the rest of the week."
+    "sentence": "The weather forecast predicts sunshine for the rest of the week.",
+    "sentences": [
+      "The weather forecast predicts sunshine for the rest of the week.",
+      "Check the weather before you leave \u2014 it looks like rain this afternoon.",
+      "The ship was delayed for two days due to severe weather in the Atlantic."
+    ]
   },
   {
     "word": "weirdly",
@@ -634,7 +874,12 @@
     "definition": "In a strange, unusual, or unexpected manner.",
     "category": "everyday",
     "difficulty": 1,
-    "sentence": "The house was weirdly quiet, as if everyone had left without saying goodbye."
+    "sentence": "The house was weirdly quiet, as if everyone had left without saying goodbye.",
+    "sentences": [
+      "The house was weirdly quiet, as if everyone had left without saying goodbye.",
+      "The test was weirdly easy compared to what the teacher had warned us about.",
+      "He felt weirdly calm despite the chaos happening all around him."
+    ]
   },
   {
     "word": "wreck",
@@ -647,7 +892,12 @@
     "definition": "To destroy or severely damage something, or the remains of something that has been destroyed, such as a crashed vehicle or ship.",
     "category": "everyday",
     "difficulty": 1,
-    "sentence": "The car wreck on the highway caused a two-hour traffic delay."
+    "sentence": "The car wreck on the highway caused a two-hour traffic delay.",
+    "sentences": [
+      "The car wreck on the highway caused a two-hour traffic delay.",
+      "The old shipwreck at the bottom of the bay has become a popular dive site.",
+      "One bad decision can wreck months of careful planning."
+    ]
   },
   {
     "word": "accept",
@@ -660,7 +910,12 @@
     "definition": "To receive willingly or agree to something. (Not 'except,' which means excluding or apart from.)",
     "sentence": "I am happy to accept your invitation to dinner this Saturday.",
     "category": "confusable",
-    "difficulty": 2
+    "difficulty": 2,
+    "sentences": [
+      "I am happy to accept your invitation to dinner this Saturday.",
+      "She found it hard to accept the criticism, even though it was constructive.",
+      "The university decided to accept more international students this year."
+    ]
   },
   {
     "word": "accommodate",
@@ -673,7 +928,12 @@
     "definition": "To provide lodging or room for; to fit in with the wishes of.",
     "category": "tricky",
     "difficulty": 2,
-    "sentence": "The hotel can accommodate up to three hundred guests at full capacity."
+    "sentence": "The hotel can accommodate up to three hundred guests at full capacity.",
+    "sentences": [
+      "The hotel can accommodate up to three hundred guests at full capacity.",
+      "The new building was designed to accommodate wheelchair users on every floor.",
+      "We can accommodate your request if you give us a few extra days."
+    ]
   },
   {
     "word": "accumulation",
@@ -686,7 +946,12 @@
     "definition": "The gradual gathering or buildup of something over time, such as wealth, knowledge, or snow.",
     "category": "academic",
     "difficulty": 2,
-    "sentence": "The accumulation of dust on the bookshelf showed how long it had been since anyone cleaned."
+    "sentence": "The accumulation of dust on the bookshelf showed how long it had been since anyone cleaned.",
+    "sentences": [
+      "The accumulation of dust on the bookshelf showed how long it had been since anyone cleaned.",
+      "Years of accumulation left the attic overflowing with forgotten treasures.",
+      "The accumulation of evidence made the detective's case airtight."
+    ]
   },
   {
     "word": "acknowledge",
@@ -699,7 +964,12 @@
     "definition": "To accept or admit the existence or truth of something.",
     "category": "tricky",
     "difficulty": 2,
-    "sentence": "It's important to acknowledge your mistakes and learn from them."
+    "sentence": "It's important to acknowledge your mistakes and learn from them.",
+    "sentences": [
+      "It's important to acknowledge your mistakes and learn from them.",
+      "He refused to acknowledge his role in the project's failure.",
+      "The company sent a letter to acknowledge receipt of her application."
+    ]
   },
   {
     "word": "acquisition",
@@ -712,7 +982,12 @@
     "definition": "The act of acquiring or gaining possession of something.",
     "category": "tricky",
     "difficulty": 2,
-    "sentence": "The company's acquisition of the startup doubled their engineering team."
+    "sentence": "The company's acquisition of the startup doubled their engineering team.",
+    "sentences": [
+      "The company's acquisition of the startup doubled their engineering team.",
+      "Learning a second language is easier when acquisition begins in childhood.",
+      "The museum's latest acquisition is a rare painting from the sixteenth century."
+    ]
   },
   {
     "word": "affect",
@@ -725,7 +1000,12 @@
     "definition": "To have an influence on; to produce a change in. (Not 'effect,' which is usually the noun meaning a result.)",
     "sentence": "The cold weather can affect your mood if you don't get enough sunlight.",
     "category": "confusable",
-    "difficulty": 2
+    "difficulty": 2,
+    "sentences": [
+      "The cold weather can affect your mood if you don't get enough sunlight.",
+      "Lack of sleep can seriously affect your ability to concentrate during the day.",
+      "The new policy will affect thousands of workers across the country."
+    ]
   },
   {
     "word": "allegiance",
@@ -738,7 +1018,12 @@
     "definition": "Loyalty or commitment to a group, cause, or leader.",
     "sentence": "Students recite the pledge of allegiance at the start of each school day.",
     "category": "tricky",
-    "difficulty": 2
+    "difficulty": 2,
+    "sentences": [
+      "Students recite the pledge of allegiance at the start of each school day.",
+      "The knight swore allegiance to the new queen during the coronation ceremony.",
+      "His allegiance shifted when he discovered the truth about the organization."
+    ]
   },
   {
     "word": "allusion",
@@ -751,7 +1036,12 @@
     "definition": "An indirect reference to something. (Not 'illusion,' which means a false perception or trick.)",
     "sentence": "The author made a clever allusion to Greek mythology in the opening chapter.",
     "category": "confusable",
-    "difficulty": 2
+    "difficulty": 2,
+    "sentences": [
+      "The author made a clever allusion to Greek mythology in the opening chapter.",
+      "The speech contained a subtle allusion to the prime minister's broken promises.",
+      "She caught the literary allusion to Shakespeare hidden in the song lyrics."
+    ]
   },
   {
     "word": "ambiguous",
@@ -764,7 +1054,12 @@
     "definition": "Open to more than one interpretation; not clear.",
     "sentence": "The instructions were ambiguous, leaving everyone confused about what to do next.",
     "category": "academic",
-    "difficulty": 2
+    "difficulty": 2,
+    "sentences": [
+      "The instructions were ambiguous, leaving everyone confused about what to do next.",
+      "The contract's ambiguous language led to a dispute between the two parties.",
+      "His ambiguous response left everyone wondering whether he agreed or not."
+    ]
   },
   {
     "word": "anonymous",
@@ -777,7 +1072,12 @@
     "definition": "Not identified by name; of unknown identity.",
     "sentence": "The generous donation was made by an anonymous benefactor.",
     "category": "academic",
-    "difficulty": 2
+    "difficulty": 2,
+    "sentences": [
+      "The generous donation was made by an anonymous benefactor.",
+      "The anonymous tip led police directly to the stolen paintings.",
+      "She preferred to remain anonymous when making charitable donations."
+    ]
   },
   {
     "word": "appreciate",
@@ -790,7 +1090,12 @@
     "definition": "To recognize the full worth of something or to be grateful for it.",
     "sentence": "I really appreciate your help with moving all these boxes.",
     "category": "tricky",
-    "difficulty": 2
+    "difficulty": 2,
+    "sentences": [
+      "I really appreciate your help with moving all these boxes.",
+      "You don't appreciate good health until you lose it.",
+      "I would appreciate it if you could reply by the end of the week."
+    ]
   },
   {
     "word": "ascend",
@@ -803,7 +1108,12 @@
     "definition": "To move upward or climb; to rise to a higher level or position.",
     "category": "academic",
     "difficulty": 2,
-    "sentence": "The hikers began to ascend the mountain just before sunrise."
+    "sentence": "The hikers began to ascend the mountain just before sunrise.",
+    "sentences": [
+      "The hikers began to ascend the mountain just before sunrise.",
+      "The balloon began to ascend rapidly once the sandbags were released.",
+      "She worked hard to ascend the corporate ladder in just five years."
+    ]
   },
   {
     "word": "benefitted",
@@ -816,7 +1126,12 @@
     "definition": "Received an advantage or gained something positive from a situation, action, or resource.",
     "category": "academic",
     "difficulty": 2,
-    "sentence": "The entire community benefitted from the new library that was built."
+    "sentence": "The entire community benefitted from the new library that was built.",
+    "sentences": [
+      "The entire community benefitted from the new library that was built.",
+      "The scholarship benefitted students who otherwise couldn't afford tuition.",
+      "Both sides benefitted from the trade agreement signed last year."
+    ]
   },
   {
     "word": "bureaucracy",
@@ -829,7 +1144,12 @@
     "definition": "A system of government with many complex rules and procedures.",
     "category": "tricky",
     "difficulty": 2,
-    "sentence": "Navigating the bureaucracy of government forms can be frustrating."
+    "sentence": "Navigating the bureaucracy of government forms can be frustrating.",
+    "sentences": [
+      "Navigating the bureaucracy of government forms can be frustrating.",
+      "The country's bloated bureaucracy slowed down every simple application.",
+      "She spent months fighting through bureaucracy just to get a building permit."
+    ]
   },
   {
     "word": "candidacy",
@@ -842,7 +1162,12 @@
     "definition": "The state of being a candidate, especially someone running for a political office or applying for a position.",
     "category": "academic",
     "difficulty": 2,
-    "sentence": "She announced her candidacy for class president with a confident speech."
+    "sentence": "She announced her candidacy for class president with a confident speech.",
+    "sentences": [
+      "She announced her candidacy for class president with a confident speech.",
+      "He withdrew his candidacy after the scandal became public.",
+      "Her candidacy for the position was supported by the entire department."
+    ]
   },
   {
     "word": "catastrophe",
@@ -855,7 +1180,12 @@
     "definition": "An event causing great and sudden damage or suffering.",
     "sentence": "The oil spill was an environmental catastrophe that took years to clean up.",
     "category": "academic",
-    "difficulty": 2
+    "difficulty": 2,
+    "sentences": [
+      "The oil spill was an environmental catastrophe that took years to clean up.",
+      "Forgetting the backup drive turned a small problem into a catastrophe.",
+      "The hurricane was a catastrophe that displaced over a hundred thousand people."
+    ]
   },
   {
     "word": "category",
@@ -868,7 +1198,12 @@
     "definition": "A group or class of things that share common characteristics; a division used to organize or classify items.",
     "category": "academic",
     "difficulty": 2,
-    "sentence": "This book doesn't fit neatly into any single category."
+    "sentence": "This book doesn't fit neatly into any single category.",
+    "sentences": [
+      "This book doesn't fit neatly into any single category.",
+      "The film won awards in every category it was nominated for.",
+      "Which category does this expense fall under \u2014 travel or entertainment?"
+    ]
   },
   {
     "word": "cemetery",
@@ -881,7 +1216,12 @@
     "definition": "A burial ground; a place where dead people are interred.",
     "category": "tricky",
     "difficulty": 2,
-    "sentence": "The old cemetery at the edge of town dates back to the eighteenth century."
+    "sentence": "The old cemetery at the edge of town dates back to the eighteenth century.",
+    "sentences": [
+      "The old cemetery at the edge of town dates back to the eighteenth century.",
+      "They visited the cemetery every spring to leave flowers on her grave.",
+      "The ancient cemetery was discovered during construction of the new highway."
+    ]
   },
   {
     "word": "coincidence",
@@ -894,7 +1234,12 @@
     "definition": "A remarkable concurrence of events without apparent causal connection.",
     "sentence": "Running into her childhood friend in a foreign city was an amazing coincidence.",
     "category": "tricky",
-    "difficulty": 2
+    "difficulty": 2,
+    "sentences": [
+      "Running into her childhood friend in a foreign city was an amazing coincidence.",
+      "What a coincidence \u2014 we booked the exact same flight without knowing!",
+      "The detective didn't believe in coincidence and kept digging for connections."
+    ]
   },
   {
     "word": "committing",
@@ -907,7 +1252,12 @@
     "definition": "The act of pledging or devoting oneself to a task or course of action.",
     "sentence": "She was fully committing herself to finishing the marathon despite her injury.",
     "category": "tricky",
-    "difficulty": 2
+    "difficulty": 2,
+    "sentences": [
+      "She was fully committing herself to finishing the marathon despite her injury.",
+      "He was committing several hours each evening to learning sign language.",
+      "Think carefully before committing to a decision you can't reverse."
+    ]
   },
   {
     "word": "complement",
@@ -920,7 +1270,12 @@
     "definition": "A thing that completes or goes well with something. (Not 'compliment,' which means praise.)",
     "sentence": "The red wine was a perfect complement to the rich chocolate dessert.",
     "category": "confusable",
-    "difficulty": 2
+    "difficulty": 2,
+    "sentences": [
+      "The red wine was a perfect complement to the rich chocolate dessert.",
+      "A good sauce should complement the main dish, not overpower it.",
+      "The new hire was a perfect complement to the existing team's strengths."
+    ]
   },
   {
     "word": "conferred",
@@ -933,7 +1288,12 @@
     "definition": "Granted or bestowed something, such as a degree or honor, or held a discussion to exchange ideas.",
     "category": "academic",
     "difficulty": 2,
-    "sentence": "The university conferred honorary degrees upon three distinguished scholars."
+    "sentence": "The university conferred honorary degrees upon three distinguished scholars.",
+    "sentences": [
+      "The university conferred honorary degrees upon three distinguished scholars.",
+      "The committee conferred privately before announcing their final decision.",
+      "The medal was conferred upon her for outstanding service to the community."
+    ]
   },
   {
     "word": "conscience",
@@ -946,7 +1306,12 @@
     "definition": "An inner feeling or voice acting as a guide to the rightness of behavior.",
     "category": "tricky",
     "difficulty": 2,
-    "sentence": "His conscience wouldn't let him keep the wallet he found on the bus."
+    "sentence": "His conscience wouldn't let him keep the wallet he found on the bus.",
+    "sentences": [
+      "His conscience wouldn't let him keep the wallet he found on the bus.",
+      "She couldn't sleep because her guilty conscience kept replaying the moment.",
+      "Let your conscience guide you when the rules don't cover the situation."
+    ]
   },
   {
     "word": "consensus",
@@ -959,7 +1324,12 @@
     "definition": "A general agreement among a group of people.",
     "category": "tricky",
     "difficulty": 2,
-    "sentence": "After hours of debate, the committee finally reached a consensus."
+    "sentence": "After hours of debate, the committee finally reached a consensus.",
+    "sentences": [
+      "After hours of debate, the committee finally reached a consensus.",
+      "The team struggled to reach a consensus on which design to ship.",
+      "Scientific consensus holds that human activity is driving climate change."
+    ]
   },
   {
     "word": "contemporary",
@@ -972,7 +1342,12 @@
     "definition": "Living or occurring at the same time, or belonging to the present.",
     "sentence": "The museum features both classical sculptures and contemporary art installations.",
     "category": "academic",
-    "difficulty": 2
+    "difficulty": 2,
+    "sentences": [
+      "The museum features both classical sculptures and contemporary art installations.",
+      "Her taste in furniture leans toward clean, contemporary design.",
+      "Mozart and Haydn were contemporaries who influenced each other's music."
+    ]
   },
   {
     "word": "controversial",
@@ -985,7 +1360,12 @@
     "definition": "Giving rise to public disagreement or heated debate.",
     "sentence": "The mayor's controversial decision to close the park divided the community.",
     "category": "academic",
-    "difficulty": 2
+    "difficulty": 2,
+    "sentences": [
+      "The mayor's controversial decision to close the park divided the community.",
+      "The artist's controversial exhibit sparked both praise and protests.",
+      "Bringing up controversial topics at dinner parties is usually a bad idea."
+    ]
   },
   {
     "word": "council",
@@ -998,7 +1378,12 @@
     "definition": "A group of people elected to manage a town or organization. (Not 'counsel,' which means advice or a lawyer.)",
     "sentence": "The city council voted unanimously to approve the new playground.",
     "category": "confusable",
-    "difficulty": 2
+    "difficulty": 2,
+    "sentences": [
+      "The city council voted unanimously to approve the new playground.",
+      "The council approved funding for three new community centers.",
+      "She was elected to the student council in her junior year."
+    ]
   },
   {
     "word": "deferred",
@@ -1011,7 +1396,12 @@
     "definition": "Postponed or delayed something to a later time, or yielded to someone else's judgment or authority.",
     "category": "academic",
     "difficulty": 2,
-    "sentence": "She deferred her college admission by one year to travel abroad."
+    "sentence": "She deferred her college admission by one year to travel abroad.",
+    "sentences": [
+      "She deferred her college admission by one year to travel abroad.",
+      "Payment can be deferred for up to twelve months with no interest.",
+      "He deferred to his colleague's expertise on the technical details."
+    ]
   },
   {
     "word": "deficiency",
@@ -1024,7 +1414,12 @@
     "definition": "A lack or shortage of something essential.",
     "sentence": "A vitamin D deficiency can lead to weakened bones over time.",
     "category": "academic",
-    "difficulty": 2
+    "difficulty": 2,
+    "sentences": [
+      "A vitamin D deficiency can lead to weakened bones over time.",
+      "Iron deficiency is one of the most common nutritional problems worldwide.",
+      "The audit revealed a deficiency in the company's security protocols."
+    ]
   },
   {
     "word": "desert",
@@ -1037,7 +1432,12 @@
     "definition": "A barren area of land with little rainfall. (Not 'dessert,' which is the sweet course after a meal \u2014 remember: dessert has two S's because you want seconds.)",
     "sentence": "The Sahara desert stretches across most of North Africa.",
     "category": "confusable",
-    "difficulty": 2
+    "difficulty": 2,
+    "sentences": [
+      "The Sahara desert stretches across most of North Africa.",
+      "Temperatures in the desert can swing from scorching days to freezing nights.",
+      "The explorers crossed the desert with barely enough water to survive."
+    ]
   },
   {
     "word": "dilemma",
@@ -1050,7 +1450,12 @@
     "definition": "A situation in which a difficult choice has to be made between alternatives.",
     "sentence": "She faced a dilemma: accept the job abroad or stay close to her family.",
     "category": "tricky",
-    "difficulty": 2
+    "difficulty": 2,
+    "sentences": [
+      "She faced a dilemma: accept the job abroad or stay close to her family.",
+      "The ethical dilemma forced the doctor to weigh privacy against public safety.",
+      "Choosing between two dream jobs is a wonderful dilemma to have."
+    ]
   },
   {
     "word": "discrete",
@@ -1063,7 +1468,12 @@
     "definition": "Individually separate and distinct. (Not 'discreet,' which means careful to avoid attention.)",
     "sentence": "The data was divided into discrete categories for easier analysis.",
     "category": "confusable",
-    "difficulty": 2
+    "difficulty": 2,
+    "sentences": [
+      "The data was divided into discrete categories for easier analysis.",
+      "The project was broken into discrete tasks that could be completed independently.",
+      "Each discrete section of the report addressed a different aspect of the problem."
+    ]
   },
   {
     "word": "elicit",
@@ -1076,7 +1486,12 @@
     "definition": "To draw out a response or reaction from someone. (Not 'illicit,' which means illegal or forbidden.)",
     "sentence": "The comedian's joke managed to elicit laughter from even the quietest audience members.",
     "category": "confusable",
-    "difficulty": 2
+    "difficulty": 2,
+    "sentences": [
+      "The comedian's joke managed to elicit laughter from even the quietest audience members.",
+      "The teacher used open-ended questions to elicit deeper thinking from students.",
+      "His speech was carefully crafted to elicit sympathy from the audience."
+    ]
   },
   {
     "word": "embarrass",
@@ -1089,7 +1504,12 @@
     "definition": "To cause someone to feel awkward, self-conscious, or ashamed.",
     "category": "tricky",
     "difficulty": 2,
-    "sentence": "Please don't embarrass me by telling that story in front of everyone."
+    "sentence": "Please don't embarrass me by telling that story in front of everyone.",
+    "sentences": [
+      "Please don't embarrass me by telling that story in front of everyone.",
+      "He didn't want to embarrass his daughter by dancing at the school event.",
+      "Autocorrect can embarrass you if you don't proofread your messages."
+    ]
   },
   {
     "word": "emigrate",
@@ -1102,7 +1522,12 @@
     "definition": "To leave one's own country to settle permanently in another. (Not 'immigrate,' which means to arrive in a new country.)",
     "sentence": "Her grandparents decided to emigrate from Italy to start a new life in America.",
     "category": "confusable",
-    "difficulty": 2
+    "difficulty": 2,
+    "sentences": [
+      "Her grandparents decided to emigrate from Italy to start a new life in America.",
+      "Many families chose to emigrate during the economic crisis of the 1930s.",
+      "They plan to emigrate to Canada and start fresh in Vancouver."
+    ]
   },
   {
     "word": "ensure",
@@ -1115,7 +1540,12 @@
     "definition": "To make certain that something happens. (Not 'insure,' which means to arrange financial compensation against loss.)",
     "sentence": "Please double-check the locks to ensure the building is secure overnight.",
     "category": "confusable",
-    "difficulty": 2
+    "difficulty": 2,
+    "sentences": [
+      "Please double-check the locks to ensure the building is secure overnight.",
+      "We installed extra locks to ensure the safety of the equipment overnight.",
+      "Regular backups ensure that you never lose important work."
+    ]
   },
   {
     "word": "exaggerate",
@@ -1128,7 +1558,12 @@
     "definition": "To represent something as being larger or more important than it actually is.",
     "sentence": "He tends to exaggerate the size of the fish he catches on his weekend trips.",
     "category": "tricky",
-    "difficulty": 2
+    "difficulty": 2,
+    "sentences": [
+      "He tends to exaggerate the size of the fish he catches on his weekend trips.",
+      "Don't exaggerate \u2014 it wasn't that cold, maybe just slightly chilly.",
+      "Advertisers sometimes exaggerate the benefits of their products."
+    ]
   },
   {
     "word": "excellence",
@@ -1141,7 +1576,12 @@
     "definition": "The quality of being outstanding or extremely good; a superior level of achievement or performance.",
     "category": "academic",
     "difficulty": 2,
-    "sentence": "The school has a long tradition of academic excellence."
+    "sentence": "The school has a long tradition of academic excellence.",
+    "sentences": [
+      "The school has a long tradition of academic excellence.",
+      "The restaurant is known for its excellence in both food and service.",
+      "She pursued excellence in everything she did, from grades to athletics."
+    ]
   },
   {
     "word": "exhilaration",
@@ -1154,7 +1594,12 @@
     "definition": "A feeling of intense excitement, happiness, or thrill, often caused by an exciting experience.",
     "category": "academic",
     "difficulty": 2,
-    "sentence": "The exhilaration of skydiving is unlike anything else I've experienced."
+    "sentence": "The exhilaration of skydiving is unlike anything else I've experienced.",
+    "sentences": [
+      "The exhilaration of skydiving is unlike anything else I've experienced.",
+      "The exhilaration of finishing her first marathon brought tears to her eyes.",
+      "Nothing matches the exhilaration of diving into cold water on a hot day."
+    ]
   },
   {
     "word": "extraordinary",
@@ -1167,7 +1612,12 @@
     "definition": "Very unusual or remarkable; beyond what is ordinary.",
     "sentence": "The acrobat performed extraordinary feats that left the audience speechless.",
     "category": "academic",
-    "difficulty": 2
+    "difficulty": 2,
+    "sentences": [
+      "The acrobat performed extraordinary feats that left the audience speechless.",
+      "It took an extraordinary effort from every team member to meet the deadline.",
+      "She had the extraordinary ability to remember every face she'd ever seen."
+    ]
   },
   {
     "word": "fascinate",
@@ -1180,7 +1630,12 @@
     "definition": "To attract and hold someone's attention or interest intensely; to captivate or charm someone.",
     "category": "academic",
     "difficulty": 2,
-    "sentence": "Ancient civilizations continue to fascinate historians and archaeologists."
+    "sentence": "Ancient civilizations continue to fascinate historians and archaeologists.",
+    "sentences": [
+      "Ancient civilizations continue to fascinate historians and archaeologists.",
+      "The way octopuses solve puzzles continues to fascinate marine biologists.",
+      "Old maps fascinate me because they show how people imagined the world."
+    ]
   },
   {
     "word": "fluorescent",
@@ -1193,7 +1648,12 @@
     "definition": "Emitting light during exposure to radiation; vividly bright.",
     "category": "tricky",
     "difficulty": 2,
-    "sentence": "The fluorescent lights in the office gave everything a slightly blue tinge."
+    "sentence": "The fluorescent lights in the office gave everything a slightly blue tinge.",
+    "sentences": [
+      "The fluorescent lights in the office gave everything a slightly blue tinge.",
+      "She highlighted the key passages with a fluorescent yellow marker.",
+      "The fluorescent sign in the window flickered on and off all night."
+    ]
   },
   {
     "word": "guarantee",
@@ -1206,7 +1666,12 @@
     "definition": "A formal assurance that certain conditions will be fulfilled.",
     "category": "tricky",
     "difficulty": 2,
-    "sentence": "There is no guarantee that the weather will cooperate for the outdoor wedding."
+    "sentence": "There is no guarantee that the weather will cooperate for the outdoor wedding.",
+    "sentences": [
+      "There is no guarantee that the weather will cooperate for the outdoor wedding.",
+      "Hard work doesn't guarantee success, but it dramatically improves your odds.",
+      "The product comes with a two-year guarantee against manufacturing defects."
+    ]
   },
   {
     "word": "harass",
@@ -1219,7 +1684,12 @@
     "definition": "To subject someone to aggressive pressure or intimidation.",
     "category": "tricky",
     "difficulty": 2,
-    "sentence": "It is never acceptable to harass someone, whether online or in person."
+    "sentence": "It is never acceptable to harass someone, whether online or in person.",
+    "sentences": [
+      "It is never acceptable to harass someone, whether online or in person.",
+      "The new policy makes it easier for employees to report those who harass them.",
+      "Seagulls at the beach will harass anyone carrying food."
+    ]
   },
   {
     "word": "height",
@@ -1232,7 +1702,12 @@
     "definition": "The measurement from base to top; how tall something is.",
     "category": "tricky",
     "difficulty": 2,
-    "sentence": "The height of the building made it visible from miles away."
+    "sentence": "The height of the building made it visible from miles away.",
+    "sentences": [
+      "The height of the building made it visible from miles away.",
+      "At the height of summer, daylight lasts until nearly ten at night.",
+      "She measured the height of each plant and recorded the data daily."
+    ]
   },
   {
     "word": "hierarchy",
@@ -1245,7 +1720,12 @@
     "definition": "A system in which members are ranked according to status or authority.",
     "sentence": "In the corporate hierarchy, decisions flow from the top down to each department.",
     "category": "academic",
-    "difficulty": 2
+    "difficulty": 2,
+    "sentences": [
+      "In the corporate hierarchy, decisions flow from the top down to each department.",
+      "The company flattened its hierarchy to encourage more open communication.",
+      "Understanding social hierarchy is key to interpreting medieval literature."
+    ]
   },
   {
     "word": "hypocrisy",
@@ -1258,7 +1738,12 @@
     "definition": "The practice of claiming to have moral standards or beliefs to which one's own behavior does not conform; pretending to be something you are not.",
     "category": "academic",
     "difficulty": 2,
-    "sentence": "Preaching honesty while lying is the very definition of hypocrisy."
+    "sentence": "Preaching honesty while lying is the very definition of hypocrisy.",
+    "sentences": [
+      "Preaching honesty while lying is the very definition of hypocrisy.",
+      "The politician was accused of hypocrisy for opposing the very law he once supported.",
+      "There's a fine line between diplomacy and hypocrisy."
+    ]
   },
   {
     "word": "independent",
@@ -1271,7 +1756,12 @@
     "definition": "Free from outside control or influence; capable of thinking or acting for oneself without relying on others.",
     "category": "academic",
     "difficulty": 2,
-    "sentence": "After graduating, she became financially independent for the first time."
+    "sentence": "After graduating, she became financially independent for the first time.",
+    "sentences": [
+      "After graduating, she became financially independent for the first time.",
+      "The investigation was conducted by an independent committee with no ties to either side.",
+      "She valued her independent lifestyle and wasn't ready to compromise it."
+    ]
   },
   {
     "word": "indigenous",
@@ -1284,7 +1774,12 @@
     "definition": "Originating or occurring naturally in a particular place; native.",
     "sentence": "The indigenous plants of this region have adapted to survive long droughts.",
     "category": "academic",
-    "difficulty": 2
+    "difficulty": 2,
+    "sentences": [
+      "The indigenous plants of this region have adapted to survive long droughts.",
+      "The museum worked with indigenous communities to ensure respectful display of artifacts.",
+      "Many indigenous languages are at risk of disappearing within a generation."
+    ]
   },
   {
     "word": "intellectual",
@@ -1297,7 +1792,12 @@
     "definition": "Relating to the ability to think, reason, and understand complex ideas, or a person who engages in serious study and thought.",
     "category": "academic",
     "difficulty": 2,
-    "sentence": "The debate required serious intellectual effort from all participants."
+    "sentence": "The debate required serious intellectual effort from all participants.",
+    "sentences": [
+      "The debate required serious intellectual effort from all participants.",
+      "The book offers both intellectual challenge and emotional depth.",
+      "She craved intellectual conversation and sought out friends who loved ideas."
+    ]
   },
   {
     "word": "itinerary",
@@ -1310,7 +1810,12 @@
     "definition": "A planned route or journey, or a list of places to visit.",
     "sentence": "Our travel itinerary includes stops in three different countries over two weeks.",
     "category": "tricky",
-    "difficulty": 2
+    "difficulty": 2,
+    "sentences": [
+      "Our travel itinerary includes stops in three different countries over two weeks.",
+      "The travel agent sent over a detailed itinerary covering every day of the trip.",
+      "We deviated from the itinerary when we discovered a hidden beach."
+    ]
   },
   {
     "word": "liaison",
@@ -1323,7 +1828,12 @@
     "definition": "Communication or cooperation between people or organizations.",
     "category": "tricky",
     "difficulty": 2,
-    "sentence": "She served as the liaison between the two departments during the merger."
+    "sentence": "She served as the liaison between the two departments during the merger.",
+    "sentences": [
+      "She served as the liaison between the two departments during the merger.",
+      "He acted as the liaison between the design team and the client.",
+      "Good communication requires a reliable liaison when teams work across time zones."
+    ]
   },
   {
     "word": "loose",
@@ -1336,7 +1846,12 @@
     "definition": "Not firmly or tightly fixed in place. (Not 'lose,' which means to misplace or fail to win.)",
     "sentence": "The screw was loose, causing the shelf to wobble every time someone walked past.",
     "category": "confusable",
-    "difficulty": 2
+    "difficulty": 2,
+    "sentences": [
+      "The screw was loose, causing the shelf to wobble every time someone walked past.",
+      "One of the wheels on the shopping cart was loose and kept wobbling.",
+      "Wear loose clothing when exercising in hot weather to stay cool."
+    ]
   },
   {
     "word": "maintenance",
@@ -1349,7 +1864,12 @@
     "definition": "The process of keeping something in good condition.",
     "category": "tricky",
     "difficulty": 2,
-    "sentence": "Regular maintenance of your car will prevent expensive repairs later."
+    "sentence": "Regular maintenance of your car will prevent expensive repairs later.",
+    "sentences": [
+      "Regular maintenance of your car will prevent expensive repairs later.",
+      "The building was closed for two weeks of routine maintenance.",
+      "Skipping oil changes will lead to costly engine maintenance down the road."
+    ]
   },
   {
     "word": "millennium",
@@ -1362,7 +1882,12 @@
     "definition": "A period of one thousand years.",
     "category": "tricky",
     "difficulty": 2,
-    "sentence": "The turn of the millennium was celebrated with fireworks around the world."
+    "sentence": "The turn of the millennium was celebrated with fireworks around the world.",
+    "sentences": [
+      "The turn of the millennium was celebrated with fireworks around the world.",
+      "People debated whether the new millennium technically started in 2000 or 2001.",
+      "The ancient manuscript had survived for over a millennium."
+    ]
   },
   {
     "word": "mischievous",
@@ -1375,7 +1900,12 @@
     "definition": "Causing or showing a fondness for causing trouble in a playful way.",
     "sentence": "The mischievous puppy chewed through three pairs of shoes in one week.",
     "category": "tricky",
-    "difficulty": 2
+    "difficulty": 2,
+    "sentences": [
+      "The mischievous puppy chewed through three pairs of shoes in one week.",
+      "The mischievous cat knocked every ornament off the Christmas tree.",
+      "His mischievous grin told me he was planning something I wouldn't approve of."
+    ]
   },
   {
     "word": "negotiate",
@@ -1388,7 +1918,12 @@
     "definition": "To try to reach an agreement through discussion and compromise.",
     "sentence": "The two countries agreed to negotiate a peace treaty after months of conflict.",
     "category": "academic",
-    "difficulty": 2
+    "difficulty": 2,
+    "sentences": [
+      "The two countries agreed to negotiate a peace treaty after months of conflict.",
+      "The union was able to negotiate better working conditions for its members.",
+      "Learning to negotiate is an essential skill in both business and everyday life."
+    ]
   },
   {
     "word": "nuisance",
@@ -1401,7 +1936,12 @@
     "definition": "A person, thing, or circumstance causing inconvenience or annoyance.",
     "sentence": "The constant noise from the construction site next door was a real nuisance.",
     "category": "tricky",
-    "difficulty": 2
+    "difficulty": 2,
+    "sentences": [
+      "The constant noise from the construction site next door was a real nuisance.",
+      "The barking dog next door has become a nuisance to the entire neighborhood.",
+      "Mosquitoes are more than a nuisance \u2014 they can carry dangerous diseases."
+    ]
   },
   {
     "word": "occurrence",
@@ -1414,7 +1954,12 @@
     "definition": "An event or incident that takes place; the fact or frequency of something happening.",
     "category": "academic",
     "difficulty": 2,
-    "sentence": "Lightning striking the same spot twice is a rare occurrence."
+    "sentence": "Lightning striking the same spot twice is a rare occurrence.",
+    "sentences": [
+      "Lightning striking the same spot twice is a rare occurrence.",
+      "Power outages are a frequent occurrence during the monsoon season.",
+      "The doctor said such symptoms were a normal occurrence after surgery."
+    ]
   },
   {
     "word": "omitted",
@@ -1427,7 +1972,12 @@
     "definition": "Left out or excluded, either intentionally or by mistake; failed to include something.",
     "category": "academic",
     "difficulty": 2,
-    "sentence": "He accidentally omitted his middle name when filling out the application."
+    "sentence": "He accidentally omitted his middle name when filling out the application.",
+    "sentences": [
+      "He accidentally omitted his middle name when filling out the application.",
+      "Her name was accidentally omitted from the list of contributors.",
+      "He omitted several key details when retelling the story to his parents."
+    ]
   },
   {
     "word": "paralysis",
@@ -1440,7 +1990,12 @@
     "definition": "The loss of the ability to move part or all of the body, often due to nerve damage; it can also refer to a state of complete inability to act or function.",
     "category": "academic",
     "difficulty": 2,
-    "sentence": "The fear of failure can cause a kind of paralysis that prevents you from trying."
+    "sentence": "The fear of failure can cause a kind of paralysis that prevents you from trying.",
+    "sentences": [
+      "The fear of failure can cause a kind of paralysis that prevents you from trying.",
+      "The fear of making the wrong choice led to complete paralysis.",
+      "The accident caused temporary paralysis in his left arm."
+    ]
   },
   {
     "word": "parliament",
@@ -1453,7 +2008,12 @@
     "definition": "The legislative body of government in many countries.",
     "sentence": "The new law was debated in parliament for several weeks before being passed.",
     "category": "academic",
-    "difficulty": 2
+    "difficulty": 2,
+    "sentences": [
+      "The new law was debated in parliament for several weeks before being passed.",
+      "The bill passed through parliament after months of heated debate.",
+      "She dreamed of one day representing her community in parliament."
+    ]
   },
   {
     "word": "permanent",
@@ -1466,7 +2026,12 @@
     "definition": "Lasting or intended to last indefinitely without change.",
     "sentence": "The tattoo is permanent, so make sure you choose a design you truly love.",
     "category": "tricky",
-    "difficulty": 2
+    "difficulty": 2,
+    "sentences": [
+      "The tattoo is permanent, so make sure you choose a design you truly love.",
+      "Nothing in life is truly permanent \u2014 everything changes eventually.",
+      "They decided to make the temporary arrangement permanent after it worked so well."
+    ]
   },
   {
     "word": "perseverance",
@@ -1479,7 +2044,12 @@
     "definition": "The quality of continuing to work toward a goal despite difficulties, obstacles, or discouragement.",
     "category": "academic",
     "difficulty": 2,
-    "sentence": "Her perseverance through years of training finally paid off at the Olympics."
+    "sentence": "Her perseverance through years of training finally paid off at the Olympics.",
+    "sentences": [
+      "Her perseverance through years of training finally paid off at the Olympics.",
+      "It took years of perseverance to build the business from nothing.",
+      "His perseverance in the face of setbacks inspired everyone around him."
+    ]
   },
   {
     "word": "personnel",
@@ -1492,7 +2062,12 @@
     "definition": "The people employed by an organization, business, or military service; staff or workforce.",
     "category": "academic",
     "difficulty": 2,
-    "sentence": "All personnel must attend the mandatory safety training next Tuesday."
+    "sentence": "All personnel must attend the mandatory safety training next Tuesday.",
+    "sentences": [
+      "All personnel must attend the mandatory safety training next Tuesday.",
+      "The company is hiring additional personnel to handle the holiday rush.",
+      "Only authorized personnel are allowed beyond this security checkpoint."
+    ]
   },
   {
     "word": "phenomenon",
@@ -1505,7 +2080,12 @@
     "definition": "A fact or situation that is observed to exist or happen.",
     "sentence": "The Northern Lights are a natural phenomenon that attracts tourists from around the world.",
     "category": "academic",
-    "difficulty": 2
+    "difficulty": 2,
+    "sentences": [
+      "The Northern Lights are a natural phenomenon that attracts tourists from around the world.",
+      "Social media virality is a phenomenon that scientists are still trying to understand.",
+      "Ball lightning remains one of nature's most mysterious phenomena."
+    ]
   },
   {
     "word": "piqued",
@@ -1518,7 +2098,12 @@
     "definition": "Stimulated or aroused (as in curiosity or interest), or alternatively, irritated or resentful.",
     "category": "tricky",
     "difficulty": 2,
-    "sentence": "The mysterious letter piqued her curiosity and she couldn't stop thinking about it."
+    "sentence": "The mysterious letter piqued her curiosity and she couldn't stop thinking about it.",
+    "sentences": [
+      "The mysterious letter piqued her curiosity and she couldn't stop thinking about it.",
+      "The unusual title piqued my interest, so I picked up the book immediately.",
+      "Her curiosity was piqued when she noticed the hidden door behind the bookshelf."
+    ]
   },
   {
     "word": "practicality",
@@ -1531,7 +2116,12 @@
     "definition": "The quality of being useful, realistic, and suited to actual conditions rather than being purely theoretical.",
     "category": "tricky",
     "difficulty": 2,
-    "sentence": "The practicality of the design made it popular with everyday users."
+    "sentence": "The practicality of the design made it popular with everyday users.",
+    "sentences": [
+      "The practicality of the design made it popular with everyday users.",
+      "He chose the car for its practicality rather than its appearance.",
+      "The practicality of the invention made it an instant bestseller."
+    ]
   },
   {
     "word": "practice",
@@ -1544,7 +2134,12 @@
     "definition": "The repeated exercise of an activity to improve a skill. (Note: 'practise' is the UK verb form \u2014 this game uses the US/noun spelling.)",
     "category": "confusable",
     "difficulty": 2,
-    "sentence": "Daily practice is the only way to improve your piano skills."
+    "sentence": "Daily practice is the only way to improve your piano skills.",
+    "sentences": [
+      "Daily practice is the only way to improve your piano skills.",
+      "She set aside two hours every evening for piano practice.",
+      "In practice, the theory doesn't always work as neatly as it does on paper."
+    ]
   },
   {
     "word": "precedence",
@@ -1557,7 +2152,12 @@
     "definition": "The condition of being considered more important than something else; priority in rank or order.",
     "category": "academic",
     "difficulty": 2,
-    "sentence": "Safety always takes precedence over speed in this laboratory."
+    "sentence": "Safety always takes precedence over speed in this laboratory.",
+    "sentences": [
+      "Safety always takes precedence over speed in this laboratory.",
+      "Emergency vehicles always take precedence over regular traffic at intersections.",
+      "Family took precedence over everything else in her life."
+    ]
   },
   {
     "word": "preferred",
@@ -1570,7 +2170,12 @@
     "definition": "Liked or wanted more than another option; chosen as the more desirable alternative.",
     "category": "tricky",
     "difficulty": 2,
-    "sentence": "She preferred reading books to watching television."
+    "sentence": "She preferred reading books to watching television.",
+    "sentences": [
+      "She preferred reading books to watching television.",
+      "Most customers preferred the original recipe over the new version.",
+      "She preferred working in silence rather than with background music."
+    ]
   },
   {
     "word": "prejudice",
@@ -1583,7 +2188,12 @@
     "definition": "An unfair opinion or judgment formed about a person or group without sufficient knowledge or reason.",
     "category": "tricky",
     "difficulty": 2,
-    "sentence": "We should judge people by their character, not through the lens of prejudice."
+    "sentence": "We should judge people by their character, not through the lens of prejudice.",
+    "sentences": [
+      "We should judge people by their character, not through the lens of prejudice.",
+      "Education is one of the most powerful tools against prejudice.",
+      "The judge was removed from the case due to suspected prejudice."
+    ]
   },
   {
     "word": "prevalent",
@@ -1596,7 +2206,12 @@
     "definition": "Widespread or commonly occurring in a particular area or at a particular time.",
     "category": "academic",
     "difficulty": 2,
-    "sentence": "Misinformation is unfortunately prevalent on social media platforms."
+    "sentence": "Misinformation is unfortunately prevalent on social media platforms.",
+    "sentences": [
+      "Misinformation is unfortunately prevalent on social media platforms.",
+      "Allergies are becoming increasingly prevalent in urban areas.",
+      "The belief was prevalent throughout the medieval period."
+    ]
   },
   {
     "word": "principal",
@@ -1609,7 +2224,12 @@
     "definition": "The head of a school, or an adjective meaning first in importance. (Not 'principle,' which means a rule or belief.)",
     "category": "confusable",
     "difficulty": 2,
-    "sentence": "The principal greeted every student by name at the school entrance."
+    "sentence": "The principal greeted every student by name at the school entrance.",
+    "sentences": [
+      "The principal greeted every student by name at the school entrance.",
+      "The principal reason for the delay was a shortage of materials.",
+      "Our principal concern is the safety of the students during the renovation."
+    ]
   },
   {
     "word": "privilege",
@@ -1622,7 +2242,12 @@
     "definition": "A special right, advantage, or benefit granted to a particular person or group.",
     "category": "tricky",
     "difficulty": 2,
-    "sentence": "Having access to clean water is a privilege that many take for granted."
+    "sentence": "Having access to clean water is a privilege that many take for granted.",
+    "sentences": [
+      "Having access to clean water is a privilege that many take for granted.",
+      "It's a privilege to work alongside such talented and dedicated people.",
+      "She never took the privilege of a good education for granted."
+    ]
   },
   {
     "word": "procedure",
@@ -1635,7 +2260,12 @@
     "definition": "An established series of steps or actions followed in a particular order to accomplish a task.",
     "category": "academic",
     "difficulty": 2,
-    "sentence": "Follow the correct procedure to avoid errors in the experiment."
+    "sentence": "Follow the correct procedure to avoid errors in the experiment.",
+    "sentences": [
+      "Follow the correct procedure to avoid errors in the experiment.",
+      "The standard procedure requires two forms of identification.",
+      "He explained the procedure step by step so no one would feel confused."
+    ]
   },
   {
     "word": "proceed",
@@ -1648,7 +2278,12 @@
     "definition": "To begin or continue doing something, or to move forward in a particular direction.",
     "category": "tricky",
     "difficulty": 2,
-    "sentence": "Once everyone is seated, we will proceed with the presentation."
+    "sentence": "Once everyone is seated, we will proceed with the presentation.",
+    "sentences": [
+      "Once everyone is seated, we will proceed with the presentation.",
+      "Once you've confirmed your details, click the button to proceed.",
+      "Despite the warning signs, they chose to proceed with the expedition."
+    ]
   },
   {
     "word": "professor",
@@ -1661,7 +2296,12 @@
     "definition": "A teacher of the highest rank at a college or university who typically specializes in a particular academic subject.",
     "category": "academic",
     "difficulty": 2,
-    "sentence": "The professor explained the complex theory using simple everyday examples."
+    "sentence": "The professor explained the complex theory using simple everyday examples.",
+    "sentences": [
+      "The professor explained the complex theory using simple everyday examples.",
+      "The professor held office hours every Tuesday for students who needed help.",
+      "She became the youngest professor in the department's history."
+    ]
   },
   {
     "word": "prominent",
@@ -1674,7 +2314,12 @@
     "definition": "Well-known and important, or standing out so as to be easily noticed.",
     "category": "academic",
     "difficulty": 2,
-    "sentence": "She became a prominent figure in the field of renewable energy."
+    "sentence": "She became a prominent figure in the field of renewable energy.",
+    "sentences": [
+      "She became a prominent figure in the field of renewable energy.",
+      "A prominent crack appeared in the wall after the earthquake.",
+      "He played a prominent role in negotiating the peace agreement."
+    ]
   },
   {
     "word": "pronunciation",
@@ -1687,7 +2332,12 @@
     "definition": "The way in which a word or language is spoken, including the sounds and stress patterns used.",
     "category": "academic",
     "difficulty": 2,
-    "sentence": "The correct pronunciation of that word trips up even native speakers."
+    "sentence": "The correct pronunciation of that word trips up even native speakers.",
+    "sentences": [
+      "The correct pronunciation of that word trips up even native speakers.",
+      "Native speakers sometimes disagree on the pronunciation of certain words.",
+      "Her pronunciation improved dramatically after spending a summer abroad."
+    ]
   },
   {
     "word": "pursue",
@@ -1700,7 +2350,12 @@
     "definition": "To follow or chase someone or something, or to continue working toward a goal.",
     "category": "tricky",
     "difficulty": 2,
-    "sentence": "He decided to pursue a career in medicine after volunteering at a hospital."
+    "sentence": "He decided to pursue a career in medicine after volunteering at a hospital.",
+    "sentences": [
+      "He decided to pursue a career in medicine after volunteering at a hospital.",
+      "After much thought, he decided to pursue a degree in architecture.",
+      "The detective continued to pursue every lead, no matter how small."
+    ]
   },
   {
     "word": "quantity",
@@ -1713,7 +2368,12 @@
     "definition": "An amount or number of something, often one that can be measured or counted.",
     "category": "tricky",
     "difficulty": 2,
-    "sentence": "Quality matters more than quantity when it comes to friendships."
+    "sentence": "Quality matters more than quantity when it comes to friendships.",
+    "sentences": [
+      "Quality matters more than quantity when it comes to friendships.",
+      "They ordered a large quantity of supplies in preparation for the event.",
+      "In cooking, the quantity of salt can make or break a dish."
+    ]
   },
   {
     "word": "quizzes",
@@ -1726,7 +2386,12 @@
     "definition": "Short tests or assessments, often given in school to check understanding of a topic.",
     "category": "tricky",
     "difficulty": 2,
-    "sentence": "The teacher gives short quizzes every Friday to review the week's material."
+    "sentence": "The teacher gives short quizzes every Friday to review the week's material.",
+    "sentences": [
+      "The teacher gives short quizzes every Friday to review the week's material.",
+      "The online course includes weekly quizzes to test your understanding.",
+      "Pop quizzes kept the students on their toes throughout the semester."
+    ]
   },
   {
     "word": "rebellion",
@@ -1739,7 +2404,12 @@
     "definition": "An act of violent or open resistance to an established authority.",
     "sentence": "The rebellion against the unfair tax laws spread rapidly across the colonies.",
     "category": "academic",
-    "difficulty": 2
+    "difficulty": 2,
+    "sentences": [
+      "The rebellion against the unfair tax laws spread rapidly across the colonies.",
+      "The rebellion was sparked by years of unjust taxation.",
+      "Teenage rebellion is a normal part of growing up and finding independence."
+    ]
   },
   {
     "word": "recede",
@@ -1752,7 +2422,12 @@
     "definition": "To move back or withdraw gradually, such as floodwaters pulling back or a hairline moving backward.",
     "category": "tricky",
     "difficulty": 2,
-    "sentence": "The floodwaters began to recede after three days of dry weather."
+    "sentence": "The floodwaters began to recede after three days of dry weather.",
+    "sentences": [
+      "The floodwaters began to recede after three days of dry weather.",
+      "Hopes of a quick recovery began to recede as weeks passed without improvement.",
+      "His hairline started to recede in his late twenties."
+    ]
   },
   {
     "word": "recommendation",
@@ -1765,7 +2440,12 @@
     "definition": "A suggestion or piece of advice about the best course of action, or a formal statement praising someone's qualities or abilities.",
     "category": "academic",
     "difficulty": 2,
-    "sentence": "Her teacher wrote a glowing recommendation for her college application."
+    "sentence": "Her teacher wrote a glowing recommendation for her college application.",
+    "sentences": [
+      "Her teacher wrote a glowing recommendation for her college application.",
+      "The committee's recommendation was to postpone the project by six months.",
+      "A personal recommendation from a trusted colleague carries significant weight."
+    ]
   },
   {
     "word": "reference",
@@ -1778,7 +2458,12 @@
     "definition": "A mention or citation of a source of information, or a person who can speak to your character or qualifications.",
     "category": "academic",
     "difficulty": 2,
-    "sentence": "Please include a list of references at the end of your essay."
+    "sentence": "Please include a list of references at the end of your essay.",
+    "sentences": [
+      "Please include a list of references at the end of your essay.",
+      "The textbook is an excellent reference for anyone studying biology.",
+      "She made a passing reference to her time living in Japan."
+    ]
   },
   {
     "word": "regiment",
@@ -1791,7 +2476,12 @@
     "definition": "A large unit of soldiers in an army, typically commanded by a colonel, or a strict, organized system of doing things.",
     "category": "academic",
     "difficulty": 2,
-    "sentence": "The strict regiment of daily exercises improved his health dramatically."
+    "sentence": "The strict regiment of daily exercises improved his health dramatically.",
+    "sentences": [
+      "The strict regiment of daily exercises improved his health dramatically.",
+      "The strict daily regiment transformed his health within three months.",
+      "A regiment of soldiers marched through the town square at dawn."
+    ]
   },
   {
     "word": "repetition",
@@ -1804,7 +2494,12 @@
     "definition": "The act of doing or saying something again, often multiple times, in order to practice or emphasize it.",
     "category": "academic",
     "difficulty": 2,
-    "sentence": "Mastering a new skill requires patience and constant repetition."
+    "sentence": "Mastering a new skill requires patience and constant repetition.",
+    "sentences": [
+      "Mastering a new skill requires patience and constant repetition.",
+      "Language learning depends heavily on repetition and consistent practice.",
+      "The repetition of the chorus made the song impossible to forget."
+    ]
   },
   {
     "word": "ridiculous",
@@ -1817,7 +2512,12 @@
     "definition": "Extremely silly, absurd, or unreasonable; deserving to be laughed at.",
     "category": "tricky",
     "difficulty": 2,
-    "sentence": "The idea of swimming to work seemed ridiculous until she moved near the river."
+    "sentence": "The idea of swimming to work seemed ridiculous until she moved near the river.",
+    "sentences": [
+      "The idea of swimming to work seemed ridiculous until she moved near the river.",
+      "The prices at that tourist shop were absolutely ridiculous.",
+      "It may sound ridiculous, but the plan actually worked perfectly."
+    ]
   },
   {
     "word": "sacrilegious",
@@ -1830,7 +2530,12 @@
     "definition": "Showing great disrespect or irreverence toward something considered holy or sacred.",
     "category": "tricky",
     "difficulty": 2,
-    "sentence": "Some considered the modern renovation of the ancient church to be sacrilegious."
+    "sentence": "Some considered the modern renovation of the ancient church to be sacrilegious.",
+    "sentences": [
+      "Some considered the modern renovation of the ancient church to be sacrilegious.",
+      "Many fans considered the remake of the beloved film to be sacrilegious.",
+      "Wearing casual clothes to the formal ceremony was seen as almost sacrilegious."
+    ]
   },
   {
     "word": "salary",
@@ -1843,7 +2548,12 @@
     "definition": "A fixed amount of money paid to an employee on a regular basis, typically monthly or biweekly, in exchange for their work.",
     "category": "tricky",
     "difficulty": 2,
-    "sentence": "Her salary increased significantly after she earned her professional certification."
+    "sentence": "Her salary increased significantly after she earned her professional certification.",
+    "sentences": [
+      "Her salary increased significantly after she earned her professional certification.",
+      "She negotiated a higher salary when she took on additional responsibilities.",
+      "The job offered a modest salary but excellent benefits and flexibility."
+    ]
   },
   {
     "word": "seize",
@@ -1856,7 +2566,12 @@
     "definition": "To grab hold of something suddenly and forcibly, or to take possession of something by authority or force.",
     "category": "tricky",
     "difficulty": 2,
-    "sentence": "You must seize the opportunity when it presents itself."
+    "sentence": "You must seize the opportunity when it presents itself.",
+    "sentences": [
+      "You must seize the opportunity when it presents itself.",
+      "The army moved quickly to seize control of the bridge before dawn.",
+      "She decided to seize the day and book the trip she'd been dreaming about."
+    ]
   },
   {
     "word": "sense",
@@ -1869,7 +2584,12 @@
     "definition": "A faculty by which the body perceives the world (such as sight or hearing), or a feeling that something is the case; also refers to good judgment or reasoning.",
     "category": "tricky",
     "difficulty": 2,
-    "sentence": "It doesn't make sense to drive when the store is just around the corner."
+    "sentence": "It doesn't make sense to drive when the store is just around the corner.",
+    "sentences": [
+      "It doesn't make sense to drive when the store is just around the corner.",
+      "It makes sense to save a portion of your income every month.",
+      "There was a sense of excitement in the air as the concert was about to begin."
+    ]
   },
   {
     "word": "sergeant",
@@ -1882,7 +2602,12 @@
     "definition": "A non-commissioned military or police rank, typically above a corporal, responsible for supervising lower-ranking personnel.",
     "category": "tricky",
     "difficulty": 2,
-    "sentence": "The sergeant led the platoon through the challenging obstacle course."
+    "sentence": "The sergeant led the platoon through the challenging obstacle course.",
+    "sentences": [
+      "The sergeant led the platoon through the challenging obstacle course.",
+      "The sergeant trained new recruits with a mix of discipline and encouragement.",
+      "She was promoted to sergeant after demonstrating exceptional leadership in the field."
+    ]
   },
   {
     "word": "severely",
@@ -1895,7 +2620,12 @@
     "definition": "To a very serious or harsh degree; extremely or strictly.",
     "category": "tricky",
     "difficulty": 2,
-    "sentence": "The bridge was severely damaged during the storm and had to be closed."
+    "sentence": "The bridge was severely damaged during the storm and had to be closed.",
+    "sentences": [
+      "The bridge was severely damaged during the storm and had to be closed.",
+      "The budget cuts severely limited the team's ability to finish on time.",
+      "He was severely allergic to peanuts and always carried an EpiPen."
+    ]
   },
   {
     "word": "sophomore",
@@ -1908,7 +2638,12 @@
     "definition": "A student in the second year of high school or college.",
     "category": "tricky",
     "difficulty": 2,
-    "sentence": "In her sophomore year, she joined three clubs and made the honor roll."
+    "sentence": "In her sophomore year, she joined three clubs and made the honor roll.",
+    "sentences": [
+      "In her sophomore year, she joined three clubs and made the honor roll.",
+      "Her sophomore album was even more successful than her debut.",
+      "As a sophomore, he finally felt comfortable navigating the large campus."
+    ]
   },
   {
     "word": "specifically",
@@ -1921,7 +2656,12 @@
     "definition": "In a precise, exact, or clearly defined manner; used to single out something particular.",
     "category": "tricky",
     "difficulty": 2,
-    "sentence": "The instructions specifically state that you must use a blue pen."
+    "sentence": "The instructions specifically state that you must use a blue pen.",
+    "sentences": [
+      "The instructions specifically state that you must use a blue pen.",
+      "The recipe specifically calls for unsalted butter, not regular.",
+      "She was hired specifically to redesign the company's outdated website."
+    ]
   },
   {
     "word": "specimen",
@@ -1934,7 +2674,12 @@
     "definition": "An individual example or sample of something, often used in science to refer to a sample taken for examination or study.",
     "category": "academic",
     "difficulty": 2,
-    "sentence": "The biologist carefully preserved the rare specimen for further study."
+    "sentence": "The biologist carefully preserved the rare specimen for further study.",
+    "sentences": [
+      "The biologist carefully preserved the rare specimen for further study.",
+      "The lab received a rare specimen of the deep-sea fish for study.",
+      "Each specimen was carefully labeled and stored at the correct temperature."
+    ]
   },
   {
     "word": "stationary",
@@ -1947,7 +2692,12 @@
     "definition": "Not moving; fixed in one place. (Not 'stationery,' which means paper and writing supplies.)",
     "category": "confusable",
     "difficulty": 2,
-    "sentence": "The car remained stationary at the red light for what felt like forever."
+    "sentence": "The car remained stationary at the red light for what felt like forever.",
+    "sentences": [
+      "The car remained stationary at the red light for what felt like forever.",
+      "The train was stationary for twenty minutes due to a signal failure.",
+      "She pedaled hard on the stationary bike during her morning workout."
+    ]
   },
   {
     "word": "statue",
@@ -1960,7 +2710,12 @@
     "definition": "A carved, molded, or cast figure of a person, animal, or object, typically made of stone, metal, or wood and often displayed as a work of art or memorial.",
     "category": "tricky",
     "difficulty": 2,
-    "sentence": "The bronze statue in the park commemorates the city's founder."
+    "sentence": "The bronze statue in the park commemorates the city's founder.",
+    "sentences": [
+      "The bronze statue in the park commemorates the city's founder.",
+      "The marble statue in the center of the square depicts a local hero.",
+      "They unveiled the new statue at a ceremony attended by hundreds."
+    ]
   },
   {
     "word": "sufficient",
@@ -1973,7 +2728,12 @@
     "definition": "Enough; adequate for a particular purpose.",
     "sentence": "Make sure you have sufficient water before starting the long hike.",
     "category": "tricky",
-    "difficulty": 2
+    "difficulty": 2,
+    "sentences": [
+      "Make sure you have sufficient water before starting the long hike.",
+      "Two hours should be sufficient to complete the assignment.",
+      "The evidence was not sufficient to bring charges against the suspect."
+    ]
   },
   {
     "word": "technique",
@@ -1986,7 +2746,12 @@
     "definition": "A specific method or way of doing something, especially one that requires skill or practice.",
     "category": "academic",
     "difficulty": 2,
-    "sentence": "She developed a unique painting technique that no one else could replicate."
+    "sentence": "She developed a unique painting technique that no one else could replicate.",
+    "sentences": [
+      "She developed a unique painting technique that no one else could replicate.",
+      "The surgeon pioneered a new technique that reduced recovery time by half.",
+      "Good study technique matters more than the number of hours you spend."
+    ]
   },
   {
     "word": "temperamental",
@@ -1999,7 +2764,12 @@
     "definition": "Describing someone whose mood changes quickly and unpredictably, or something that is unreliable in how it functions.",
     "category": "academic",
     "difficulty": 2,
-    "sentence": "The old car was temperamental and refused to start on cold mornings."
+    "sentence": "The old car was temperamental and refused to start on cold mornings.",
+    "sentences": [
+      "The old car was temperamental and refused to start on cold mornings.",
+      "The espresso machine is temperamental \u2014 you have to press the button just right.",
+      "He could be temperamental before his morning coffee."
+    ]
   },
   {
     "word": "tendency",
@@ -2012,7 +2782,12 @@
     "definition": "A natural inclination or likelihood to behave in a particular way or for something to happen.",
     "category": "tricky",
     "difficulty": 2,
-    "sentence": "He has a tendency to procrastinate when faced with difficult tasks."
+    "sentence": "He has a tendency to procrastinate when faced with difficult tasks.",
+    "sentences": [
+      "He has a tendency to procrastinate when faced with difficult tasks.",
+      "She has a tendency to underestimate how long tasks will take.",
+      "There's a tendency among new writers to use too many adjectives."
+    ]
   },
   {
     "word": "than",
@@ -2025,7 +2800,12 @@
     "definition": "Used in comparisons to show difference. (Not 'then,' which refers to time or sequence.)",
     "sentence": "She is taller than her older brother, even though she is two years younger.",
     "category": "confusable",
-    "difficulty": 2
+    "difficulty": 2,
+    "sentences": [
+      "She is taller than her older brother, even though she is two years younger.",
+      "Actions speak louder than words when it comes to building trust.",
+      "The second version of the essay was much stronger than the first."
+    ]
   },
   {
     "word": "thorough",
@@ -2038,7 +2818,12 @@
     "definition": "Done with great care and attention to every detail, leaving nothing incomplete or overlooked.",
     "category": "tricky",
     "difficulty": 2,
-    "sentence": "A thorough investigation revealed that the fire was caused by faulty wiring."
+    "sentence": "A thorough investigation revealed that the fire was caused by faulty wiring.",
+    "sentences": [
+      "A thorough investigation revealed that the fire was caused by faulty wiring.",
+      "The inspector conducted a thorough examination of the entire building.",
+      "A thorough understanding of the basics is essential before moving to advanced topics."
+    ]
   },
   {
     "word": "tragedy",
@@ -2051,7 +2836,12 @@
     "definition": "An extremely sad or devastating event, or a serious dramatic work that ends with the downfall of the main character.",
     "category": "tricky",
     "difficulty": 2,
-    "sentence": "The sinking of the ship was one of the worst tragedies in maritime history."
+    "sentence": "The sinking of the ship was one of the worst tragedies in maritime history.",
+    "sentences": [
+      "The sinking of the ship was one of the worst tragedies in maritime history.",
+      "The community came together to support those affected by the tragedy.",
+      "Shakespeare wrote both comedy and tragedy with equal brilliance."
+    ]
   },
   {
     "word": "transferring",
@@ -2064,7 +2854,12 @@
     "definition": "The act of moving someone or something from one place, person, or situation to another.",
     "category": "tricky",
     "difficulty": 2,
-    "sentence": "She is transferring to a new school at the start of next semester."
+    "sentence": "She is transferring to a new school at the start of next semester.",
+    "sentences": [
+      "She is transferring to a new school at the start of next semester.",
+      "She is transferring her savings to a higher-interest account.",
+      "Transferring large files over a slow connection can take hours."
+    ]
   },
   {
     "word": "tyranny",
@@ -2077,7 +2872,12 @@
     "definition": "Cruel and oppressive rule or government by a single leader or small group who holds absolute power.",
     "category": "tricky",
     "difficulty": 2,
-    "sentence": "The citizens rose up against the tyranny of the oppressive regime."
+    "sentence": "The citizens rose up against the tyranny of the oppressive regime.",
+    "sentences": [
+      "The citizens rose up against the tyranny of the oppressive regime.",
+      "The people finally overthrew the tyranny that had oppressed them for decades.",
+      "The tyranny of perfection prevents many people from even starting a project."
+    ]
   },
   {
     "word": "unanimous",
@@ -2090,7 +2890,12 @@
     "definition": "Describing a decision or opinion that is fully agreed upon by everyone in a group, with no one disagreeing.",
     "category": "academic",
     "difficulty": 2,
-    "sentence": "The jury reached a unanimous verdict after only two hours of deliberation."
+    "sentence": "The jury reached a unanimous verdict after only two hours of deliberation.",
+    "sentences": [
+      "The jury reached a unanimous verdict after only two hours of deliberation.",
+      "The board reached a unanimous decision to expand into new markets.",
+      "The audience gave a unanimous standing ovation after the final act."
+    ]
   },
   {
     "word": "undoubtedly",
@@ -2103,7 +2908,12 @@
     "definition": "Without any doubt; used to emphasize that something is certainly true or will definitely happen.",
     "category": "tricky",
     "difficulty": 2,
-    "sentence": "She is undoubtedly the most talented musician in the entire school."
+    "sentence": "She is undoubtedly the most talented musician in the entire school.",
+    "sentences": [
+      "She is undoubtedly the most talented musician in the entire school.",
+      "She is undoubtedly the fastest runner in the entire district.",
+      "This was undoubtedly the most challenging exam they had faced all year."
+    ]
   },
   {
     "word": "unnecessary",
@@ -2116,7 +2926,12 @@
     "definition": "Not needed or more than what is required; excessive or redundant.",
     "category": "academic",
     "difficulty": 2,
-    "sentence": "Bringing five suitcases for a weekend trip seems entirely unnecessary."
+    "sentence": "Bringing five suitcases for a weekend trip seems entirely unnecessary.",
+    "sentences": [
+      "Bringing five suitcases for a weekend trip seems entirely unnecessary.",
+      "Let's cut the unnecessary steps and streamline this process.",
+      "Carrying an umbrella on a sunny day seemed unnecessary until the clouds rolled in."
+    ]
   },
   {
     "word": "writhing",
@@ -2129,7 +2944,12 @@
     "definition": "Twisting or squirming the body, usually as a result of intense pain or discomfort.",
     "category": "tricky",
     "difficulty": 2,
-    "sentence": "The fish was writhing on the deck until the fisherman released it back into the water."
+    "sentence": "The fish was writhing on the deck until the fisherman released it back into the water.",
+    "sentences": [
+      "The fish was writhing on the deck until the fisherman released it back into the water.",
+      "The snake was writhing across the hot sand toward the shade.",
+      "He lay writhing in pain until the paramedics arrived."
+    ]
   },
   {
     "word": "acquiesce",
@@ -2142,7 +2962,12 @@
     "definition": "To accept something reluctantly but without protest.",
     "category": "advanced",
     "difficulty": 3,
-    "sentence": "Rather than argue further, she decided to acquiesce to her parents' wishes."
+    "sentence": "Rather than argue further, she decided to acquiesce to her parents' wishes.",
+    "sentences": [
+      "Rather than argue further, she decided to acquiesce to her parents' wishes.",
+      "After much pressure, the board finally chose to acquiesce to the demands.",
+      "She refused to acquiesce silently when she knew the decision was wrong."
+    ]
   },
   {
     "word": "antecedent",
@@ -2155,7 +2980,12 @@
     "definition": "A thing or event that existed before or preceded another.",
     "category": "advanced",
     "difficulty": 3,
-    "sentence": "Understanding the antecedent of a pronoun is essential for clear writing."
+    "sentence": "Understanding the antecedent of a pronoun is essential for clear writing.",
+    "sentences": [
+      "Understanding the antecedent of a pronoun is essential for clear writing.",
+      "Every pronoun needs a clear antecedent so readers know what it refers to.",
+      "The political unrest was the antecedent to the sweeping reforms that followed."
+    ]
   },
   {
     "word": "archaeological",
@@ -2168,7 +2998,12 @@
     "definition": "Relating to the study of human history through excavation of sites.",
     "sentence": "The archaeological dig uncovered pottery fragments dating back three thousand years.",
     "category": "advanced",
-    "difficulty": 3
+    "difficulty": 3,
+    "sentences": [
+      "The archaeological dig uncovered pottery fragments dating back three thousand years.",
+      "The archaeological evidence suggests the city was abandoned suddenly.",
+      "New archaeological techniques allow researchers to date artifacts more precisely."
+    ]
   },
   {
     "word": "bourgeoisie",
@@ -2181,7 +3016,12 @@
     "definition": "The middle class, typically referring to its perceived materialistic values.",
     "sentence": "The revolution was driven by tension between the working class and the bourgeoisie.",
     "category": "advanced",
-    "difficulty": 3
+    "difficulty": 3,
+    "sentences": [
+      "The revolution was driven by tension between the working class and the bourgeoisie.",
+      "The novel satirizes the bourgeoisie and their obsession with social status.",
+      "Marx's writings focused on the tensions between the bourgeoisie and the proletariat."
+    ]
   },
   {
     "word": "chrysanthemum",
@@ -2194,7 +3034,12 @@
     "definition": "A flowering plant of the daisy family, cultivated for its bright blooms.",
     "sentence": "She planted rows of chrysanthemum along the garden path for autumn color.",
     "category": "advanced",
-    "difficulty": 3
+    "difficulty": 3,
+    "sentences": [
+      "She planted rows of chrysanthemum along the garden path for autumn color.",
+      "The chrysanthemum is the official flower of the Japanese imperial family.",
+      "She arranged a bouquet of white chrysanthemum blooms for the dining table."
+    ]
   },
   {
     "word": "connoisseur",
@@ -2207,7 +3052,12 @@
     "definition": "An expert judge in matters of fine art or taste.",
     "category": "advanced",
     "difficulty": 3,
-    "sentence": "As a connoisseur of fine wine, he could identify the vineyard from a single sip."
+    "sentence": "As a connoisseur of fine wine, he could identify the vineyard from a single sip.",
+    "sentences": [
+      "As a connoisseur of fine wine, he could identify the vineyard from a single sip.",
+      "Only a true connoisseur could distinguish between the two nearly identical vintages.",
+      "She considered herself a connoisseur of street food from around the world."
+    ]
   },
   {
     "word": "conscientious",
@@ -2220,7 +3070,12 @@
     "definition": "Wishing to do what is right; thorough and careful.",
     "sentence": "She was a conscientious student who always double-checked her work before submitting it.",
     "category": "advanced",
-    "difficulty": 3
+    "difficulty": 3,
+    "sentences": [
+      "She was a conscientious student who always double-checked her work before submitting it.",
+      "A conscientious driver always checks mirrors before changing lanes.",
+      "His conscientious approach to work earned him the trust of every client."
+    ]
   },
   {
     "word": "correspondence",
@@ -2233,7 +3088,12 @@
     "definition": "Communication by exchanging letters or emails.",
     "category": "advanced",
     "difficulty": 3,
-    "sentence": "Their correspondence lasted decades, filling boxes with handwritten letters."
+    "sentence": "Their correspondence lasted decades, filling boxes with handwritten letters.",
+    "sentences": [
+      "Their correspondence lasted decades, filling boxes with handwritten letters.",
+      "The university keeps all official correspondence on file for seven years.",
+      "Their email correspondence eventually filled hundreds of pages when printed."
+    ]
   },
   {
     "word": "entrepreneur",
@@ -2246,7 +3106,12 @@
     "definition": "A person who organizes and operates a business, taking on financial risk.",
     "sentence": "The young entrepreneur launched her startup from a tiny garage apartment.",
     "category": "advanced",
-    "difficulty": 3
+    "difficulty": 3,
+    "sentences": [
+      "The young entrepreneur launched her startup from a tiny garage apartment.",
+      "Every entrepreneur knows that failure is simply a stepping stone to success.",
+      "She became an entrepreneur at twenty-two, launching a sustainable fashion brand."
+    ]
   },
   {
     "word": "fiery",
@@ -2259,7 +3124,12 @@
     "definition": "Resembling or having the qualities of fire; intensely hot, passionate, or bright.",
     "category": "advanced",
     "difficulty": 3,
-    "sentence": "The sunset painted the sky in fiery shades of orange and crimson."
+    "sentence": "The sunset painted the sky in fiery shades of orange and crimson.",
+    "sentences": [
+      "The sunset painted the sky in fiery shades of orange and crimson.",
+      "The fiery debate between the candidates kept the audience glued to their seats.",
+      "She was known for her fiery temper but also her generous heart."
+    ]
   },
   {
     "word": "hemorrhage",
@@ -2272,7 +3142,12 @@
     "definition": "An escape of blood from a ruptured blood vessel.",
     "sentence": "The paramedics worked quickly to stop the hemorrhage before it became life-threatening.",
     "category": "advanced",
-    "difficulty": 3
+    "difficulty": 3,
+    "sentences": [
+      "The paramedics worked quickly to stop the hemorrhage before it became life-threatening.",
+      "Internal hemorrhage is a medical emergency that requires immediate surgery.",
+      "The company was hemorrhaging money due to poor management decisions."
+    ]
   },
   {
     "word": "hindrance",
@@ -2285,7 +3160,12 @@
     "definition": "Something that makes it difficult to accomplish a task or make progress; an obstacle or impediment.",
     "category": "advanced",
     "difficulty": 3,
-    "sentence": "His lack of experience proved to be a hindrance during the job interview."
+    "sentence": "His lack of experience proved to be a hindrance during the job interview.",
+    "sentences": [
+      "His lack of experience proved to be a hindrance during the job interview.",
+      "Bad weather proved to be no hindrance to the determined hikers.",
+      "Instead of being a hindrance, his disability became a source of strength and empathy."
+    ]
   },
   {
     "word": "humorous",
@@ -2298,7 +3178,12 @@
     "definition": "Having the quality of being funny, amusing, or comical.",
     "category": "advanced",
     "difficulty": 3,
-    "sentence": "The speaker kept the audience engaged with humorous anecdotes throughout."
+    "sentence": "The speaker kept the audience engaged with humorous anecdotes throughout.",
+    "sentences": [
+      "The speaker kept the audience engaged with humorous anecdotes throughout.",
+      "The speaker opened with a humorous anecdote that instantly relaxed the room.",
+      "His humorous take on everyday frustrations made his blog incredibly popular."
+    ]
   },
   {
     "word": "idiosyncrasy",
@@ -2311,7 +3196,12 @@
     "definition": "A distinctive or peculiar feature or habit of an individual.",
     "category": "advanced",
     "difficulty": 3,
-    "sentence": "Her habit of alphabetizing her bookshelf by author's first name was a charming idiosyncrasy."
+    "sentence": "Her habit of alphabetizing her bookshelf by author's first name was a charming idiosyncrasy.",
+    "sentences": [
+      "Her habit of alphabetizing her bookshelf by author's first name was a charming idiosyncrasy.",
+      "Every family has at least one lovable idiosyncrasy that defines them.",
+      "The building's crooked staircase is an architectural idiosyncrasy that visitors adore."
+    ]
   },
   {
     "word": "inoculate",
@@ -2324,7 +3214,12 @@
     "definition": "To treat with a vaccine to produce immunity against a disease.",
     "category": "advanced",
     "difficulty": 3,
-    "sentence": "Doctors recommend that you inoculate children against common diseases early."
+    "sentence": "Doctors recommend that you inoculate children against common diseases early.",
+    "sentences": [
+      "Doctors recommend that you inoculate children against common diseases early.",
+      "The campaign aims to inoculate ninety percent of the population by December.",
+      "Early exposure to diverse ideas can inoculate young people against extremism."
+    ]
   },
   {
     "word": "irresistible",
@@ -2337,7 +3232,12 @@
     "definition": "Too attractive, appealing, or powerful to be resisted or refused.",
     "category": "advanced",
     "difficulty": 3,
-    "sentence": "The smell of fresh bread from the bakery was absolutely irresistible."
+    "sentence": "The smell of fresh bread from the bakery was absolutely irresistible.",
+    "sentences": [
+      "The smell of fresh bread from the bakery was absolutely irresistible.",
+      "The aroma of freshly baked bread was completely irresistible.",
+      "She had an irresistible charm that made everyone want to be her friend."
+    ]
   },
   {
     "word": "lieutenant",
@@ -2350,7 +3250,12 @@
     "definition": "A military officer of middle rank, or a deputy.",
     "sentence": "The lieutenant received orders to lead the platoon across the river at dawn.",
     "category": "advanced",
-    "difficulty": 3
+    "difficulty": 3,
+    "sentences": [
+      "The lieutenant received orders to lead the platoon across the river at dawn.",
+      "The lieutenant organized the supply chain with remarkable efficiency.",
+      "He served as a lieutenant in the navy for six years before returning to civilian life."
+    ]
   },
   {
     "word": "loneliness",
@@ -2363,7 +3268,12 @@
     "definition": "The state of feeling sad or unhappy because of a lack of companionship or social connection.",
     "category": "advanced",
     "difficulty": 3,
-    "sentence": "The loneliness of living far from home hit hardest during the holidays."
+    "sentence": "The loneliness of living far from home hit hardest during the holidays.",
+    "sentences": [
+      "The loneliness of living far from home hit hardest during the holidays.",
+      "Social media can sometimes increase feelings of loneliness rather than reduce them.",
+      "The loneliness of working from home surprised her after years in a busy office."
+    ]
   },
   {
     "word": "maneuver",
@@ -2376,7 +3286,12 @@
     "definition": "A skillful or carefully planned movement or action, often used to describe steering a vehicle or a strategic action to gain an advantage.",
     "category": "advanced",
     "difficulty": 3,
-    "sentence": "The pilot had to maneuver the plane through severe turbulence."
+    "sentence": "The pilot had to maneuver the plane through severe turbulence.",
+    "sentences": [
+      "The pilot had to maneuver the plane through severe turbulence.",
+      "The tight parking space required a careful three-point maneuver.",
+      "The general's brilliant maneuver outflanked the enemy and won the battle."
+    ]
   },
   {
     "word": "manoeuvre",
@@ -2389,7 +3304,12 @@
     "definition": "A movement or series of moves requiring skill and care (British spelling).",
     "sentence": "The difficult parallel parking manoeuvre took her three attempts to complete.",
     "category": "advanced",
-    "difficulty": 3
+    "difficulty": 3,
+    "sentences": [
+      "The difficult parallel parking manoeuvre took her three attempts to complete.",
+      "It took a series of legal manoeuvres to resolve the dispute.",
+      "The driver executed a last-second manoeuvre to avoid hitting the deer."
+    ]
   },
   {
     "word": "manufacture",
@@ -2402,7 +3322,12 @@
     "definition": "To make or produce something, typically on a large scale using machinery; also refers to the process of making goods from raw materials.",
     "category": "advanced",
     "difficulty": 3,
-    "sentence": "The factory can manufacture up to ten thousand units per day."
+    "sentence": "The factory can manufacture up to ten thousand units per day.",
+    "sentences": [
+      "The factory can manufacture up to ten thousand units per day.",
+      "The company plans to manufacture the new product entirely from recycled materials.",
+      "It's illegal to manufacture counterfeit goods regardless of the intent."
+    ]
   },
   {
     "word": "miniature",
@@ -2415,7 +3340,12 @@
     "definition": "Something that is much smaller than the usual size; a tiny, scaled-down version of something larger.",
     "category": "advanced",
     "difficulty": 3,
-    "sentence": "She collected miniature houses and arranged them into a tiny village."
+    "sentence": "She collected miniature houses and arranged them into a tiny village.",
+    "sentences": [
+      "She collected miniature houses and arranged them into a tiny village.",
+      "The artist spent months painting an incredibly detailed miniature landscape.",
+      "He built a miniature replica of the Eiffel Tower using only matchsticks."
+    ]
   },
   {
     "word": "miscellaneous",
@@ -2428,7 +3358,12 @@
     "definition": "Of various types or from various sources; a mixed group.",
     "sentence": "The drawer was full of miscellaneous items: batteries, tape, old receipts, and paper clips.",
     "category": "advanced",
-    "difficulty": 3
+    "difficulty": 3,
+    "sentences": [
+      "The drawer was full of miscellaneous items: batteries, tape, old receipts, and paper clips.",
+      "There's a miscellaneous charge on the bill that I'd like explained.",
+      "The box labeled 'miscellaneous' contained everything from old photos to broken watches."
+    ]
   },
   {
     "word": "misspell",
@@ -2441,7 +3376,12 @@
     "definition": "To spell a word incorrectly.",
     "category": "advanced",
     "difficulty": 3,
-    "sentence": "It's ironic how easy it is to misspell the word 'misspell' itself."
+    "sentence": "It's ironic how easy it is to misspell the word 'misspell' itself.",
+    "sentences": [
+      "It's ironic how easy it is to misspell the word 'misspell' itself.",
+      "It's embarrassing to misspell someone's name in a formal email.",
+      "Even spell-checkers can't catch every way you might misspell a word."
+    ]
   },
   {
     "word": "mysterious",
@@ -2454,7 +3394,12 @@
     "definition": "Difficult to understand or explain; something that is strange, puzzling, or shrouded in secrecy.",
     "category": "advanced",
     "difficulty": 3,
-    "sentence": "A mysterious package arrived at her doorstep with no return address."
+    "sentence": "A mysterious package arrived at her doorstep with no return address.",
+    "sentences": [
+      "A mysterious package arrived at her doorstep with no return address.",
+      "A mysterious light appeared over the lake every night at exactly midnight.",
+      "The mysterious disappearance of the hiker baffled search teams for weeks."
+    ]
   },
   {
     "word": "noticeable",
@@ -2467,7 +3412,12 @@
     "definition": "Easily seen or noticed; clear or apparent.",
     "category": "advanced",
     "difficulty": 3,
-    "sentence": "There was a noticeable improvement in her grades after she started tutoring."
+    "sentence": "There was a noticeable improvement in her grades after she started tutoring.",
+    "sentences": [
+      "There was a noticeable improvement in her grades after she started tutoring.",
+      "The difference in quality between the two brands is immediately noticeable.",
+      "Her confidence had grown in a noticeable way since starting the new job."
+    ]
   },
   {
     "word": "onomatopoeia",
@@ -2480,7 +3430,12 @@
     "definition": "The formation of a word from a sound associated with what it names, like 'buzz' or 'sizzle'.",
     "sentence": "Words like 'splash' and 'crackle' are examples of onomatopoeia in everyday language.",
     "category": "advanced",
-    "difficulty": 3
+    "difficulty": 3,
+    "sentences": [
+      "Words like 'splash' and 'crackle' are examples of onomatopoeia in everyday language.",
+      "Children's books are full of onomatopoeia like 'moo,' 'quack,' and 'bang.'",
+      "The poet used onomatopoeia to bring the sounds of the forest to life on the page."
+    ]
   },
   {
     "word": "oscillate",
@@ -2493,7 +3448,12 @@
     "definition": "To move or swing back and forth at a regular speed.",
     "sentence": "The pendulum continued to oscillate steadily for nearly an hour before slowing.",
     "category": "advanced",
-    "difficulty": 3
+    "difficulty": 3,
+    "sentences": [
+      "The pendulum continued to oscillate steadily for nearly an hour before slowing.",
+      "His mood seemed to oscillate between excitement and anxiety before every performance.",
+      "The fan's blades oscillate to distribute cool air evenly across the room."
+    ]
   },
   {
     "word": "particular",
@@ -2506,7 +3466,12 @@
     "definition": "Relating to a specific, individual person or thing rather than a general one; also means especially great or notable, as in giving particular attention to detail.",
     "category": "advanced",
     "difficulty": 3,
-    "sentence": "She is very particular about how her coffee is prepared each morning."
+    "sentence": "She is very particular about how her coffee is prepared each morning.",
+    "sentences": [
+      "She is very particular about how her coffee is prepared each morning.",
+      "Is there a particular reason you chose this restaurant over the others?",
+      "She was particular about her morning routine and never deviated from it."
+    ]
   },
   {
     "word": "pharmaceutical",
@@ -2519,7 +3484,12 @@
     "definition": "Relating to the preparation and dispensing of medicinal drugs.",
     "category": "advanced",
     "difficulty": 3,
-    "sentence": "The pharmaceutical company invested billions in developing the new vaccine."
+    "sentence": "The pharmaceutical company invested billions in developing the new vaccine.",
+    "sentences": [
+      "The pharmaceutical company invested billions in developing the new vaccine.",
+      "The pharmaceutical industry spends billions on research and development each year.",
+      "New pharmaceutical regulations require more rigorous testing before approval."
+    ]
   },
   {
     "word": "pneumonia",
@@ -2532,7 +3502,12 @@
     "definition": "An infection that inflames the air sacs in one or both lungs.",
     "sentence": "She was hospitalized for two weeks after a severe case of pneumonia.",
     "category": "advanced",
-    "difficulty": 3
+    "difficulty": 3,
+    "sentences": [
+      "She was hospitalized for two weeks after a severe case of pneumonia.",
+      "The elderly are especially vulnerable to pneumonia during winter months.",
+      "He developed pneumonia after ignoring a persistent cough for two weeks."
+    ]
   },
   {
     "word": "possibility",
@@ -2545,7 +3520,12 @@
     "definition": "The state or condition of something being able to happen or exist; a potential outcome or option.",
     "category": "advanced",
     "difficulty": 3,
-    "sentence": "The possibility of life on other planets excites scientists worldwide."
+    "sentence": "The possibility of life on other planets excites scientists worldwide.",
+    "sentences": [
+      "The possibility of life on other planets excites scientists worldwide.",
+      "The possibility of finding life on Mars drives much of modern space exploration.",
+      "She never dismissed any possibility without first considering it carefully."
+    ]
   },
   {
     "word": "preparation",
@@ -2558,7 +3538,12 @@
     "definition": "The process of getting ready for something or making something ready for use.",
     "category": "advanced",
     "difficulty": 3,
-    "sentence": "Months of preparation went into planning the school's anniversary celebration."
+    "sentence": "Months of preparation went into planning the school's anniversary celebration.",
+    "sentences": [
+      "Months of preparation went into planning the school's anniversary celebration.",
+      "Good preparation is the key to delivering a confident presentation.",
+      "The chef spent hours on preparation before the restaurant opened each evening."
+    ]
   },
   {
     "word": "prerequisite",
@@ -2571,7 +3556,12 @@
     "definition": "A thing that is required as a prior condition for something else.",
     "sentence": "Calculus is a prerequisite for the advanced physics course.",
     "category": "advanced",
-    "difficulty": 3
+    "difficulty": 3,
+    "sentences": [
+      "Calculus is a prerequisite for the advanced physics course.",
+      "Passing the written test is a prerequisite for the practical driving exam.",
+      "Patience is a prerequisite for anyone working with young children."
+    ]
   },
   {
     "word": "pseudonym",
@@ -2584,7 +3574,12 @@
     "definition": "A fictitious name, especially one used by an author.",
     "sentence": "The famous author published her early novels under a pseudonym to avoid attention.",
     "category": "advanced",
-    "difficulty": 3
+    "difficulty": 3,
+    "sentences": [
+      "The famous author published her early novels under a pseudonym to avoid attention.",
+      "Many female writers in the nineteenth century published under a male pseudonym.",
+      "The hacker operated under a pseudonym to protect their real identity."
+    ]
   },
   {
     "word": "questionnaire",
@@ -2597,7 +3592,12 @@
     "definition": "A set of printed or written questions used for gathering information.",
     "category": "advanced",
     "difficulty": 3,
-    "sentence": "Please fill out this questionnaire so we can improve our services."
+    "sentence": "Please fill out this questionnaire so we can improve our services.",
+    "sentences": [
+      "Please fill out this questionnaire so we can improve our services.",
+      "The questionnaire contained fifty questions about consumer shopping habits.",
+      "She designed the questionnaire to be quick and easy to complete on a phone."
+    ]
   },
   {
     "word": "reconnaissance",
@@ -2610,7 +3610,12 @@
     "definition": "Military observation of an area to gain information.",
     "category": "advanced",
     "difficulty": 3,
-    "sentence": "The team conducted reconnaissance of the area before beginning the rescue operation."
+    "sentence": "The team conducted reconnaissance of the area before beginning the rescue operation.",
+    "sentences": [
+      "The team conducted reconnaissance of the area before beginning the rescue operation.",
+      "Satellite imagery has largely replaced ground-level reconnaissance in modern warfare.",
+      "The hikers did reconnaissance of the trail the day before attempting the summit."
+    ]
   },
   {
     "word": "rendezvous",
@@ -2623,7 +3628,12 @@
     "definition": "A meeting at an agreed time and place, often secret or romantic.",
     "sentence": "The spies arranged a rendezvous at the caf\u00e9 across from the train station.",
     "category": "advanced",
-    "difficulty": 3
+    "difficulty": 3,
+    "sentences": [
+      "The spies arranged a rendezvous at the caf\u00e9 across from the train station.",
+      "The astronauts performed a rendezvous with the space station at exactly six a.m.",
+      "They agreed to rendezvous at the old lighthouse if they got separated."
+    ]
   },
   {
     "word": "resuscitate",
@@ -2636,7 +3646,12 @@
     "definition": "To revive someone from unconsciousness or apparent death.",
     "sentence": "The lifeguard managed to resuscitate the swimmer using CPR.",
     "category": "advanced",
-    "difficulty": 3
+    "difficulty": 3,
+    "sentences": [
+      "The lifeguard managed to resuscitate the swimmer using CPR.",
+      "The quick actions of bystanders helped resuscitate the man before paramedics arrived.",
+      "Efforts to resuscitate the failing business included cutting costs and rebranding."
+    ]
   },
   {
     "word": "rheumatism",
@@ -2649,7 +3664,12 @@
     "definition": "A condition marked by inflammation and pain in the joints, muscles, or fibrous tissue.",
     "sentence": "His grandmother's rheumatism made it difficult for her to climb stairs in winter.",
     "category": "advanced",
-    "difficulty": 3
+    "difficulty": 3,
+    "sentences": [
+      "His grandmother's rheumatism made it difficult for her to climb stairs in winter.",
+      "Cold, damp weather tends to aggravate rheumatism symptoms in older adults.",
+      "Ancient remedies for rheumatism included everything from hot springs to bee stings."
+    ]
   },
   {
     "word": "sacrilege",
@@ -2662,7 +3682,12 @@
     "definition": "Violation or misuse of something regarded as sacred.",
     "sentence": "To some fans, remaking the classic film was nothing short of sacrilege.",
     "category": "advanced",
-    "difficulty": 3
+    "difficulty": 3,
+    "sentences": [
+      "To some fans, remaking the classic film was nothing short of sacrilege.",
+      "Putting ketchup on a fine steak is considered sacrilege by some food lovers.",
+      "The vandalism of the ancient temple was condemned as an act of sacrilege."
+    ]
   },
   {
     "word": "silhouette",
@@ -2675,7 +3700,12 @@
     "definition": "The dark shape and outline of someone or something visible against a lighter background.",
     "sentence": "The silhouette of the mountain range was visible against the orange sunset.",
     "category": "advanced",
-    "difficulty": 3
+    "difficulty": 3,
+    "sentences": [
+      "The silhouette of the mountain range was visible against the orange sunset.",
+      "The tall buildings formed a dramatic silhouette against the evening sky.",
+      "She recognized his familiar silhouette walking toward her in the dim hallway."
+    ]
   },
   {
     "word": "soliloquy",
@@ -2688,7 +3718,12 @@
     "definition": "An act of speaking one's thoughts aloud when alone, especially in a play.",
     "sentence": "Hamlet's famous soliloquy beginning with 'To be or not to be' is one of Shakespeare's most quoted passages.",
     "category": "advanced",
-    "difficulty": 3
+    "difficulty": 3,
+    "sentences": [
+      "Hamlet's famous soliloquy beginning with 'To be or not to be' is one of Shakespeare's most quoted passages.",
+      "The actor delivered the soliloquy with such emotion that the audience was silent.",
+      "In a soliloquy, a character reveals thoughts that no one else on stage can hear."
+    ]
   },
   {
     "word": "superintendent",
@@ -2701,7 +3736,12 @@
     "definition": "A person who manages or supervises an organization or activity.",
     "category": "advanced",
     "difficulty": 3,
-    "sentence": "The superintendent approved the new curriculum for all district schools."
+    "sentence": "The superintendent approved the new curriculum for all district schools.",
+    "sentences": [
+      "The superintendent approved the new curriculum for all district schools.",
+      "The superintendent oversees all twelve schools in the district.",
+      "She called the building superintendent to report a leak in the ceiling."
+    ]
   },
   {
     "word": "surreptitious",
@@ -2714,7 +3754,12 @@
     "definition": "Kept secret, especially because it would not be approved of.",
     "sentence": "She cast a surreptitious glance at her phone during the long meeting.",
     "category": "advanced",
-    "difficulty": 3
+    "difficulty": 3,
+    "sentences": [
+      "She cast a surreptitious glance at her phone during the long meeting.",
+      "He took a surreptitious photo of the document before anyone noticed.",
+      "The surreptitious exchange of notes during class was caught by the teacher."
+    ]
   },
   {
     "word": "surveillance",
@@ -2727,7 +3772,12 @@
     "definition": "Close observation, especially of a suspected person or place.",
     "sentence": "The police placed the suspect's apartment under surveillance for three weeks.",
     "category": "advanced",
-    "difficulty": 3
+    "difficulty": 3,
+    "sentences": [
+      "The police placed the suspect's apartment under surveillance for three weeks.",
+      "The store's surveillance cameras captured the entire incident on video.",
+      "Mass surveillance raises serious concerns about individual privacy rights."
+    ]
   },
   {
     "word": "unequivocal",
@@ -2740,7 +3790,12 @@
     "definition": "Leaving no doubt; unambiguous and clear.",
     "sentence": "The judge's ruling was unequivocal: the defendant was not guilty.",
     "category": "advanced",
-    "difficulty": 3
+    "difficulty": 3,
+    "sentences": [
+      "The judge's ruling was unequivocal: the defendant was not guilty.",
+      "Her support for the project was unequivocal \u2014 she believed in it completely.",
+      "The scientist's findings provided unequivocal proof that the theory was correct."
+    ]
   },
   {
     "word": "vengeance",
@@ -2753,6 +3808,11 @@
     "definition": "Punishment inflicted in retaliation for an injury or offense.",
     "sentence": "The storm returned with a vengeance, flooding streets that had just dried out.",
     "category": "advanced",
-    "difficulty": 3
+    "difficulty": 3,
+    "sentences": [
+      "The storm returned with a vengeance, flooding streets that had just dried out.",
+      "He pursued vengeance for years before realizing it only consumed his own happiness.",
+      "The virus returned with a vengeance after the patient stopped taking medication."
+    ]
   }
 ]
