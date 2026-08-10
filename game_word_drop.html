@@ -724,14 +724,17 @@ function spawnTokens(wordData) {
     const tw = ctx.measureText(text).width + TOKEN_PAD_X * 2;
     const cx = margin + i * colWidth + colWidth / 2;
     const jitter = (Math.random() - 0.5) * colWidth * 0.4;
+    const headerH = 56;
+    const wordH = 88;
+    const startY = headerH + wordH + 10;  // just below the HUD banner
     return {
       text,
       isCorrect: text === wordData.word,
       x: Math.max(tw / 2 + 10, Math.min(canvas.width - tw / 2 - 10, cx + jitter)),
-      y: -TOKEN_H / 2 - i * 90 - Math.random() * 30,
+      y: startY - i * 50 - Math.random() * 20,
       w: tw,
       h: TOKEN_H,
-      speed: speed + (Math.random() - 0.5) * 0.5,
+      speed: speed + (Math.random() - 0.5) * 0.3,
       state: 'falling',  // falling | clicked_ok | clicked_err | fade
       alpha: 1.0,
       scale: 1.0,
