@@ -450,7 +450,18 @@ function showPhaseSelect() {
   const bestScores = wd().best_scores || {};
   let totalBest = 0;
   let btns = '';
+  let lastTier = '';
   for (let i = 0; i < np; i++) {
+    // Determine tier based on first word's difficulty in this phase
+    const phaseStart = i * WORDS_PER_PHASE;
+    const firstWord = allWords[phaseStart];
+    const diff = firstWord ? firstWord.difficulty : 2;
+    const tier = diff === 1 ? 'Everyday' : diff === 3 ? 'Advanced' : 'Intermediate';
+    const tierColor = diff === 1 ? '#44cc88' : diff === 3 ? '#cc4488' : '#4488cc';
+    if (tier !== lastTier) {
+      btns += `</div><div style="width:100%;color:${tierColor};font-size:0.75rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin:1rem 0 0.4rem;border-top:1px solid #1a2a44;padding-top:0.8rem;">${tier}</div><div class="phase-grid">`;
+      lastTier = tier;
+    }
     const st  = phaseState(i);
     const ico = st === 'completed' ? '✓ ' : st === 'locked' ? '🔒 ' : '';
     const best = bestScores[i] != null ? `  ★${bestScores[i]}` : '';
