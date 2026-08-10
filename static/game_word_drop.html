@@ -102,6 +102,53 @@ const TOKEN_H         = 38;
 const TOKEN_PAD_X     = 14;
 const BASE_SPEED      = 1.4;  // px per frame at phase 1
 const SPEED_INC       = 0.18; // extra px per phase
+const SPEED_OPTIONS   = [
+  { label: 'Beginner', multiplier: 0.8 },
+  { label: 'Normal',   multiplier: 1.0 },
+  { label: 'Advanced', multiplier: 1.2 },
+];
+let speedMultiplier   = 1.0;  // current speed setting
+
+// ── Sound system ──────────────────────────────────────────────────────────────
+let soundEnabled = true;
+let audioCtx = null;
+
+function getAudioCtx() {
+  if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+  return audioCtx;
+}
+
+function playTone(freq, duration, type = 'sine', volume = 0.3) {
+  if (!soundEnabled) return;
+  try {
+    const ctx = getAudioCtx();
+    const osc = ctx.createOscillator();
+    const gain = ctx.createGain();
+    osc.type = type;
+    osc.frequency.setValueAtTime(freq, ctx.currentTime);
+    gain.gain.setValueAtTime(volume, ctx.currentTime);
+    gain.gain.exponentialRampToValueAtTime(0.01, ctx.currentTime + duration);
+    osc.connect(gain);
+    gain.connect(ctx.destination);
+    osc.start();
+    osc.stop(ctx.currentTime + duration);
+  } catch {}
+}
+
+function playCorrectSound() {
+  playTone(523, 0.1, 'sine', 0.25);  // C5
+  setTimeout(() => playTone(659, 0.1, 'sine', 0.25), 80);  // E5
+  setTimeout(() => playTone(784, 0.15, 'sine', 0.2), 160); // G5
+}
+
+function playWrongSound() {
+  playTone(200, 0.2, 'sawtooth', 0.15);
+  setTimeout(() => playTone(150, 0.3, 'sawtooth', 0.12), 150);
+}
+
+function playTimeoutSound() {
+  playTone(300, 0.4, 'triangle', 0.15);
+}
 
 // ── Canvas ────────────────────────────────────────────────────────────────────
 const canvas = document.getElementById('canvas');
@@ -141,7 +188,10 @@ function initProgress() {
   if (!progress.word_drop) progress.word_drop = {};
   const d = progress.word_drop;
   if (!d.word_stats)     d.word_stats     = {};
+  if (!d.best_scores)    d.best_scores    = {};  // { phase_index: best_score }
   if (d.current_phase == null) d.current_phase = 0;
+  if (d.speed_multiplier != null) speedMultiplier = d.speed_multiplier;
+  if (d.sound_enabled != null) soundEnabled = d.sound_enabled;
 }
 
 function wordStat(word) {
@@ -239,47 +289,121 @@ function hideOverlay() {
   overlay.classList.add('hidden');
 }
 
+// ── Speed selector ────────────────────────────────────────────────────────────
+function setSpeed(multiplier) {
+  speedMultiplier = multiplier;
+  wd().speed_multiplier = multiplier;
+  saveProgress();
+  showPhaseSelect();  // re-render to update active button
+}
+
+function toggleSound() {
+  soundEnabled = !soundEnabled;
+  wd().sound_enabled = soundEnabled;
+  saveProgress();
+  showPhaseSelect();
+}
+
 // ── Phase select screen ───────────────────────────────────────────────────────
 function showPhaseSelect() {
   const np = numPhases();
+  const bestScores = wd().best_scores || {};
+  let totalBest = 0;
   let btns = '';
   for (let i = 0; i < np; i++) {
     const st  = phaseState(i);
     const ico = st === 'completed' ? '✓ ' : st === 'locked' ? '🔒 ' : '';
+    const best = bestScores[i] != null ? `  ★${bestScores[i]}` : '';
+    if (bestScores[i] != null) totalBest += bestScores[i];
+    // Show words covered in this phase
+    const start = i * WORDS_PER_PHASE;
+    const end = Math.min(start + WORDS_PER_PHASE, allWords.length);
+    const words = allWords.slice(start, end).map(w => w.word).join(', ');
     btns += `<button class="phase-btn ${st}" ${st === 'locked' ? 'disabled' : ''}
-               onclick="startPhase(${i})">${ico}Phase ${i + 1}</button>`;
+               onclick="startPhase(${i})" title="${words}">${ico}Phase ${i + 1}${best}</button>`;
   }
+
+  const totalLine = totalBest > 0
+    ? `<p style="color:#ffcc44;font-size:0.95rem;margin-bottom:1.5rem;">Total Best Score: ★${totalBest}</p>` : '';
+
+  // Speed selector
+  const speedBtns = SPEED_OPTIONS.map(opt => {
+    const active = opt.multiplier === speedMultiplier;
+    const style = active
+      ? 'background:#1a3a5a;border-color:#88ccff;color:#88ccff'
+      : 'background:#0a1020;border-color:#1a2a44;color:#556677';
+    return `<button onclick="setSpeed(${opt.multiplier})" style="padding:0.4rem 0.9rem;border-radius:6px;border:2px solid;cursor:pointer;font-size:0.82rem;font-weight:600;${style};transition:all 0.15s;">${opt.label} (${opt.multiplier}x)</button>`;
+  }).join('');
+
+  // Sound toggle
+  const soundStyle = soundEnabled
+    ? 'background:#1a3a5a;border-color:#88ccff;color:#88ccff'
+    : 'background:#0a1020;border-color:#1a2a44;color:#556677';
+  const soundBtn = `<button onclick="toggleSound()" style="padding:0.4rem 0.9rem;border-radius:6px;border:2px solid;cursor:pointer;font-size:0.82rem;font-weight:600;${soundStyle};transition:all 0.15s;margin-left:1rem;">${soundEnabled ? '🔊 Sound On' : '🔇 Sound Off'}</button>`;
 
   showOverlay(`
     <div class="screen">
       <h1>Word Drop</h1>
       <p class="subtitle">Words fall from the sky — click the correctly spelled one!</p>
+      ${totalLine}
+      <div style="margin-bottom:1.5rem;">
+        <span style="color:#556677;font-size:0.82rem;margin-right:0.6rem;">Speed:</span>${speedBtns}${soundBtn}
+      </div>
       <div class="phase-grid">${btns}</div>
+      <div id="phase-words" style="color:#667;font-size:0.8rem;margin-bottom:1rem;min-height:2.5rem;line-height:1.6;"></div>
       <p class="hint-text">
         Each word needs <strong style="color:#88ddff">${GRAD_STREAK}</strong> correct picks in a row to master.<br>
-        Mastered words return after ${COOLDOWN_DAYS} days for a quick review.
+        Mastered words return after ${COOLDOWN_DAYS} days for a quick review.<br>
+        <span style="color:#556677">Hover a phase to see its words.</span>
       </p>
+      <div style="margin-top:1.2rem;">
+        <button class="btn" onclick="showStats()" style="font-size:0.85rem;padding:0.5rem 1.2rem;">📊 Stats</button>
+      </div>
     </div>
   `);
+
+  // Add hover listeners to show words for each phase
+  document.querySelectorAll('.phase-btn').forEach((btn, i) => {
+    btn.addEventListener('mouseenter', () => {
+      const start = i * WORDS_PER_PHASE;
+      const end = Math.min(start + WORDS_PER_PHASE, allWords.length);
+      const words = allWords.slice(start, end).map(w => w.word).join(', ');
+      document.getElementById('phase-words').textContent = `Phase ${i + 1}: ${words}`;
+    });
+    btn.addEventListener('mouseleave', () => {
+      document.getElementById('phase-words').textContent = '';
+    });
+  });
 }
 
 // ── Results screen ────────────────────────────────────────────────────────────
 function showResults(phase, results) {
   const ok  = results.filter(r => r.success).length;
+  const wrong = results.filter(r => r.reason === 'wrong_click').length;
+  const timed = results.filter(r => r.reason === 'timeout').length;
   const tot = results.length;
+
+  // Save best score for this phase
+  if (!wd().best_scores) wd().best_scores = {};
+  const prev = wd().best_scores[phase] || 0;
+  const isNewBest = ok > prev;
+  if (isNewBest) wd().best_scores[phase] = ok;
 
   // Unlock next phase if all words were seen at least once
   if (phase === wd().current_phase && phase + 1 < numPhases()) {
     wd().current_phase = phase + 1;
-    saveProgress();
   }
+  saveProgress();
+
+  const bestTag = isNewBest ? `<span style="color:#ffcc44;font-size:0.85rem;"> ★ New Best!</span>` : '';
+  const prevBest = prev > 0 ? `<div class="stat"><div class="val" style="color:#ffcc44">★${wd().best_scores[phase]}</div><div class="lbl">Best</div></div>` : '';
 
   const items = results.map(r => {
     const s    = wordStat(r.word.word);
     const grad = s.graduated ? ' 🎓' : '';
     const badge = `<span class="streak-badge">(streak: ${s.streak})</span>`;
     return `<div class="word-result ${r.success ? 'ok' : 'err'}">
-      ${r.success ? '✓' : '✗'} ${r.word.word}${grad}${badge}
+      ${r.success ? '✓' : r.reason === 'timeout' ? '⏱' : '✗'} ${r.word.word}${grad}${badge}
     </div>`;
   }).join('');
 
@@ -288,17 +412,84 @@ function showResults(phase, results) {
 
   showOverlay(`
     <div class="screen">
-      <h1>Phase ${phase + 1} Done</h1>
+      <h1>Phase ${phase + 1} Done${bestTag}</h1>
       <div class="stats-row">
         <div class="stat"><div class="val">${ok}</div><div class="lbl">Correct</div></div>
-        <div class="stat"><div class="val">${tot - ok}</div><div class="lbl">Missed</div></div>
+        <div class="stat"><div class="val" style="color:#ee4444">${wrong}</div><div class="lbl">Wrong</div></div>
+        <div class="stat"><div class="val" style="color:#cc8844">${timed}</div><div class="lbl">Timeout</div></div>
         <div class="stat"><div class="val">${tot}</div><div class="lbl">Total</div></div>
+        ${prevBest}
       </div>
       <div class="results-grid">${items}</div>
       <div class="btn-row">
         <button class="btn" onclick="startPhase(${phase})">Replay</button>
         ${nextBtn}
         <button class="btn" onclick="showPhaseSelect()">Phases</button>
+      </div>
+    </div>
+  `);
+}
+
+// ── Stats dashboard ───────────────────────────────────────────────────────────
+function showStats() {
+  const stats = wd().word_stats || {};
+  const words = Object.keys(stats);
+  const totalWords = allWords.length;
+  const mastered = words.filter(w => stats[w].graduated).length;
+  const totalAttempts = words.reduce((sum, w) => {
+    const s = stats[w];
+    return sum + s.streak + s.total_errors;
+  }, 0);
+  const totalCorrect = words.reduce((sum, w) => {
+    // Approximate: total attempts - errors
+    const s = stats[w];
+    return sum + (s.streak + s.total_errors) - s.total_errors;
+  }, 0);
+  const accuracy = totalAttempts > 0 ? Math.round((totalCorrect / totalAttempts) * 100) : 0;
+
+  // Most missed words (top 10 by error count)
+  const mostMissed = words
+    .filter(w => stats[w].total_errors > 0)
+    .sort((a, b) => stats[b].total_errors - stats[a].total_errors)
+    .slice(0, 10);
+
+  // Current streaks (top 10)
+  const topStreaks = words
+    .filter(w => stats[w].streak > 0)
+    .sort((a, b) => stats[b].streak - stats[a].streak)
+    .slice(0, 10);
+
+  // Best scores
+  const bestScores = wd().best_scores || {};
+  const totalBest = Object.values(bestScores).reduce((a, b) => a + b, 0);
+
+  const missedHtml = mostMissed.length > 0
+    ? mostMissed.map(w => `<span style="display:inline-block;background:#2a0a0a;border:1px solid #4a1a1a;border-radius:6px;padding:0.2rem 0.6rem;margin:0.2rem;font-size:0.82rem;color:#ee8888;">${w} (${stats[w].total_errors})</span>`).join('')
+    : '<span style="color:#556677;">None yet!</span>';
+
+  const streakHtml = topStreaks.length > 0
+    ? topStreaks.map(w => `<span style="display:inline-block;background:#0a2a0a;border:1px solid #2a6a2a;border-radius:6px;padding:0.2rem 0.6rem;margin:0.2rem;font-size:0.82rem;color:#88ee88;">${w} (${stats[w].streak})</span>`).join('')
+    : '<span style="color:#556677;">No active streaks</span>';
+
+  showOverlay(`
+    <div class="screen">
+      <h1>📊 Stats</h1>
+      <div class="stats-row" style="margin-bottom:2rem;">
+        <div class="stat"><div class="val">${mastered}</div><div class="lbl">Mastered</div></div>
+        <div class="stat"><div class="val">${totalWords - mastered}</div><div class="lbl">Remaining</div></div>
+        <div class="stat"><div class="val">${accuracy}%</div><div class="lbl">Accuracy</div></div>
+        <div class="stat"><div class="val" style="color:#ffcc44">★${totalBest}</div><div class="lbl">Total Best</div></div>
+      </div>
+      <div style="text-align:left;margin-bottom:1.5rem;">
+        <div style="color:#cc6666;font-size:0.8rem;font-weight:700;letter-spacing:1px;margin-bottom:0.5rem;">MOST MISSED</div>
+        <div style="line-height:2;">${missedHtml}</div>
+      </div>
+      <div style="text-align:left;margin-bottom:1.5rem;">
+        <div style="color:#66cc66;font-size:0.8rem;font-weight:700;letter-spacing:1px;margin-bottom:0.5rem;">TOP STREAKS</div>
+        <div style="line-height:2;">${streakHtml}</div>
+      </div>
+      <div class="btn-row">
+        <button class="btn" onclick="showPhaseSelect()">← Back</button>
       </div>
     </div>
   `);
@@ -311,16 +502,22 @@ let activeWord     = null;
 let tokens         = [];
 let wordResolved   = false;
 let score          = 0;
-let errorsGame     = 0;
+let wrongClicks    = 0;
+let timeouts       = 0;
 let phaseResults   = [];
 let animId         = null;
 let gameRunning    = false;
+let paused         = false;
+
+// Sentence card state (shown between words)
+let sentenceCard   = null;  // { word, sentence, success, waiting: true }
 
 // ── Start phase ───────────────────────────────────────────────────────────────
 function startPhase(phase) {
   currentPhase  = phase;
   score         = 0;
-  errorsGame    = 0;
+  wrongClicks   = 0;
+  timeouts      = 0;
   phaseResults  = [];
   wordQueue     = buildWordQueue(phase);
   tokens        = [];
@@ -350,15 +547,22 @@ function nextWord() {
   }
 
   const wordData = wordQueue.shift();
-  spawnWord(wordData);
+  // Show the definition banner immediately, delay token spawn so player can read
+  activeWord = wordData;
+  const isConfusable = wordData.category === 'confusable';
+  const delay = isConfusable ? 3000 : 1000;
+  setTimeout(() => {
+    if (activeWord === wordData && !wordResolved) {
+      spawnTokens(wordData);
+    }
+  }, delay);
 }
 
 // ── Spawn tokens ──────────────────────────────────────────────────────────────
-function spawnWord(wordData) {
-  activeWord = wordData;
+function spawnTokens(wordData) {
 
   const texts = shuffle([wordData.word, ...wordData.misspellings]);
-  const speed = BASE_SPEED + currentPhase * SPEED_INC;
+  const speed = (BASE_SPEED + currentPhase * SPEED_INC) * speedMultiplier;
 
   ctx.font = TOKEN_FONT;
 
@@ -381,6 +585,7 @@ function spawnWord(wordData) {
       speed: speed + (Math.random() - 0.5) * 0.5,
       state: 'falling',  // falling | clicked_ok | clicked_err | fade
       alpha: 1.0,
+      scale: 1.0,
     };
   });
 }
@@ -395,6 +600,25 @@ function gameLoop() {
   ctx.fillRect(0, 0, canvas.width, canvas.height);
   drawStars();
 
+  // If paused, draw tokens frozen and show pause overlay
+  if (paused) {
+    tokens.forEach(t => drawToken(t));
+    updateAndDrawRipples();
+    drawHUD();
+    // Pause overlay
+    ctx.fillStyle = 'rgba(0, 5, 20, 0.7)';
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    ctx.fillStyle = '#88ddff';
+    ctx.font = 'bold 48px system-ui';
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'middle';
+    ctx.fillText('PAUSED', canvas.width / 2, canvas.height / 2 - 20);
+    ctx.fillStyle = '#556677';
+    ctx.font = '16px system-ui';
+    ctx.fillText('Press Space or P to resume', canvas.width / 2, canvas.height / 2 + 30);
+    return;
+  }
+
   // Update tokens
   for (let i = tokens.length - 1; i >= 0; i--) {
     const t = tokens[i];
@@ -402,16 +626,32 @@ function gameLoop() {
     if (t.state === 'falling') {
       t.y += t.speed;
       if (t.y - t.h / 2 > canvas.height + 10) {
-        // The correct token escaped — that's a miss
+        // The correct token escaped — that's a timeout
         if (t.isCorrect && !wordResolved) {
-          resolveWord(false);
+          resolveWord(false, 'timeout');
         }
         tokens.splice(i, 1);
         continue;
       }
+    } else if (t.state === 'clicked_ok' || t.state === 'clicked_err') {
+      // Clicked tokens: scale pop then fade
+      if (t.scale < 1.3) {
+        t.scale += 0.06;
+      } else {
+        t.alpha -= 0.025;
+      }
+      if (t.alpha <= 0) { tokens.splice(i, 1); continue; }
+    } else if (t.state === 'reveal') {
+      // Reveal correct answer: pulse then slow fade
+      if (t.scale < 1.4) {
+        t.scale += 0.04;
+      } else {
+        t.alpha -= 0.015;
+      }
+      if (t.alpha <= 0) { tokens.splice(i, 1); continue; }
     } else {
-      // Fading out
-      t.alpha -= 0.035;
+      // Regular fade for non-clicked tokens
+      t.alpha -= 0.045;
       if (t.alpha <= 0) { tokens.splice(i, 1); continue; }
     }
 
@@ -420,20 +660,29 @@ function gameLoop() {
 
   // Check if word should auto-resolve (all tokens gone without click)
   if (activeWord && !wordResolved && tokens.length === 0) {
-    resolveWord(false);
+    resolveWord(false, 'timeout');
   }
+
+  // Draw click ripples
+  updateAndDrawRipples();
 
   // HUD on top
   drawHUD();
+
+  // Sentence card overlay (shown between words)
+  if (sentenceCard && sentenceCard.waiting) {
+    drawSentenceCard();
+  }
 }
 
-function resolveWord(success) {
+function resolveWord(success, reason) {
   if (wordResolved) return;
   wordResolved = true;
 
   const s = wordStat(activeWord.word);
 
   if (success) {
+    playCorrectSound();
     s.streak++;
     const needed = s.review_mode ? REVIEW_STREAK : GRAD_STREAK;
     if (s.streak >= needed) {
@@ -447,21 +696,47 @@ function resolveWord(success) {
     s.graduated = false;
     s.graduated_date = null;
     s.review_mode = false;
-    s.errors.push({ ts: new Date().toISOString(), type: 'missed', game: 'word_drop' });
-    errorsGame++;
+    const errorType = reason || 'timeout';
+    s.errors.push({ ts: new Date().toISOString(), type: errorType, game: 'word_drop' });
+    if (errorType === 'wrong_click') {
+      wrongClicks++;
+      playWrongSound();
+    } else {
+      timeouts++;
+      playTimeoutSound();
+    }
+    // Reveal the correct token — highlight it green briefly
+    tokens.forEach(t => {
+      if (t.isCorrect && t.state === 'falling') {
+        t.state = 'reveal';
+        t.scale = 1.0;
+      }
+    });
   }
   saveProgress();
 
-  phaseResults.push({ word: activeWord, success });
+  phaseResults.push({ word: activeWord, success, reason: success ? null : (reason || 'timeout') });
+
+  // Show sentence card after a brief delay for token animation
+  const resolvedWord = activeWord;
   activeWord = null;
 
-  setTimeout(nextWord, 900);
+  setTimeout(() => {
+    sentenceCard = {
+      word: resolvedWord.word,
+      sentence: resolvedWord.sentence || '',
+      success,
+      waiting: true,
+    };
+  }, success ? 600 : 1200);
 }
 
 // ── Drawing ───────────────────────────────────────────────────────────────────
 function drawToken(t) {
   ctx.save();
   ctx.globalAlpha = t.alpha;
+
+  const scale = t.scale || 1.0;
 
   let bg, border, fg;
   switch (t.state) {
@@ -470,16 +745,23 @@ function drawToken(t) {
       bg = '#0a0a2e'; border = '#2a4a88'; fg = '#ccddff';
       break;
     case 'clicked_ok':
-      bg = '#003300'; border = '#00bb00'; fg = '#00ff88'; break;
+      bg = '#003300'; border = '#00ff44'; fg = '#00ff88'; break;
     case 'clicked_err':
-      bg = '#330000'; border = '#bb0000'; fg = '#ff4444'; break;
+      bg = '#330000'; border = '#ff2222'; fg = '#ff4444'; break;
+    case 'reveal':
+      bg = '#002a00'; border = '#44ff88'; fg = '#88ffbb'; break;
     default:
       bg = '#111'; border = '#333'; fg = '#777';
   }
 
+  // Apply scale transform around token center
+  ctx.translate(t.x, t.y);
+  ctx.scale(scale, scale);
+  ctx.translate(-t.x, -t.y);
+
   ctx.fillStyle   = bg;
   ctx.strokeStyle = border;
-  ctx.lineWidth   = 2;
+  ctx.lineWidth   = (t.state === 'clicked_ok' || t.state === 'clicked_err' || t.state === 'reveal') ? 3 : 2;
   pill(t.x - t.w / 2, t.y - t.h / 2, t.w, t.h, 9);
   ctx.fill();
   ctx.stroke();
@@ -513,10 +795,13 @@ function drawHUD() {
 
   ctx.fillStyle = '#44cc44';
   ctx.textAlign = 'center';
-  ctx.fillText(`Score  ${score}`, W / 2 - 80, headerH / 2);
+  ctx.fillText(`Score  ${score}`, W / 2 - 100, headerH / 2);
 
   ctx.fillStyle = '#cc4444';
-  ctx.fillText(`Errors  ${errorsGame}`, W / 2 + 80, headerH / 2);
+  ctx.fillText(`Wrong  ${wrongClicks}`, W / 2 + 40, headerH / 2);
+
+  ctx.fillStyle = '#cc8844';
+  ctx.fillText(`Timeout  ${timeouts}`, W / 2 + 160, headerH / 2);
 
   ctx.fillStyle = '#446688';
   ctx.textAlign = 'right';
@@ -527,13 +812,18 @@ function drawHUD() {
     ctx.fillStyle = 'rgba(2, 8, 24, 0.88)';
     ctx.fillRect(0, headerH, W, wordH);
 
-    ctx.fillStyle = '#556677';
-    ctx.font      = '12px system-ui';
+    const isConfusable = activeWord.category === 'confusable';
+
+    ctx.fillStyle = isConfusable ? '#ffaa44' : '#556677';
+    ctx.font      = isConfusable ? 'bold 12px system-ui' : '12px system-ui';
     ctx.textAlign = 'center';
-    ctx.fillText('Find the correct spelling ↓', W / 2, headerH + 16);
+    ctx.fillText(
+      isConfusable ? '⚠️ CONFUSABLE — Read carefully! ↓' : 'Find the correct spelling ↓',
+      W / 2, headerH + 16
+    );
 
     // Show definition as the hint (not the correct spelling!)
-    ctx.fillStyle    = '#8899aa';
+    ctx.fillStyle    = isConfusable ? '#ccaa66' : '#8899aa';
     ctx.font         = 'italic 15px system-ui';
     ctx.textBaseline = 'middle';
     const defText = activeWord.definition || '';
@@ -551,6 +841,18 @@ function drawHUD() {
     }
   }
 
+  // ── Column numbers on tokens ───────────────────────────────────────────────
+  if (activeWord && !wordResolved) {
+    const falling = tokens.filter(t => t.state === 'falling').sort((a, b) => a.x - b.x);
+    ctx.font = 'bold 11px system-ui';
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'bottom';
+    ctx.fillStyle = '#556688';
+    falling.forEach((t, i) => {
+      ctx.fillText(`${i + 1}`, t.x, t.y - t.h / 2 - 4);
+    });
+  }
+
   // ── Footer ─────────────────────────────────────────────────────────────────
   if (activeWord) {
     ctx.fillStyle = 'rgba(2, 6, 18, 0.88)';
@@ -564,38 +866,256 @@ function drawHUD() {
     const s = wordStat(activeWord.word);
     const reviewTag = s.review_mode ? '  [Review]' : '';
     ctx.fillText(`Click the correctly spelled word${reviewTag}`, W / 2, H - footerH / 2);
+
+    // Pause hint
+    ctx.textAlign = 'right';
+    ctx.fillStyle = '#334455';
+    ctx.fillText('Space: pause  H: help', W - 16, H - footerH / 2);
+  }
+
+  // ── Help panel ─────────────────────────────────────────────────────────────
+  if (showHelp) {
+    const pw = 260, ph = 180;
+    const px = W - pw - 16, py = headerH + wordH + 10;
+    ctx.fillStyle = 'rgba(5, 10, 30, 0.95)';
+    ctx.strokeStyle = '#2a4a6a';
+    ctx.lineWidth = 1;
+    ctx.fillRect(px, py, pw, ph);
+    ctx.strokeRect(px, py, pw, ph);
+
+    ctx.fillStyle = '#88ccff';
+    ctx.font = 'bold 13px system-ui';
+    ctx.textAlign = 'left';
+    ctx.textBaseline = 'top';
+    ctx.fillText('Keyboard Shortcuts', px + 12, py + 12);
+
+    ctx.fillStyle = '#8899aa';
+    ctx.font = '12px system-ui';
+    const lines = [
+      '1-5    Select word by column',
+      'Space  Pause / Resume',
+      'P      Pause / Resume',
+      'H      Toggle this help',
+      'M      Toggle sound',
+    ];
+    lines.forEach((line, i) => {
+      ctx.fillText(line, px + 12, py + 36 + i * 22);
+    });
+  }
+}
+
+// ── Sentence card (shown after each word) ─────────────────────────────────────
+function drawSentenceCard() {
+  const W = canvas.width;
+  const H = canvas.height;
+
+  // Semi-transparent backdrop
+  ctx.fillStyle = 'rgba(0, 5, 20, 0.85)';
+  ctx.fillRect(0, 0, W, H);
+
+  // Card dimensions
+  const cardW = Math.min(600, W - 60);
+  const cardH = 200;
+  const cx = (W - cardW) / 2;
+  const cy = (H - cardH) / 2 - 20;
+
+  // Card background
+  ctx.fillStyle = '#090e22';
+  ctx.strokeStyle = sentenceCard.success ? '#2a7a4a' : '#7a2a2a';
+  ctx.lineWidth = 2;
+  ctx.fillRect(cx, cy, cardW, cardH);
+  ctx.strokeRect(cx, cy, cardW, cardH);
+
+  // Result indicator
+  ctx.textAlign = 'center';
+  ctx.textBaseline = 'middle';
+  ctx.font = 'bold 14px system-ui';
+  ctx.fillStyle = sentenceCard.success ? '#66ee88' : '#ee6666';
+  ctx.fillText(sentenceCard.success ? '✓ Correct!' : '✗ Incorrect', W / 2, cy + 28);
+
+  // Word
+  ctx.font = 'bold 26px monospace';
+  ctx.fillStyle = '#88ddff';
+  ctx.fillText(sentenceCard.word, W / 2, cy + 65);
+
+  // Sentence
+  ctx.font = '15px system-ui';
+  ctx.fillStyle = '#8899aa';
+  wrapTextCentered(sentenceCard.sentence, W / 2, cy + 105, cardW - 40, 22);
+
+  // Prompt to continue
+  ctx.font = '12px system-ui';
+  ctx.fillStyle = '#445566';
+  ctx.fillText('Press Space or click to continue', W / 2, cy + cardH - 16);
+}
+
+function wrapTextCentered(text, cx, y, maxW, lineH) {
+  ctx.textAlign = 'center';
+  ctx.textBaseline = 'middle';
+  const words = text.split(' ');
+  let line = '';
+  const lines = [];
+  for (const word of words) {
+    const test = line ? `${line} ${word}` : word;
+    if (ctx.measureText(test).width > maxW && line) {
+      lines.push(line);
+      line = word;
+    } else { line = test; }
+  }
+  if (line) lines.push(line);
+  // Center vertically
+  const startY = y - ((lines.length - 1) * lineH) / 2;
+  lines.forEach((l, i) => {
+    ctx.fillText(l, cx, startY + i * lineH);
+  });
+}
+
+// ── Click feedback (ripple effect) ────────────────────────────────────────────
+let clickRipples = [];  // {x, y, radius, alpha, color}
+
+function addClickRipple(x, y, color) {
+  clickRipples.push({ x, y, radius: 5, alpha: 0.8, color });
+}
+
+function updateAndDrawRipples() {
+  for (let i = clickRipples.length - 1; i >= 0; i--) {
+    const r = clickRipples[i];
+    r.radius += 3;
+    r.alpha -= 0.03;
+    if (r.alpha <= 0) { clickRipples.splice(i, 1); continue; }
+    ctx.save();
+    ctx.globalAlpha = r.alpha;
+    ctx.strokeStyle = r.color;
+    ctx.lineWidth = 2;
+    ctx.beginPath();
+    ctx.arc(r.x, r.y, r.radius, 0, Math.PI * 2);
+    ctx.stroke();
+    ctx.restore();
   }
 }
 
 // ── Click handler ─────────────────────────────────────────────────────────────
+const VERTICAL_LENIENCY = 0.25;  // 25% of screen height
+
 canvas.addEventListener('click', e => {
-  if (!activeWord || wordResolved) return;
+  // Dismiss sentence card on click
+  if (sentenceCard && sentenceCard.waiting) {
+    sentenceCard = null;
+    nextWord();
+    return;
+  }
+
+  if (!activeWord || wordResolved || paused) return;
 
   const rect = canvas.getBoundingClientRect();
   const mx   = (e.clientX - rect.left)  * (canvas.width  / rect.width);
   const my   = (e.clientY - rect.top)   * (canvas.height / rect.height);
 
+  // Ignore clicks in HUD zones (header + word banner, footer)
+  const headerH = 56;
+  const wordH   = 88;
+  const footerH = 54;
+  if (my < headerH + wordH || my > canvas.height - footerH) return;
+
+  const vLeniency = canvas.height * VERTICAL_LENIENCY;
+  let clicked = false;
+
   for (const t of tokens) {
     if (t.state !== 'falling') continue;
+    // Horizontal: strict (must be within token width)
+    // Vertical: lenient (25% of screen height above and below token)
     if (mx >= t.x - t.w / 2 && mx <= t.x + t.w / 2 &&
-        my >= t.y - t.h / 2 && my <= t.y + t.h / 2) {
+        my >= t.y - t.h / 2 - vLeniency && my <= t.y + t.h / 2 + vLeniency) {
 
+      clicked = true;
       if (t.isCorrect) {
         // Correct: clicked the right spelling
         t.state = 'clicked_ok';
+        t.scale = 1.0;
         score++;
+        addClickRipple(t.x, t.y, '#00ff88');
         // Fade remaining tokens
         tokens.forEach(tt => { if (tt.state === 'falling') tt.state = 'fade'; });
         resolveWord(true);
       } else {
         // Wrong: clicked a misspelling
         t.state = 'clicked_err';
+        t.scale = 1.0;
+        addClickRipple(t.x, t.y, '#ff4444');
         // Fade everything and end word
         tokens.forEach(tt => { if (tt.state === 'falling') tt.state = 'fade'; });
-        resolveWord(false);
+        resolveWord(false, 'wrong_click');
       }
       break;
     }
+  }
+
+  // Show a ripple even if nothing was hit (so user sees their click registered)
+  if (!clicked) {
+    addClickRipple(mx, my, '#446688');
+  }
+});
+
+// ── Keyboard handler ──────────────────────────────────────────────────────────
+let showHelp = false;
+
+document.addEventListener('keydown', e => {
+  const key = e.key.toLowerCase();
+
+  // Dismiss sentence card with Space or Enter
+  if ((key === ' ' || key === 'enter') && sentenceCard && sentenceCard.waiting) {
+    e.preventDefault();
+    sentenceCard = null;
+    nextWord();
+    return;
+  }
+
+  // Pause toggle: Space or P
+  if (key === ' ' || key === 'p') {
+    e.preventDefault();
+    if (gameRunning && !sentenceCard) {
+      paused = !paused;
+    }
+    return;
+  }
+
+  // Help toggle: H
+  if (key === 'h') {
+    showHelp = !showHelp;
+    return;
+  }
+
+  // Sound toggle: M
+  if (key === 'm') {
+    soundEnabled = !soundEnabled;
+    wd().sound_enabled = soundEnabled;
+    saveProgress();
+    return;
+  }
+
+  // Number keys 1-5: click token by column (left to right)
+  if (key >= '1' && key <= '5' && gameRunning && !paused && activeWord && !wordResolved) {
+    const idx = parseInt(key) - 1;
+    // Sort falling tokens by x position to determine column order
+    const falling = tokens.filter(t => t.state === 'falling').sort((a, b) => a.x - b.x);
+    if (idx < falling.length) {
+      const t = falling[idx];
+      if (t.isCorrect) {
+        t.state = 'clicked_ok';
+        t.scale = 1.0;
+        score++;
+        addClickRipple(t.x, t.y, '#00ff88');
+        tokens.forEach(tt => { if (tt.state === 'falling') tt.state = 'fade'; });
+        resolveWord(true);
+      } else {
+        t.state = 'clicked_err';
+        t.scale = 1.0;
+        addClickRipple(t.x, t.y, '#ff4444');
+        tokens.forEach(tt => { if (tt.state === 'falling') tt.state = 'fade'; });
+        resolveWord(false, 'wrong_click');
+      }
+    }
+    return;
   }
 });
 
