@@ -900,24 +900,6 @@
     ]
   },
   {
-    "word": "accept",
-    "misspellings": [
-      "except",
-      "acept",
-      "axcept",
-      "accpet"
-    ],
-    "definition": "To receive willingly or agree to something. (Not 'except,' which means excluding or apart from.)",
-    "sentence": "I am happy to accept your invitation to dinner this Saturday.",
-    "category": "confusable",
-    "difficulty": 2,
-    "sentences": [
-      "I am happy to accept your invitation to dinner this Saturday.",
-      "She found it hard to accept the criticism, even though it was constructive.",
-      "The university decided to accept more international students this year."
-    ]
-  },
-  {
     "word": "accommodate",
     "misspellings": [
       "accomodate",
@@ -972,6 +954,23 @@
     ]
   },
   {
+    "word": "acquaintance",
+    "misspellings": [
+      "acquaintence",
+      "aquaintance",
+      "acquantance",
+      "aqquaintance"
+    ],
+    "definition": "A person one knows slightly but who is not a close friend.",
+    "sentences": [
+      "She's more of an acquaintance than a friend \u2014 we only met once.",
+      "Through a mutual acquaintance, he secured an interview at the firm.",
+      "Nodding to an acquaintance on the street requires no further conversation."
+    ],
+    "category": "tricky",
+    "difficulty": 2
+  },
+  {
     "word": "acquisition",
     "misspellings": [
       "aquisition",
@@ -990,24 +989,6 @@
     ]
   },
   {
-    "word": "affect",
-    "misspellings": [
-      "afect",
-      "affeckt",
-      "affecht",
-      "affact"
-    ],
-    "definition": "To have an influence on; to produce a change in. (Not 'effect,' which is usually the noun meaning a result.)",
-    "sentence": "The cold weather can affect your mood if you don't get enough sunlight.",
-    "category": "confusable",
-    "difficulty": 2,
-    "sentences": [
-      "The cold weather can affect your mood if you don't get enough sunlight.",
-      "Lack of sleep can seriously affect your ability to concentrate during the day.",
-      "The new policy will affect thousands of workers across the country."
-    ]
-  },
-  {
     "word": "allegiance",
     "misspellings": [
       "allegence",
@@ -1023,24 +1004,6 @@
       "Students recite the pledge of allegiance at the start of each school day.",
       "The knight swore allegiance to the new queen during the coronation ceremony.",
       "His allegiance shifted when he discovered the truth about the organization."
-    ]
-  },
-  {
-    "word": "allusion",
-    "misspellings": [
-      "illusion",
-      "alusion",
-      "alluzion",
-      "alllusion"
-    ],
-    "definition": "An indirect reference to something. (Not 'illusion,' which means a false perception or trick.)",
-    "sentence": "The author made a clever allusion to Greek mythology in the opening chapter.",
-    "category": "confusable",
-    "difficulty": 2,
-    "sentences": [
-      "The author made a clever allusion to Greek mythology in the opening chapter.",
-      "The speech contained a subtle allusion to the prime minister's broken promises.",
-      "She caught the literary allusion to Shakespeare hidden in the song lyrics."
     ]
   },
   {
@@ -1260,24 +1223,6 @@
     ]
   },
   {
-    "word": "complement",
-    "misspellings": [
-      "complament",
-      "compliment",
-      "complementt",
-      "complemant"
-    ],
-    "definition": "A thing that completes or goes well with something. (Not 'compliment,' which means praise.)",
-    "sentence": "The red wine was a perfect complement to the rich chocolate dessert.",
-    "category": "confusable",
-    "difficulty": 2,
-    "sentences": [
-      "The red wine was a perfect complement to the rich chocolate dessert.",
-      "A good sauce should complement the main dish, not overpower it.",
-      "The new hire was a perfect complement to the existing team's strengths."
-    ]
-  },
-  {
     "word": "conferred",
     "misspellings": [
       "confered",
@@ -1350,22 +1295,21 @@
     ]
   },
   {
-    "word": "council",
+    "word": "corroborate",
     "misspellings": [
-      "counsel",
-      "counsil",
-      "councal",
-      "councel"
+      "coroborate",
+      "corroberate",
+      "coroberate",
+      "corrorborate"
     ],
-    "definition": "A group of people elected to manage a town or organization. (Not 'counsel,' which means advice or a lawyer.)",
-    "sentence": "The city council voted unanimously to approve the new playground.",
-    "category": "confusable",
-    "difficulty": 2,
+    "definition": "To confirm or give support to a statement or theory.",
     "sentences": [
-      "The city council voted unanimously to approve the new playground.",
-      "The council approved funding for three new community centers.",
-      "She was elected to the student council in her junior year."
-    ]
+      "The witness was able to corroborate the defendant's alibi.",
+      "DNA evidence helped corroborate the detective's theory.",
+      "Several independent sources corroborate the journalist's findings."
+    ],
+    "category": "academic",
+    "difficulty": 2
   },
   {
     "word": "deferred",
@@ -1404,24 +1348,6 @@
     ]
   },
   {
-    "word": "desert",
-    "misspellings": [
-      "dessert",
-      "desart",
-      "dezert",
-      "desurt"
-    ],
-    "definition": "A barren area of land with little rainfall. (Not 'dessert,' which is the sweet course after a meal \u2014 remember: dessert has two S's because you want seconds.)",
-    "sentence": "The Sahara desert stretches across most of North Africa.",
-    "category": "confusable",
-    "difficulty": 2,
-    "sentences": [
-      "The Sahara desert stretches across most of North Africa.",
-      "Temperatures in the desert can swing from scorching days to freezing nights.",
-      "The explorers crossed the desert with barely enough water to survive."
-    ]
-  },
-  {
     "word": "dilemma",
     "misspellings": [
       "dilema",
@@ -1440,42 +1366,6 @@
     ]
   },
   {
-    "word": "discrete",
-    "misspellings": [
-      "discreet",
-      "descrete",
-      "discreete",
-      "discrite"
-    ],
-    "definition": "Individually separate and distinct. (Not 'discreet,' which means careful to avoid attention.)",
-    "sentence": "The data was divided into discrete categories for easier analysis.",
-    "category": "confusable",
-    "difficulty": 2,
-    "sentences": [
-      "The data was divided into discrete categories for easier analysis.",
-      "The project was broken into discrete tasks that could be completed independently.",
-      "Each discrete section of the report addressed a different aspect of the problem."
-    ]
-  },
-  {
-    "word": "elicit",
-    "misspellings": [
-      "illicit",
-      "ellicit",
-      "elicet",
-      "elissit"
-    ],
-    "definition": "To draw out a response or reaction from someone. (Not 'illicit,' which means illegal or forbidden.)",
-    "sentence": "The comedian's joke managed to elicit laughter from even the quietest audience members.",
-    "category": "confusable",
-    "difficulty": 2,
-    "sentences": [
-      "The comedian's joke managed to elicit laughter from even the quietest audience members.",
-      "The teacher used open-ended questions to elicit deeper thinking from students.",
-      "His speech was carefully crafted to elicit sympathy from the audience."
-    ]
-  },
-  {
     "word": "embarrass",
     "misspellings": [
       "embarass",
@@ -1491,42 +1381,6 @@
       "Please don't embarrass me by telling that story in front of everyone.",
       "He didn't want to embarrass his daughter by dancing at the school event.",
       "Autocorrect can embarrass you if you don't proofread your messages."
-    ]
-  },
-  {
-    "word": "emigrate",
-    "misspellings": [
-      "immigrate",
-      "emmigrate",
-      "emigrait",
-      "emegrate"
-    ],
-    "definition": "To leave one's own country to settle permanently in another. (Not 'immigrate,' which means to arrive in a new country.)",
-    "sentence": "Her grandparents decided to emigrate from Italy to start a new life in America.",
-    "category": "confusable",
-    "difficulty": 2,
-    "sentences": [
-      "Her grandparents decided to emigrate from Italy to start a new life in America.",
-      "Many families chose to emigrate during the economic crisis of the 1930s.",
-      "They plan to emigrate to Canada and start fresh in Vancouver."
-    ]
-  },
-  {
-    "word": "ensure",
-    "misspellings": [
-      "insure",
-      "ensuer",
-      "enshure",
-      "ensyre"
-    ],
-    "definition": "To make certain that something happens. (Not 'insure,' which means to arrange financial compensation against loss.)",
-    "sentence": "Please double-check the locks to ensure the building is secure overnight.",
-    "category": "confusable",
-    "difficulty": 2,
-    "sentences": [
-      "Please double-check the locks to ensure the building is secure overnight.",
-      "We installed extra locks to ensure the safety of the equipment overnight.",
-      "Regular backups ensure that you never lose important work."
     ]
   },
   {
@@ -1782,24 +1636,6 @@
     ]
   },
   {
-    "word": "loose",
-    "misspellings": [
-      "lose",
-      "looce",
-      "louse",
-      "loos"
-    ],
-    "definition": "Not firmly or tightly fixed in place. (Not 'lose,' which means to misplace or fail to win.)",
-    "sentence": "The screw was loose, causing the shelf to wobble every time someone walked past.",
-    "category": "confusable",
-    "difficulty": 2,
-    "sentences": [
-      "The screw was loose, causing the shelf to wobble every time someone walked past.",
-      "One of the wheels on the shopping cart was loose and kept wobbling.",
-      "Wear loose clothing when exercising in hot weather to stay cool."
-    ]
-  },
-  {
     "word": "maintenance",
     "misspellings": [
       "maintainance",
@@ -1888,6 +1724,23 @@
       "The barking dog next door has become a nuisance to the entire neighborhood.",
       "Mosquitoes are more than a nuisance \u2014 they can carry dangerous diseases."
     ]
+  },
+  {
+    "word": "obsequious",
+    "misspellings": [
+      "obsequeous",
+      "obsequous",
+      "obsiquious",
+      "obsequios"
+    ],
+    "definition": "Obedient or attentive to an excessive degree.",
+    "sentences": [
+      "The obsequious waiter hovered over the table, refilling glasses constantly.",
+      "His obsequious behaviour toward the boss irritated his colleagues.",
+      "She found his obsequious flattery insincere and off-putting."
+    ],
+    "category": "academic",
+    "difficulty": 2
   },
   {
     "word": "occurrence",
@@ -2052,24 +1905,6 @@
     ]
   },
   {
-    "word": "practice",
-    "misspellings": [
-      "practace",
-      "pratice",
-      "pracitce",
-      "pracktice"
-    ],
-    "definition": "The repeated exercise of an activity to improve a skill. (Note: 'practise' is the UK verb form \u2014 this game uses the US/noun spelling.)",
-    "category": "confusable",
-    "difficulty": 2,
-    "sentence": "Daily practice is the only way to improve your piano skills.",
-    "sentences": [
-      "Daily practice is the only way to improve your piano skills.",
-      "She set aside two hours every evening for piano practice.",
-      "In practice, the theory doesn't always work as neatly as it does on paper."
-    ]
-  },
-  {
     "word": "precedence",
     "misspellings": [
       "precedance",
@@ -2139,24 +1974,6 @@
       "Misinformation is unfortunately prevalent on social media platforms.",
       "Allergies are becoming increasingly prevalent in urban areas.",
       "The belief was prevalent throughout the medieval period."
-    ]
-  },
-  {
-    "word": "principal",
-    "misspellings": [
-      "principel",
-      "princapal",
-      "prinicipal",
-      "principl"
-    ],
-    "definition": "The head of a school, or an adjective meaning first in importance. (Not 'principle,' which means a rule or belief.)",
-    "category": "confusable",
-    "difficulty": 2,
-    "sentence": "The principal greeted every student by name at the school entrance.",
-    "sentences": [
-      "The principal greeted every student by name at the school entrance.",
-      "The principal reason for the delay was a shortage of materials.",
-      "Our principal concern is the safety of the students during the renovation."
     ]
   },
   {
@@ -2610,24 +2427,6 @@
     ]
   },
   {
-    "word": "stationary",
-    "misspellings": [
-      "stationnary",
-      "stationairy",
-      "statonary",
-      "stashionary"
-    ],
-    "definition": "Not moving; fixed in one place. (Not 'stationery,' which means paper and writing supplies.)",
-    "category": "confusable",
-    "difficulty": 2,
-    "sentence": "The car remained stationary at the red light for what felt like forever.",
-    "sentences": [
-      "The car remained stationary at the red light for what felt like forever.",
-      "The train was stationary for twenty minutes due to a signal failure.",
-      "She pedaled hard on the stationary bike during her morning workout."
-    ]
-  },
-  {
     "word": "statue",
     "misspellings": [
       "stateu",
@@ -2644,6 +2443,23 @@
       "The marble statue in the center of the square depicts a local hero.",
       "They unveiled the new statue at a ceremony attended by hundreds."
     ]
+  },
+  {
+    "word": "succinct",
+    "misspellings": [
+      "succint",
+      "sucinct",
+      "succinkt",
+      "succicnt"
+    ],
+    "definition": "Briefly and clearly expressed.",
+    "sentences": [
+      "Her succinct summary captured the essence of the three-hundred-page report.",
+      "Keep your emails succinct \u2014 no one reads long paragraphs.",
+      "The professor was known for his succinct yet insightful lectures."
+    ],
+    "category": "academic",
+    "difficulty": 2
   },
   {
     "word": "sufficient",
@@ -2682,6 +2498,23 @@
     ]
   },
   {
+    "word": "temperament",
+    "misspellings": [
+      "temperment",
+      "temprement",
+      "temperamant",
+      "temprament"
+    ],
+    "definition": "A person's nature as it permanently affects their behaviour.",
+    "sentences": [
+      "The dog's gentle temperament makes it ideal for families with children.",
+      "Artists are often said to have a volatile temperament.",
+      "His calm temperament served him well during the crisis."
+    ],
+    "category": "tricky",
+    "difficulty": 2
+  },
+  {
     "word": "temperamental",
     "misspellings": [
       "tempermental",
@@ -2715,24 +2548,6 @@
       "He has a tendency to procrastinate when faced with difficult tasks.",
       "She has a tendency to underestimate how long tasks will take.",
       "There's a tendency among new writers to use too many adjectives."
-    ]
-  },
-  {
-    "word": "than",
-    "misspellings": [
-      "then",
-      "tahn",
-      "thann",
-      "thean"
-    ],
-    "definition": "Used in comparisons to show difference. (Not 'then,' which refers to time or sequence.)",
-    "sentence": "She is taller than her older brother, even though she is two years younger.",
-    "category": "confusable",
-    "difficulty": 2,
-    "sentences": [
-      "She is taller than her older brother, even though she is two years younger.",
-      "Actions speak louder than words when it comes to building trust.",
-      "The second version of the essay was much stronger than the first."
     ]
   },
   {
@@ -2878,6 +2693,531 @@
       "The snake was writhing across the hot sand toward the shade.",
       "He lay writhing in pain until the paramedics arrived."
     ]
+  },
+  {
+    "word": "accept",
+    "misspellings": [
+      "except",
+      "acept",
+      "axcept",
+      "accpet"
+    ],
+    "definition": "To receive willingly or agree to something. (Not 'except,' which means excluding or apart from.)",
+    "sentence": "I am happy to accept your invitation to dinner this Saturday.",
+    "category": "confusable",
+    "difficulty": 2,
+    "sentences": [
+      "I am happy to accept your invitation to dinner this Saturday.",
+      "She found it hard to accept the criticism, even though it was constructive.",
+      "The university decided to accept more international students this year."
+    ]
+  },
+  {
+    "word": "except",
+    "misspellings": [
+      "exept",
+      "excapt",
+      "ecxept",
+      "exsept"
+    ],
+    "definition": "Not including; other than. (Often confused with 'accept' \u2014 to receive.)",
+    "sentences": [
+      "Everyone passed the test except for two students who were absent.",
+      "The store is open every day except Sunday.",
+      "I like all vegetables except Brussels sprouts."
+    ],
+    "category": "confusable",
+    "difficulty": 2
+  },
+  {
+    "word": "affect",
+    "misspellings": [
+      "afect",
+      "affeckt",
+      "affecht",
+      "affact"
+    ],
+    "definition": "To have an influence on; to produce a change in. (Not 'effect,' which is usually the noun meaning a result.)",
+    "sentence": "The cold weather can affect your mood if you don't get enough sunlight.",
+    "category": "confusable",
+    "difficulty": 2,
+    "sentences": [
+      "The cold weather can affect your mood if you don't get enough sunlight.",
+      "Lack of sleep can seriously affect your ability to concentrate during the day.",
+      "The new policy will affect thousands of workers across the country."
+    ]
+  },
+  {
+    "word": "effect",
+    "misspellings": [
+      "efect",
+      "effict",
+      "effeect",
+      "effecte"
+    ],
+    "definition": "A result or change caused by something. (Often confused with 'affect' \u2014 to influence.)",
+    "sentences": [
+      "The new policy had a dramatic effect on employee morale.",
+      "Special effects in modern films are increasingly realistic.",
+      "The medicine takes effect within thirty minutes of ingestion."
+    ],
+    "category": "confusable",
+    "difficulty": 2
+  },
+  {
+    "word": "allusion",
+    "misspellings": [
+      "illusion",
+      "alusion",
+      "alluzion",
+      "alllusion"
+    ],
+    "definition": "An indirect reference to something. (Not 'illusion,' which means a false perception or trick.)",
+    "sentence": "The author made a clever allusion to Greek mythology in the opening chapter.",
+    "category": "confusable",
+    "difficulty": 2,
+    "sentences": [
+      "The author made a clever allusion to Greek mythology in the opening chapter.",
+      "The speech contained a subtle allusion to the prime minister's broken promises.",
+      "She caught the literary allusion to Shakespeare hidden in the song lyrics."
+    ]
+  },
+  {
+    "word": "illusion",
+    "misspellings": [
+      "ilusion",
+      "illution",
+      "illuision",
+      "illuzion"
+    ],
+    "definition": "A false idea or image; something that deceives the senses. (Often confused with 'allusion' \u2014 an indirect reference.)",
+    "sentences": [
+      "The magician created the illusion that the rabbit had vanished.",
+      "Mirrors in small rooms create the illusion of more space.",
+      "Freedom without responsibility is an illusion."
+    ],
+    "category": "confusable",
+    "difficulty": 2
+  },
+  {
+    "word": "complement",
+    "misspellings": [
+      "complament",
+      "compliment",
+      "complementt",
+      "complemant"
+    ],
+    "definition": "A thing that completes or goes well with something. (Not 'compliment,' which means praise.)",
+    "sentence": "The red wine was a perfect complement to the rich chocolate dessert.",
+    "category": "confusable",
+    "difficulty": 2,
+    "sentences": [
+      "The red wine was a perfect complement to the rich chocolate dessert.",
+      "A good sauce should complement the main dish, not overpower it.",
+      "The new hire was a perfect complement to the existing team's strengths."
+    ]
+  },
+  {
+    "word": "compliment",
+    "misspellings": [
+      "complimant",
+      "compliement",
+      "complimint",
+      "complamint"
+    ],
+    "definition": "A polite expression of praise or admiration. (Often confused with 'complement' \u2014 to complete or enhance.)",
+    "sentences": [
+      "She received a lovely compliment about her presentation skills.",
+      "He paid her a compliment on the delicious meal she had prepared.",
+      "A sincere compliment can brighten someone's entire day."
+    ],
+    "category": "confusable",
+    "difficulty": 2
+  },
+  {
+    "word": "council",
+    "misspellings": [
+      "counsel",
+      "counsil",
+      "councal",
+      "councel"
+    ],
+    "definition": "A group of people elected to manage a town or organization. (Not 'counsel,' which means advice or a lawyer.)",
+    "sentence": "The city council voted unanimously to approve the new playground.",
+    "category": "confusable",
+    "difficulty": 2,
+    "sentences": [
+      "The city council voted unanimously to approve the new playground.",
+      "The council approved funding for three new community centers.",
+      "She was elected to the student council in her junior year."
+    ]
+  },
+  {
+    "word": "counsel",
+    "misspellings": [
+      "counsil",
+      "councel",
+      "counsle",
+      "councle"
+    ],
+    "definition": "Advice, or a lawyer representing someone. (Often confused with 'council' \u2014 an official group.)",
+    "sentences": [
+      "The therapist offered wise counsel during a difficult time.",
+      "Defence counsel argued that the evidence was circumstantial.",
+      "She sought the counsel of her mentor before making the decision."
+    ],
+    "category": "confusable",
+    "difficulty": 2
+  },
+  {
+    "word": "desert",
+    "misspellings": [
+      "dessert",
+      "desart",
+      "dezert",
+      "desurt"
+    ],
+    "definition": "A barren area of land with little rainfall. (Not 'dessert,' which is the sweet course after a meal \u2014 remember: dessert has two S's because you want seconds.)",
+    "sentence": "The Sahara desert stretches across most of North Africa.",
+    "category": "confusable",
+    "difficulty": 2,
+    "sentences": [
+      "The Sahara desert stretches across most of North Africa.",
+      "Temperatures in the desert can swing from scorching days to freezing nights.",
+      "The explorers crossed the desert with barely enough water to survive."
+    ]
+  },
+  {
+    "word": "dessert",
+    "misspellings": [
+      "desart",
+      "dezert",
+      "dessart",
+      "desseert"
+    ],
+    "definition": "A sweet course served at the end of a meal. (Often confused with 'desert' \u2014 a dry, sandy area.)",
+    "sentences": [
+      "For dessert, we ordered chocolate cake and vanilla ice cream.",
+      "The restaurant is famous for its extensive dessert menu.",
+      "She skipped dessert because she was already full from the main course."
+    ],
+    "category": "confusable",
+    "difficulty": 2
+  },
+  {
+    "word": "discrete",
+    "misspellings": [
+      "discreet",
+      "descrete",
+      "discreete",
+      "discrite"
+    ],
+    "definition": "Individually separate and distinct. (Not 'discreet,' which means careful to avoid attention.)",
+    "sentence": "The data was divided into discrete categories for easier analysis.",
+    "category": "confusable",
+    "difficulty": 2,
+    "sentences": [
+      "The data was divided into discrete categories for easier analysis.",
+      "The project was broken into discrete tasks that could be completed independently.",
+      "Each discrete section of the report addressed a different aspect of the problem."
+    ]
+  },
+  {
+    "word": "discreet",
+    "misspellings": [
+      "descreet",
+      "discreat",
+      "discreit",
+      "discrite"
+    ],
+    "definition": "Careful to avoid attracting attention; tactful. (Often confused with 'discrete' \u2014 separate and distinct.)",
+    "sentences": [
+      "The hotel staff were discreet about the celebrity guests staying there.",
+      "Please be discreet when discussing salary information with colleagues.",
+      "She made a discreet exit through the side door to avoid the press."
+    ],
+    "category": "confusable",
+    "difficulty": 2
+  },
+  {
+    "word": "elicit",
+    "misspellings": [
+      "illicit",
+      "ellicit",
+      "elicet",
+      "elissit"
+    ],
+    "definition": "To draw out a response or reaction from someone. (Not 'illicit,' which means illegal or forbidden.)",
+    "sentence": "The comedian's joke managed to elicit laughter from even the quietest audience members.",
+    "category": "confusable",
+    "difficulty": 2,
+    "sentences": [
+      "The comedian's joke managed to elicit laughter from even the quietest audience members.",
+      "The teacher used open-ended questions to elicit deeper thinking from students.",
+      "His speech was carefully crafted to elicit sympathy from the audience."
+    ]
+  },
+  {
+    "word": "illicit",
+    "misspellings": [
+      "ilicit",
+      "ellicit",
+      "illisit",
+      "ilicet"
+    ],
+    "definition": "Forbidden by law or rules. (Often confused with 'elicit' \u2014 to draw out a response.)",
+    "sentences": [
+      "The police uncovered an illicit drug operation in the warehouse.",
+      "Trading in illicit goods carries severe penalties in most countries.",
+      "The journalist exposed the politician's illicit financial dealings."
+    ],
+    "category": "confusable",
+    "difficulty": 2
+  },
+  {
+    "word": "emigrate",
+    "misspellings": [
+      "immigrate",
+      "emmigrate",
+      "emigrait",
+      "emegrate"
+    ],
+    "definition": "To leave one's own country to settle permanently in another. (Not 'immigrate,' which means to arrive in a new country.)",
+    "sentence": "Her grandparents decided to emigrate from Italy to start a new life in America.",
+    "category": "confusable",
+    "difficulty": 2,
+    "sentences": [
+      "Her grandparents decided to emigrate from Italy to start a new life in America.",
+      "Many families chose to emigrate during the economic crisis of the 1930s.",
+      "They plan to emigrate to Canada and start fresh in Vancouver."
+    ]
+  },
+  {
+    "word": "immigrate",
+    "misspellings": [
+      "imigrate",
+      "emmigrate",
+      "immigrait",
+      "immagrate"
+    ],
+    "definition": "To come to live permanently in a foreign country. (Often confused with 'emigrate' \u2014 to leave one's country.)",
+    "sentences": [
+      "Her grandparents decided to immigrate to Canada in the 1950s.",
+      "Many skilled workers immigrate to countries with better opportunities.",
+      "The family planned to immigrate after receiving their visa approval."
+    ],
+    "category": "confusable",
+    "difficulty": 2
+  },
+  {
+    "word": "ensure",
+    "misspellings": [
+      "insure",
+      "ensuer",
+      "enshure",
+      "ensyre"
+    ],
+    "definition": "To make certain that something happens. (Not 'insure,' which means to arrange financial compensation against loss.)",
+    "sentence": "Please double-check the locks to ensure the building is secure overnight.",
+    "category": "confusable",
+    "difficulty": 2,
+    "sentences": [
+      "Please double-check the locks to ensure the building is secure overnight.",
+      "We installed extra locks to ensure the safety of the equipment overnight.",
+      "Regular backups ensure that you never lose important work."
+    ]
+  },
+  {
+    "word": "insure",
+    "misspellings": [
+      "insuer",
+      "inshure",
+      "insewer",
+      "inshore"
+    ],
+    "definition": "To arrange compensation in case of loss or damage. (Often confused with 'ensure' \u2014 to make certain.)",
+    "sentences": [
+      "You should insure your home against fire and flood damage.",
+      "The company refused to insure drivers under the age of twenty-one.",
+      "It costs more to insure a sports car than a family sedan."
+    ],
+    "category": "confusable",
+    "difficulty": 2
+  },
+  {
+    "word": "loose",
+    "misspellings": [
+      "lose",
+      "looce",
+      "louse",
+      "loos"
+    ],
+    "definition": "Not firmly or tightly fixed in place. (Not 'lose,' which means to misplace or fail to win.)",
+    "sentence": "The screw was loose, causing the shelf to wobble every time someone walked past.",
+    "category": "confusable",
+    "difficulty": 2,
+    "sentences": [
+      "The screw was loose, causing the shelf to wobble every time someone walked past.",
+      "One of the wheels on the shopping cart was loose and kept wobbling.",
+      "Wear loose clothing when exercising in hot weather to stay cool."
+    ]
+  },
+  {
+    "word": "lose",
+    "misspellings": [
+      "loos",
+      "looze",
+      "luse",
+      "loze"
+    ],
+    "definition": "To be unable to find; to fail to win. (Often confused with 'loose' \u2014 not tight.)",
+    "sentences": [
+      "If we lose this match, we're out of the tournament.",
+      "Don't lose your passport while travelling abroad.",
+      "It's easy to lose track of time when you're enjoying yourself."
+    ],
+    "category": "confusable",
+    "difficulty": 2
+  },
+  {
+    "word": "practice",
+    "misspellings": [
+      "practace",
+      "pratice",
+      "pracitce",
+      "pracktice"
+    ],
+    "definition": "The repeated exercise of an activity to improve a skill. (Note: 'practise' is the UK verb form \u2014 this game uses the US/noun spelling.)",
+    "category": "confusable",
+    "difficulty": 2,
+    "sentence": "Daily practice is the only way to improve your piano skills.",
+    "sentences": [
+      "Daily practice is the only way to improve your piano skills.",
+      "She set aside two hours every evening for piano practice.",
+      "In practice, the theory doesn't always work as neatly as it does on paper."
+    ]
+  },
+  {
+    "word": "practise",
+    "misspellings": [
+      "practize",
+      "practis",
+      "pracktise",
+      "practese"
+    ],
+    "definition": "To perform an activity repeatedly to improve. (British English verb form; often confused with 'practice' \u2014 the noun.)",
+    "sentences": [
+      "You need to practise the piano every day to improve.",
+      "The team will practise their set pieces before the final.",
+      "She made time to practise her French conversation skills each morning."
+    ],
+    "category": "confusable",
+    "difficulty": 2
+  },
+  {
+    "word": "principal",
+    "misspellings": [
+      "principel",
+      "princapal",
+      "prinicipal",
+      "principl"
+    ],
+    "definition": "The head of a school, or an adjective meaning first in importance. (Not 'principle,' which means a rule or belief.)",
+    "category": "confusable",
+    "difficulty": 2,
+    "sentence": "The principal greeted every student by name at the school entrance.",
+    "sentences": [
+      "The principal greeted every student by name at the school entrance.",
+      "The principal reason for the delay was a shortage of materials.",
+      "Our principal concern is the safety of the students during the renovation."
+    ]
+  },
+  {
+    "word": "principle",
+    "misspellings": [
+      "princaple",
+      "princple",
+      "princeple",
+      "principel"
+    ],
+    "definition": "A fundamental truth or rule of behaviour. (Often confused with 'principal' \u2014 the head of a school or the main thing.)",
+    "sentences": [
+      "The principle of free speech is fundamental to democracy.",
+      "It's the principle of the matter, not the money.",
+      "She refused to compromise on her core principles."
+    ],
+    "category": "confusable",
+    "difficulty": 2
+  },
+  {
+    "word": "stationary",
+    "misspellings": [
+      "stationnary",
+      "stationairy",
+      "statonary",
+      "stashionary"
+    ],
+    "definition": "Not moving; fixed in one place. (Not 'stationery,' which means paper and writing supplies.)",
+    "category": "confusable",
+    "difficulty": 2,
+    "sentence": "The car remained stationary at the red light for what felt like forever.",
+    "sentences": [
+      "The car remained stationary at the red light for what felt like forever.",
+      "The train was stationary for twenty minutes due to a signal failure.",
+      "She pedaled hard on the stationary bike during her morning workout."
+    ]
+  },
+  {
+    "word": "stationery",
+    "misspellings": [
+      "stationairy",
+      "stashionery",
+      "stationory",
+      "stationerry"
+    ],
+    "definition": "Paper, pens, and other writing materials. (Often confused with 'stationary' \u2014 not moving.)",
+    "sentences": [
+      "The office ordered new stationery including letterheads and envelopes.",
+      "She loves browsing the stationery aisle for colourful notebooks.",
+      "The company's branded stationery features an elegant logo."
+    ],
+    "category": "confusable",
+    "difficulty": 2
+  },
+  {
+    "word": "than",
+    "misspellings": [
+      "then",
+      "tahn",
+      "thann",
+      "thean"
+    ],
+    "definition": "Used in comparisons to show difference. (Not 'then,' which refers to time or sequence.)",
+    "sentence": "She is taller than her older brother, even though she is two years younger.",
+    "category": "confusable",
+    "difficulty": 2,
+    "sentences": [
+      "She is taller than her older brother, even though she is two years younger.",
+      "Actions speak louder than words when it comes to building trust.",
+      "The second version of the essay was much stronger than the first."
+    ]
+  },
+  {
+    "word": "then",
+    "misspellings": [
+      "thn",
+      "thenn",
+      "thene",
+      "theen"
+    ],
+    "definition": "At that time; next; after that. (Often confused with 'than' \u2014 used in comparisons.)",
+    "sentences": [
+      "Finish your homework, then you can play outside.",
+      "We lived in London back then, before moving to Edinburgh.",
+      "If the weather improves, then we'll go to the beach."
+    ],
+    "category": "confusable",
+    "difficulty": 2
   },
   {
     "word": "connoisseur",
