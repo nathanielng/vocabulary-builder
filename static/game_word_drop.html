@@ -457,8 +457,8 @@ function showPhaseSelect() {
     const phaseStart = i * WORDS_PER_PHASE;
     const firstWord = allWords[phaseStart];
     const diff = firstWord ? firstWord.difficulty : 2;
-    const tier = diff === 1 ? 'Everyday' : diff === 3 ? 'Advanced' : 'Intermediate';
-    const tierColor = diff === 1 ? '#44cc88' : diff === 3 ? '#cc4488' : '#4488cc';
+    const tier = diff === 1 ? 'Everyday' : diff === 4 ? 'Expert' : diff === 3 ? 'Advanced' : 'Intermediate';
+    const tierColor = diff === 1 ? '#44cc88' : diff === 4 ? '#ff4488' : diff === 3 ? '#cc44cc' : '#4488cc';
     if (tier !== lastTier) {
       btns += `</div><div style="width:100%;color:${tierColor};font-size:0.75rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin:1rem 0 0.4rem;border-top:1px solid #1a2a44;padding-top:0.8rem;">${tier}</div><div class="phase-grid">`;
       lastTier = tier;
