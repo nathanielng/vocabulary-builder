@@ -1317,6 +1317,11 @@ function shuffle(arr) {
 }
 
 // ── Boot ──────────────────────────────────────────────────────────────────────
+window.onerror = function(msg, url, line) {
+  document.getElementById('screen-loading').innerHTML =
+    `<h1 style="color:#ff4444">JS Error</h1><p style="color:#aaa">${msg}</p><p style="color:#667;font-size:.8rem">Line ${line}</p>`;
+  document.getElementById('overlay').classList.remove('hidden');
+};
 loadAll();
 </script>
 </body>
