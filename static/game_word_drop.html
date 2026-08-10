@@ -659,6 +659,7 @@ let paused         = false;
 
 // Sentence card state (shown between words)
 let sentenceCard   = null;  // { word, sentence, success, waiting: true }
+let waitingForSpawn = false;  // true during the delay before tokens appear
 
 // ── Start phase ───────────────────────────────────────────────────────────────
 function startPhase(phase) {
@@ -699,10 +700,12 @@ function nextWord() {
   const wordData = wordQueue.shift();
   // Show the definition banner immediately, delay token spawn so player can read
   activeWord = wordData;
+  waitingForSpawn = true;
   const isConfusable = wordData.category === 'confusable';
   const delay = isConfusable ? 3000 : 1000;
   setTimeout(() => {
     if (activeWord === wordData && !wordResolved) {
+      waitingForSpawn = false;
       spawnTokens(wordData);
     }
   }, delay);
@@ -812,7 +815,7 @@ function gameLoop() {
   }
 
   // Check if word should auto-resolve (all tokens gone without click)
-  if (activeWord && !wordResolved && tokens.length === 0) {
+  if (activeWord && !wordResolved && !waitingForSpawn && tokens.length === 0) {
     resolveWord(false, 'timeout');
   }
 
