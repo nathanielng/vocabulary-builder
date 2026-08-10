@@ -860,7 +860,7 @@ function nextWord() {
 function spawnTokens(wordData) {
 
   const texts = shuffle([wordData.word, ...wordData.misspellings]);
-  const speed = (BASE_SPEED + currentPhase * SPEED_INC) * speedMultiplier * (canvas.height / 900);
+  const speed = (BASE_SPEED + currentPhase * SPEED_INC) * speedMultiplier;
 
   ctx.font = TOKEN_FONT;
 
