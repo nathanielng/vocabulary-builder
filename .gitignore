@@ -11,3 +11,8 @@ __pycache__/
 # Session/resume files
 session-*.json
 resume-*.sh
+
+# Session/resume files
+COMPACT.md
+claude-resume.sh
+kiro-resume-*.sh
